@@ -16,7 +16,7 @@ $error='';
 	<meta name="author" content="">
 	<link rel="icon" href="../image/photo.jpg">
 
-	<title>企业调研表</title>
+	<title>排污企业调研表</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="../css/bootstrap.css" rel="stylesheet">
@@ -42,14 +42,14 @@ $error='';
   			<div class="col-lg-6">
   				<form class="form-signin" method="POST" action="#">
 
-  					<h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>园区内主要排污企业的调研表</h4><br/>
+  					<h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>园区内主要排污企业</h4><br/>
 
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">调查人</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">数据年限</label> <input type="text" class="form-control" name="facebookid" required placeholder="2016-01-01"><br/>
+							<label for="InputName">数据年限</label> <input type="text" class="form-control" name="facebookid" required placeholder=""><br/><br/>
 						</div>
 					</div>
 
@@ -78,7 +78,7 @@ $error='';
 							<label for="InputName">企业主要产品</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">生产规模（年产量）</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">生产规模(年产量)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
 						</div>
 					</div>
 
@@ -87,7 +87,7 @@ $error='';
 							<label for="InputName">企业环保联系人及电话</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">工业生产总值（万元）</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">工业生产总值(万元)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/><br/>
 						</div>
 					</div>
 
@@ -106,10 +106,10 @@ $error='';
 
 					<div class="form-group">
 						<div class="col-xs-6">
-							<label for="InputName">主要原料消耗量（m^3/年）</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+							<label for="InputName">主要原料消耗量(m^3/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">年新水用量（m^3/年）</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">年新水用量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
 						</div>
 					</div>
 
@@ -128,25 +128,25 @@ $error='';
 
 					<div class="form-group">
 						<div class="col-xs-6">
-							<label for="InputName">梯级利用水量（m^3/年）</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+							<label for="InputName">梯级利用水量(m^3/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">再生水用量（m^3/年）</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">再生水用量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-xs-6">
-							<label for="InputName">年电耗量（kw/年）</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+							<label for="InputName">年电耗量(kw/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">其他能源耗量（如煤、油等）</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">其他能源耗量(如煤、油等)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-xs-12">
-							<label for="InputName">生产工艺</label> <input type="text" class="form-control" name="contact" placeholder="" required><br/>
+							<label for="InputName">生产工艺</label> <input type="text" class="form-control" name="contact" placeholder="" required><br/><br/>
 						</div>
 					</div>
 
@@ -515,7 +515,7 @@ $error='';
 
 					<div class="form-group">
 						<div class="col-xs-12">
-							<label for="InputName">请提供相应的管理文件及监测标准</label><br/>
+							<label for="InputName">请提供相应的管理文件及监测标准</label><br/><br/>
 						</div>
 					</div>
 
@@ -592,7 +592,7 @@ $error='';
 							<label for="InputName">资源回收收益(万元/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">废水减排量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+							<label for="InputName">废水减排量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/><br/>
 						</div>
 					</div>
 
@@ -740,7 +740,7 @@ $error='';
 						</div>
 						<div class="col-xs-12">
 							<label for="InputName">企业从政府或管理部门处希望得到的支持</label>
-							<textarea class="textarea form-control input-lg" rows="5" name="address" title=""></textarea><br/>
+							<textarea class="textarea form-control input-lg" rows="5" name="address" title=""></textarea><br/><br/>
 						</div>
 					</div>
 
