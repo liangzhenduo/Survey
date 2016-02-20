@@ -66,16 +66,11 @@ if(isset($_POST['submit'])) {
 	<meta name="author" content="">
 	<link rel="icon" href="image/photo.jpg">
 
-	<title>Questionnair</title>
+	<title>用户注册</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-	<script src="ie-emulation-modes-warning.js"></script>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -102,7 +97,7 @@ if(isset($_POST['submit'])) {
   					<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name" required><br/>	
   					<div class="col-lg-6">
   						<label for="Branch">Branch</label>
-  						<select class = "select form-control" name="branch">
+  						<select class = "select form-control" name="branch" title="">
   							<option value="CSE">CSE</option>
   							<option value="CSE">EL</option>
   							<option value="CSE">EE</option>

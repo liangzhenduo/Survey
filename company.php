@@ -14,13 +14,13 @@ $error='';
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="../image/photo.jpg">
+	<link rel="icon" href="image/photo.jpg">
 
 	<title>排污企业调研表</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="../css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 	<script src="ie-emulation-modes-warning.js"></script>
@@ -725,7 +725,9 @@ $error='';
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="checkbox" name="contact" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label>如果已建立应急预案，请提供文件</label> <br/><br/><br/>
+							<label>如果已建立应急预案，请提供文件</label>
+							<input type="file" name="" value="">
+							<br/><br/><br/>
 						</div>
 					</div>
 

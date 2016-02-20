@@ -14,13 +14,13 @@ $error='';
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../image/photo.jpg">
+    <link rel="icon" href="image/photo.jpg">
 
-    <title>主管部门调研表</title>
+    <title>函件调查表</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="ie-emulation-modes-warning.js"></script>
@@ -42,7 +42,7 @@ $error='';
         <div class="col-lg-6">
             <form class="form-signin" method="POST" action="#">
 
-                <h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>工业园区管委会\园区环保主管部门</h4><br/>
+                <h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>函件调查表</h4><br/>
 
                 <div class="form-group">
                     <div class="col-xs-6">

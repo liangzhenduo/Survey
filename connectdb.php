@@ -1,5 +1,5 @@
 <?php
-	$con=mysqli_connect("localhost","root","password","polluted");
+	$con=mysqli_connect("localhost","root","password","gyyq_database");
 
 	// Check connection
 	if (mysqli_connect_errno($con))
