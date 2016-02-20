@@ -2,11 +2,11 @@
 session_start();
 $error='';
 if(isset($_POST['submit'])) {
-	
+
 	include("connectdb.php");
 
-	
-				
+
+
 				if(isset($_SESSION['user']))
 				{
 					$query="UPDATE registration SET name='$_POST[name]', branch='$_POST[branch]',year=$_POST[year],university='$_POST[university]',college='$_POST[college]',email='$_POST[email]',contact=$_POST[contact],facebookid='$_POST[facebookid]',address='$_POST[address]',password='$_POST[password]' WHERE rollno=$_SESSION[user]";
@@ -18,10 +18,10 @@ if(isset($_POST['submit'])) {
 					$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
 					$query3="INSERT INTO ranklist (rollno) values('$_POST[rollno]')";
 				}
-								
-	
-	
-	
+
+
+
+
 	//echo $query;
 	if($_POST['password']==$_POST['reenterpassword']){
 	     $res=mysqli_query($con,$query);
@@ -36,7 +36,7 @@ if(isset($_POST['submit'])) {
 					$res2=mysqli_query($con,$query2);
 					$res3=mysqli_query($con,$query3);
 				}
-		
+
         header("location: index.php?status=1");
 	  }
         else if( mysqli_errno($con) != 1062)
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])) {
   else{
     $error="Password do not match";
   }
-	
+
 
 
 	mysqli_close($con);
@@ -90,11 +90,11 @@ if(isset($_POST['submit'])) {
   				<form class="form-signin" method="POST" action="#">
 
   					<h2 align="center">Registration for Questionnair</h2><br/>
-            <?php 
+            <?php
               if($error!='')
               echo "<div class='alert alert-danger'> $error</div><br>" ;
               ?>
-  					<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name" required><br/>	
+  					<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name" required><br/>
   					<div class="col-lg-6">
   						<label for="Branch">Branch</label>
   						<select class = "select form-control" name="branch" title="">
@@ -113,7 +113,7 @@ if(isset($_POST['submit'])) {
   							<option value="1">1</option>
   							<option value="2">2</option>
   							<option value="3">3</option>
-  							<option value="4">4</option>					
+  							<option value="4">4</option>
   							<select>
   							</div>
   							<br/><br/>
@@ -121,14 +121,14 @@ if(isset($_POST['submit'])) {
   							<label for="InputName">College</label> <input type="text" class="form-control" name="college" placeholder="allahabad dergree college" required><br/>
 
   							<div class="form-group">
-  								
+
 								<?php
-								
+
 								if(isset($_SESSION['user']))
 								{
 									echo"
 									<div class=\"col-xs-4\">
-  									<label for=\"InputRollNo\">University Roll-No.</label> <input class=\"form-control\" id=\"disabledInput\" type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"$_SESSION[user]\" disabled>  
+  									<label for=\"InputRollNo\">University Roll-No.</label> <input class=\"form-control\" id=\"disabledInput\" type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"$_SESSION[user]\" disabled>
 									</div>
 										";
 								}
@@ -136,9 +136,9 @@ if(isset($_POST['submit'])) {
 								{
 									echo"
 									<div class=\"col-xs-4\">
-  									<label for=\"InputRollNo\">University Roll-No.</label> <input type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"1234567890\" required>  
+  									<label for=\"InputRollNo\">University Roll-No.</label> <input type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"1234567890\" required>
 									</div>
-										";	
+										";
 								}
 								?>
   								<div class="col-xs-8">
@@ -148,8 +148,8 @@ if(isset($_POST['submit'])) {
   							<br/>
   							<div class="form-group">
   								<div class="col-xs-4">
-  									<label for="InputName">Contact No.</label> <input type="text" class="form-control" name="contact" placeholder="1234567890" required>						
-  								</div>	
+  									<label for="InputName">Contact No.</label> <input type="text" class="form-control" name="contact" placeholder="1234567890" required>
+  								</div>
   								<div class="col-xs-8">
   									<label for="InputName">Facebook-id</label>	<input type="text" class="form-control" name="facebookid" placeholder="facebook.com/____________" required><br/>
   								</div>
@@ -162,7 +162,7 @@ if(isset($_POST['submit'])) {
   								<div class="col-xs-6">
   									<label for="inputPassword" > Enter Password</label>
   									<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-  								</div>	
+  								</div>
   								<div class="col-xs-6">
   									<label for="inputPassword" > Re-enter Password</label>
   									<input type="password" id="inputPassword" class="form-control" name="reenterpassword" placeholder="Password" required>

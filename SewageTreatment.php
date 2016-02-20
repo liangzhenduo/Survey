@@ -53,74 +53,69 @@ $error='';
                     </div>
                 </div>
 
-                <br/><h3 align="center">企业信息</h3><br/>
-
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">企业名称</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">园区名称</label> <input type="text" class="form-control" name="contact" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">行业类型</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                        <label for="InputName">污水厂数量(个)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">占地面积</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">污水厂名称</label> <input type="text" class="form-control" name="contact" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">企业地址</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">企业主要产品</label> <input type="text" class="form-control" name="contact" placeholder="" required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">生产规模(年产量)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                        <label for="InputName">运营单位名称</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">企业环保联系人及电话</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">联系人</label> <input type="text" class="form-control" name="contact" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">工业生产总值(万元)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/><br/>
-                    </div>
-                </div>
-
-                <br/><h3 align="center">清洁生产</h3><br/>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">是否开展了清洁生产</label><br/>
-                        <label>是</label><input type="checkbox" name="contact" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="checkbox" name="contact" placeholder="" required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">如果开展了清洁生产工作，请提供清洁生产审计报告（方案）</label> <br/><br/>
+                        <label for="InputName">联系电话</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
+                    <div class="col-xs-12">
+                        <label for="InputName">建厂时间</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                    </div>
+                </div>
+
+                <br/><h3 align="center">园区废水收集、转输、监控技术</h3><br/>
+
+                <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">主要原料消耗量(m^3/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">园区收水管网</label><br/>
+                        <label>雨污合流</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;雨污分流</label><input type="checkbox" name="contact" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">年新水用量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                        <label for="InputName">管网投资(万元/km)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">是否有水梯级利用</label><br/>
-                        <label>是</label><input type="checkbox" name="contact" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                        <label for="InputName">管网水质监控点位(个)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">是否有再生水利用</label><br/>
+                        <label for="InputName">监控频次(次/周)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">特征污染物监控</label><br/>
+                        <label>有</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">工业废水分质分类收集</label><br/>
                         <label>是</label><input type="checkbox" name="contact" placeholder="" required>
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
                     </div>
@@ -128,21 +123,108 @@ $error='';
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">梯级利用水量(m^3/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">生活废水与工业废水分流</label><br/>
+                        <label>是</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">再生水用量(m^3/年)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                        <label for="InputName">污水管网节点监控频次(次/周)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label for="InputName">污水管网转输形式</label><br/>
+                        <label>地上管廊</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;地埋式</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label for="InputName">污水管网节点监控指标</label><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;流量</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;pH</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;温度</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;化学需氧量</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;生化需氧量</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;氨氮</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总氮</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总磷</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;难降解有机物</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">年电耗量(kw/年)</label> <input type="text" class="form-control" name="contact" placeholder="" required>
+                        <label for="InputName">污水管网投资来源</label><br/>
+                        <label>政府</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;企业</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;第三方</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">其他能源耗量(如煤、油等)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                        <label for="InputName">污水管网运行费来源</label><br/>
+                        <label>企业缴纳污水处理费</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;政府提供</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">中水回用管道</label><br/>
+                        <label>有</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">中水管网投资来源</label><br/>
+                        <label>政府</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;企业</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;第三方</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">中水管网运行费用(元/m^3水)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">中水管网运行费用来源</label><br/>
+                        <label>企业</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;政府提供</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label for="InputName">排污收费标准</label><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;浓度</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总量</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;统一收费</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;分类收费</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;生活废水</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;工业废水</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                </div>
+
+                <br/><h3 align="center">园区污水处理厂</h3><br/>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">污水处理厂设计规模(m^3/d)</label> <input type="text" class="form-control" name="facebookid" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">运行模式</label><br/>
+                        <label>BOT</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;TOT</label><input type="checkbox" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="checkbox" name="contact" placeholder="" required><br/><br/>
+                    </div>
+                </div>
+
+
 
                 <div class="form-group">
                     <div class="col-xs-12">

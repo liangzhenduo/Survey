@@ -1,34 +1,33 @@
 <?php
 session_start();
-//$error='fuck'; // Variable To Store Error Message
-
+$error='';
 
 if (isset($_POST['submit'])) {
-	//echo "reached here";
-	if (empty($_POST['user']) || empty($_POST['password'])) {
-		$error = "Username or Password is empty";
+	if (empty($_POST['username']) || empty($_POST['password'])) {
+		$error = "用户名或密码不能为空!";
 	}
 	
 	else{
-		$username=$_POST['user'];
+		$username=$_POST['username'];
 		$password=$_POST['password'];
-			
-		include("connectdb.php");
+
+        include("connectdb.php");
 
 		$username = htmlspecialchars($username);
 		$password = htmlspecialchars($password);
-		$query="select rollno,password from registration where password='$password' AND rollno=$username";
-		$result = mysqli_query($con,$query);
-		$rows=mysqli_num_rows($result);
-		if ($rows == 1) {
-			echo "hello";
-			$_SESSION['user']=$username;
-			header("location: home.php"); // Redirecting To Other Page
-		} else {
-			$error = "Username or Password is invalid";
-		}
+		$query="select username, password from user_info where `password`='$password' AND `username`='$username'";
+		$result = mysqli_query($con, $query);
+
+        if($rows = mysqli_num_rows($result));
+		if ($rows > 0) {
+            $_SESSION['username'] = $username;
+            header("location: home.php"); // Redirecting To Other Page
+        }
+        else {
+				$error = "用户名或密码错误!";
+        }
+
 		mysqli_close($con);
 	}
-	//echo "hello";	
 }
 ?>

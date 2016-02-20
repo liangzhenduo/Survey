@@ -1,10 +1,9 @@
 <?php
 
-  include "login.php";
-	if(isset($_SESSION['user'])){		//if user has logged in
-		header("location: home.php");
-	}
-$error='';
+include "login.php";
+if(isset($_SESSION['username'])){		//if user has logged in
+	header("location: home.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -49,29 +48,27 @@ $error='';
 
   			<div class="col-lg-6">
   				<form class="form-signin" action="index.php" method="post">
-  					<h2 class="form-signin-heading">Please sign in</h2><br/><br/>
-  					<label for="inputEmail" >Roll no</label><br/>
-  					<input type="text" id="inputEmail" class="form-control" placeholder="1311010024" name="user"><br/><br/>
-  					<label for="inputPassword">Password</label><br/>
+  					<h2 class="form-signin-heading" align="center">请登录</h2><br/><br/>
+  					<label for="inputEmail" >用户名</label><br/>
+  					<input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username"><br/><br/>
+  					<label for="inputPassword">密码</label><br/>
   					<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password">
   					<?php
   						if($error!='')
   							echo "<br><div class=\"alert alert-danger\" >$error</div>";
   						if(isset($_GET['status']) && $_GET['status']==1)
-  							echo "<br><div class=\"alert alert-success\" >Successfully registered</div>";
-              if(isset($_GET['status']) && $_GET['status']==2)
-                echo "<br><div class=\"alert alert-danger\" >Session expired</div>";
-
-
+  							echo "<br><div class=\"alert alert-success\" >注册成功,请登录!</div>";
+						if(isset($_GET['status']) && $_GET['status']==2)
+							echo "<br><div class=\"alert alert-danger\" >Session expired</div>";
   					?>
-            			<br/><br/>
+					<br/><br/>
   					<div class="rows">
   						<div class="col-lg-6">
-  							<button class="submit btn btn-primary btn-lg btn-block" name="submit">Sign In</button>
+  							<button class="submit btn btn-primary btn-lg btn-block" name="submit">登录</button>
 
   						</div>
   						<div class="col-lg-6">
-  						<a href="registration.php" class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</a>
+  						<a href="signup.php" class="btn btn-lg btn-primary btn-block" name="signup" >注册</a>
   						</div>
 
 

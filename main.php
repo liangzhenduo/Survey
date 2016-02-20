@@ -136,7 +136,7 @@ if (!$con)
                 else{
               ?>
                 <li><a href="index.php">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-                <li><a href="registration.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="signup.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
               <?php
                 }
               ?>

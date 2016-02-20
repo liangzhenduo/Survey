@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	
-	if(isset($_SESSION['user'])){
+	include "connectdb.php";
+	/*if(isset($_SESSION['user'])){
 		include "connectdb.php";
 
-	}
+	}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,16 +80,16 @@
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
               <?php 
-              	if(isset($_SESSION['user'])){
+              	if(isset($_SESSION['username'])){
               ?>
               <li><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
-              <li><a href="logout.php">Log Out&nbsp;<b><?php echo "(".$_SESSION['user'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
+              <li><a href="logout.php">Log Out&nbsp;<b><?php echo "(".$_SESSION['username'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
               	}
               	else{
               ?>
               	<li><a href="index.php">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-              	<li><a href="registration.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
+              	<li><a href="signup.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
               <?php
               	}
               ?>
@@ -100,12 +100,12 @@
       </nav>
 	  
 		<div style="background: #10bbf1" class="jumbotron">
-			<font color="white"><h1 align="center">Welcome to Questionnaire</h1><br>
-			<?php if(isset($_SESSION['user'])){
-					$rollno=$_SESSION['user'];
-					$query="select user from feedback where user=$rollno";
+			<span style="color: white; "><h1 align="center">Welcome to Questionnaire</h1><br>
+			<?php if(isset($_SESSION['username'])){
+					$username=$_SESSION['username'];
+					$query="select user from feedback where username='$username'";
 					$result = mysqli_query($con,$query);
-					$rows=mysqli_num_rows($result);
+					if($rows = mysqli_num_rows($result));
 					if($rows==0){
 			?>
 			<h1 align="center"><a href="start.php" class="btn btn-lg btn-primary" >Start Test</a></h1>
@@ -127,7 +127,7 @@
 
   						</div>
   						<div class="col-lg-2">
-  						<a href="registration.php" class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</a>
+  						<a href="signup.php" class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</a>
   						</div>
   						<div class="col-lg-4"></div>
   			
@@ -150,7 +150,7 @@
 				</h3>	
 			</div>
 			
-			</font>
+			</span>
 		
 		</div> <!-- jumbotron-->
 		<section id="info">

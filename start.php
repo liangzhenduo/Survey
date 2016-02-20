@@ -82,7 +82,7 @@
                 else{
               ?>
                 <li><a href="index.php">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-                <li><a href="registration.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="signup.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
               <?php
                 }
               ?>
@@ -132,7 +132,7 @@
     <script src="js/jquery.min.js"></script>
     <!--script src="js/bootstrap.min.js" ></script -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--script src="js/ie10-viewport-bug-workaround.js"--></script>
+    <!--script src="js/ie10-viewport-bug-workaround.js"></script-->
   
 
 </body></html>

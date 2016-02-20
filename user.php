@@ -145,7 +145,7 @@
 		</tbody>
 	  </table>
 	  
-	  <a class=\"btn btn-default\" href=\"registration.php\">Update Profile</a><br><br>
+	  <a class=\"btn btn-default\" href=\"signup.php\">Update Profile</a><br><br>
 	</div>
 	
 	<div class=\"col-md-4\"></div>
