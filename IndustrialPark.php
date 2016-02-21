@@ -15,9 +15,6 @@ else {
         header("location: home.php");
     }
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +32,6 @@ else {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="ie-emulation-modes-warning.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -50,6 +43,47 @@ else {
 <body>
 
 <div class="container">
+
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="home.php">污水处理管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-center">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+
+                <?php
+                if(isset($_SESSION['username'])){
+                    ?>
+                    <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
+                    <?php
+                }
+                else{
+                    ?>
+                    <li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
+                    <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
+                    <?php
+                }
+                ?>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+    </nav>
 
     <div class="rows">
         <div class="col-lg-3"></div>
@@ -882,13 +916,7 @@ else {
     </div>
 
 </div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="ie10-viewport-bug-workaround.js"></script>
 </body>
-
-</html>
 
 </html>
 

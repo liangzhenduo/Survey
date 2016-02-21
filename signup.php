@@ -1,75 +1,46 @@
 <?php
 session_start();
 $error='';
+
 if(isset($_POST['submit'])) {
 
     include("connectdb.php");
 
-    if (isset($_SESSION['user']))  //已登录
-    {
-        $query = "UPDATE user_info SET name='$_POST[name]', branch='$_POST[branch]',year=$_POST[group],university='$_POST[university]',college='$_POST[college]',email='$_POST[email]',contact=$_POST[contact],facebookid='$_POST[facebookid]',address='$_POST[address]',password='$_POST[password]' WHERE rollno=$_SESSION[user]";
-    } else  //未登录
-    {
-        $query = "INSERT INTO user_info(username, password, `type`, unit, mail) values('$_POST[username]','$_POST[password]',$_POST[type],'$_POST[unit]','$_POST[mail]')";
-        //$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
-        //$query3="INSERT INTO ranklist (rollno) values('$_POST[rollno]')";
+    if($_POST['password'] != $_POST['retry']){
+        $error = "密码不匹配!";
     }
-
-   /* $query_exist = "select username from user_info where `username`='$_POST[username]'";
-    $result = mysqli_query($con, $query_exist);
-    if ($rows = mysqli_num_rows($result)) {
+    else {
+        $query = "select username from user_info where `username`='$_POST[username]'";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_num_rows($result);
         if ($rows > 0) {
-            $error = '用户已存在!';
-        } else if ($_POST['password'] == $_POST['retry']) {
-            $error = "密码不匹配!";
-        } //echo $query;
-        else {
-            $res = mysqli_query($con, $query);
-            if (!mysqli_errno($con)) {
-                if (!isset($_SESSION['user'])) {
-                    //$res2=mysqli_query($con,$query2);
-                    //$res3=mysqli_query($con,$query3);
-                }
-
-                header("location: index.php?status=1");
-            } else if (mysqli_errno($con) != 1062)
-                $error = mysqli_error($con);
-        }
-
-        //echo "error is".mysqli_error($con);
-        if(mysqli_errno($con) == 1062) {
-            $error='用户已存在!';
-        }
-
-    }*/
-
-    $query_exist = "select username from user_info where `username`='$_POST[username]'";
-    $result = mysqli_query($con, $query_exist);
-    if ($_POST['password'] == $_POST['retry']) {
-            $res = mysqli_query($con, $query);
-            //echo "error is".mysqli_error($con);
-           /* if (mysqli_errno($con) == 1062) {
-                $error = 'Roll number already registere!!!';
-            }*/
-            if (!mysqli_errno($con)) {
-                if (!isset($_SESSION['user'])) {
-                    //$res2 = mysqli_query($con, $query2);
-                    //$res3 = mysqli_query($con, $query3);
-                }
-
-                header("location: index.php?status=1");
-            } else if (mysqli_errno($con) != 1062)
-                $error = mysqli_error($con);
+            $error = "用户已存在!";
         }
         else {
-            $error = "密码不匹配!";
+            $query = "INSERT INTO user_info(username, password, `type`, unit, mail) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
+            $result = mysqli_query($con, $query);
+            $username=$_POST['username'];
+            $query="select `uid` from user_info where `username`='$username'";
+            $result = mysqli_query($con,$query);
+            $row =mysqli_fetch_array($result);
+            $res=$row[0];
+            if($_POST['usertype']==1){
+                $query="INSERT INTO CompanyQuestionnaire(ID) values('$res')";
+                $result = mysqli_query($con, $query);
+            }
+            else if($_POST['usertype']==2){
+                $query="INSERT INTO SewageTreatmentQuestionnaire(ID) values('$res')";
+                $result = mysqli_query($con, $query);
+            }
+            else if($_POST['usertype']==3){
+                $query="INSERT INTO IndustrialParkQuestionnaire(ID) values('$res')";
+                $result = mysqli_query($con, $query);
+            }
+            header("location: signin.php?status=1");
         }
-
-
+    }
     mysqli_close($con);
-
 }
-
 
 ?>
 
@@ -147,11 +118,11 @@ if(isset($_POST['submit'])) {
                     </div>
                     <div class="col-xs-6">
                         <label>用户类型</label>
-                        <select class = "select form-control" name="type" >
+                        <select class = "select form-control" name="usertype"  title="">
                             <option value="1">排污企业</option>
                             <option value="2">污水处理厂运营商</option>
                             <option value="3">工业园区管委会\园区环保主管部门</option>
-                            <select>
+                        </select>
                     </div>
                 </div>
                 <br/><br/><br/><br/>
@@ -165,13 +136,7 @@ if(isset($_POST['submit'])) {
     </div>
 
 </div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="ie10-viewport-bug-workaround.js"></script>
 </body>
-
-</html>
 
 </html>
 

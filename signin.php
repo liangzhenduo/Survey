@@ -1,8 +1,33 @@
 <?php
+session_start();
+$error='';
 
-include "login.php";
+if(isset($_SESSION['username'])) {  //未注销重新登录
+    header("location: signout.php");
+}
+
+if (isset($_POST['submit'])) {
+
+    include("connectdb.php");
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $username = htmlspecialchars($username);
+    $password = htmlspecialchars($password);
+    $query = "select username, password from user_info where `password`='$password' AND `username`='$username'";
+    $result = mysqli_query($con, $query);
+    $rows = mysqli_num_rows($result);
+    if($rows > 0){
+        $_SESSION['username'] = $username;
+    }
+    else {
+        $error="用户名或密码错误!";
+    }
+    mysqli_close($con);
+}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +39,11 @@ include "login.php";
     <meta name="author" content="">
     <link rel="icon" href="image/photo.jpg">
 
-    <title>Questionnaire</title>
+    <title>用户登录</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="ie-emulation-modes-warning.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,16 +66,16 @@ include "login.php";
             <form class="form-signin" action="index.php" method="post">
                 <h2 class="form-signin-heading" align="center">请登录</h2><br/><br/>
                 <label for="inputEmail" >用户名</label><br/>
-                <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username"><br/><br/>
+                <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required><br/><br/>
                 <label for="inputPassword">密码</label><br/>
-                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password">
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
                 <?php
                 if($error!='')
                     echo "<br><div class=\"alert alert-danger\" >$error</div>";
                 if(isset($_GET['status']) && $_GET['status']==1)
                     echo "<br><div class=\"alert alert-success\" >注册成功,请登录!</div>";
                 if(isset($_GET['status']) && $_GET['status']==2)
-                    echo "<br><div class=\"alert alert-danger\" >Session expired</div>";
+                    echo "<br><div class=\"alert alert-danger\" ></div>";
                 ?>
                 <br/><br/>
                 <div class="rows">
@@ -80,9 +99,5 @@ include "login.php";
     </div>
 
 </div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

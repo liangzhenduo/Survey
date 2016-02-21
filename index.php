@@ -1,8 +1,5 @@
 <?php
-include "login.php";
-if(isset($_SESSION['username'])){		//if user has logged in
+include "signin.php";
+if(isset($_SESSION['username'])){  //已登录跳转主页
 	header("location: home.php");
-}
-else{
-	header("location: signin.php");
 }

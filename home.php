@@ -74,8 +74,8 @@
               <?php 
               	if(isset($_SESSION['username'])){
               ?>
-              <li><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
-              <li><a href="logout.php">注销&nbsp;<b><?php echo "(".$_SESSION['username'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
+              <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+              <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
               	}
               	else{
