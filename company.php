@@ -259,7 +259,7 @@ $error='';
 
 					<div class="form-group">
 						<div class="col-xs-12">
-							<label for="InputName">进水主要污染物浓度(mg/L)</label><br/>
+							<label for="InputName">特征污染物种类</label><br/>
 							<label>重金属</label><input type="checkbox" name="contact" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;盐类</label><input type="checkbox" name="contact" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;难降解机物</label><input type="checkbox" name="contact" placeholder="" required>
