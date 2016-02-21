@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - GYYQ_database@localhost" uuid="cc37d50a-5058-4441-b314-960e231b9d7e">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>GYYQ_database.*</schema-pattern>
+      <default-schemas>GYYQ_database.*</default-schemas>
+    </data-source>
+  </component>
+</project>

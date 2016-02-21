@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - GYYQ_database@localhost" uuid="cc37d50a-5058-4441-b314-960e231b9d7e">
+    <database-info product="MySQL" version="5.6.27" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="GYYQ_database"/>
+      <table id="2" parent="1" name="CompanyQuestionnaire"/>
+      <table id="3" parent="1" name="IndustrialParkInvestigation"/>
+      <table id="4" parent="1" name="IndustrialParkQuestionnaire"/>
+      <table id="5" parent="1" name="SewageTreatmentQuestionnaire"/>
+      <table id="6" parent="1" name="user_info"/>
+      <column id="7" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="8" parent="2" name="INVESTIGATOR">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="9" parent="2" name="REPORT_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="10" parent="2" name="QYXX_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="11" parent="2" name="QYXX_TYPE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="12" parent="2" name="QYXX_AREA">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="2" name="QYXX_LOCATION">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="14" parent="2" name="QYXX_PRODUCT">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="15" parent="2" name="QYXX_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="16" parent="2" name="QYXX_CONTACT">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="17" parent="2" name="QYXX_VALUE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="2" name="QJSC_Y/N_CLEANPRODUCT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="19" parent="2" name="QJSC_RAW_MATERIAL_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="20" parent="2" name="QJSC_NEW_WATER_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="21" parent="2" name="QJSC_Y/N_WATER_RUNDLEUSE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="22" parent="2" name="QJSC_Y/N_WATER_REUSE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="23" parent="2" name="QJSC_RUNDLE_WATER_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="2" name="QJSC_REUSE_WATER_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="2" name="QJSC_ELECTRICITY_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="26" parent="2" name="QJSC_OTHER_ENERGY_CONSUMPTION">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="27" parent="2" name="QJSC_PRODUCTION_TECHNOLOGY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="28" parent="2" name="WSCL_Y/N_SEWAGE_TREATMENT_FACILITY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="29" parent="2" name="WSCL_SEWAGE_DISCHARGE_PATH">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="30" parent="2" name="WSCL_REUSE_UTILIZATION_RATIO">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="31" parent="2" name="WSCL_REUSE_UTILIZATION_METHOD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="32" parent="2" name="WSCL_PLAN_WATER_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="33" parent="2" name="WSCL_RUN_WATER_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="2" name="WSCL_COVERY_AREA">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="35" parent="2" name="WSCL_OUTPUT_WATER_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="36" parent="2" name="WSCL_FACILITY_INVESTMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="37" parent="2" name="WSCL_ELECTRICITY_CONSUMPTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="38" parent="2" name="WSCL_MEDICINE_TYPE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="39" parent="2" name="WSCL_MEDICINE_MONEY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="40" parent="2" name="WSCL_PEOPLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="41" parent="2" name="WSCL_ELECTRISITY_MONEY_DEGREE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="42" parent="2" name="WSCL_SALARY_PEOPLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="43" parent="2" name="WSCL_WATER_DISCHARGE_PEAK">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="44" parent="2" name="WSCL_ADJUST_POOL_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="45" parent="2" name="WSCL_POLLUTION_IN_WASTEGAS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="46" parent="2" name="WSCL_POLLUTION_IN_WASTESOLID">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="47" parent="2" name="WSCL_GENERAL_SOLID_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="48" parent="2" name="WSCL_DANGEROUS_SOLID_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="49" parent="2" name="WSCL_Y/N_HIGH_TEMPREATURE_PRESSURE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="50" parent="2" name="WSCL_INPUT_TYPICAL_POLLUTION_TYPE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="51" parent="2" name="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="52" parent="2" name="WSCL_INPUT_TYPICAL_POLLUTION_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="53" parent="2" name="WSCL_OUTPUT_PRIMARY_POLLUTION_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="54" parent="2" name="WSCL_OUTPUT_TYPICAL_POLLUTION_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="55" parent="2" name="WSCL_POLLUTION_CONTROL_METHOD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="56" parent="2" name="WSCL_WASTE_WATER1_POLLUTION_TYPE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="57" parent="2" name="WSCL_WASTE_WATER1_PROCESSING">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="58" parent="2" name="WSCL_WASTE_WATER2_POLLUTION_TYPE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="59" parent="2" name="WSCL_WASTE_WATER2_PROCESSING">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="60" parent="2" name="WSCL_WASTE_WATER3_POLLUTION_TYPE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="61" parent="2" name="WSCL_WASTE_WATER3_PROCESSING">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="62" parent="2" name="WSCL_GENERAL_PROCESSING_PROCEDURE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="63" parent="2" name="WSCL_STABILITY_INFLUENCE_FACTOR">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="64" parent="2" name="WSCL_FACILITY_FAULT_COUNT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="65" parent="2" name="WSCL_MUD_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="66" parent="2" name="WSCL_MUD_Y/N_DANGEROUS_WASTE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="67" parent="2" name="WSCL_MUD_DISCHARGE_PLACE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="68" parent="2" name="WSCL_ABNORMAL_WASTE_PROCESSING_METHOD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="69" parent="2" name="WSCL_Y/N_STANDARD_DISCHARGE_OUTLET">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="70" parent="2" name="WSCL_Y/N_DAILY_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="71" parent="2" name="WSCL_ONLINE_INSTRUMENT_SETTING">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="72" parent="2" name="WSCL_WHICH_MONITOR_METHOD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="73" parent="2" name="WSCL_Y/N_MANGEMENT_DOCUMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="74" parent="2" name="XHJJ_Y/N_RESYCLE_WATER">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="75" parent="2" name="XHJJ_Y/N_RUNDLE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="76" parent="2" name="XHJJ_Y/N_RESOUCE_RESYCLE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="77" parent="2" name="XHJJ_Y/N_WATER_RESYCLE_METHOD1">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="78" parent="2" name="XHJJ_Y/N_WATER_RESYCLE_METHOD2">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="79" parent="2" name="XHJJ_Y/N_WATER_RESYCLE_METHOD3">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="80" parent="2" name="XHJJ_Y/N_WATER_RESYCLE_METHOD4">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="81" parent="2" name="XHJJ_Y/N_WATER_RESYCLE_METHOD5">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="82" parent="2" name="XHJI_WATER_RESYCLE_REUSE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="83" parent="2" name="XHJI_WATER_RESYCLE_REUSE_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="84" parent="2" name="XHJI_WATER_RESYCLE_REUSE_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="85" parent="2" name="XHJI_WATER_REDUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="86" parent="2" name="XHJI_WASTE_WATER_STAIRE_USE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="87" parent="2" name="XHJI_WASTE_WATER_STAIRE_USE_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="88" parent="2" name="XHJI_WASTE_WATER_STAIRE_USE_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="89" parent="2" name="XHJI_WASTE_WATER_REDUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="90" parent="2" name="XHJI_WASTE_WATER_RESOURCE_RESYCLE_TYPE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="91" parent="2" name="XHJI_WASTE_WATER_RESOURCE_RESYCLE_METHOD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="92" parent="2" name="XHJI_WASTE_WATER_RESOURCE_RESYCLE_CAPACITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="93" parent="2" name="XHJI_WASTE_WATER_RESOURCE_RESYCLE_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="94" parent="2" name="XHJI_WASTE_WATER_RESOURCE_REDUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="95" parent="2" name="SGCLI_Y/N_RAIN_AND_WASTE_SEPERATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="96" parent="2" name="SGCL_Y/N_LIFEWASTE_INDUSTIRALWASTE_SEPERATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="97" parent="2" name="SGCL_Y/N_ACCIDENT_POOL">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="98" parent="2" name="SGCL_Y/N_ACCIDENT_POOL_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="99" parent="2" name="SGCL_OTHER">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="100" parent="2" name="GLWJ_Y/N_ISO">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="101" parent="2" name="GLWJ_Y/N_ENVIRONMENT_EVALUATE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="102" parent="2" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="103" parent="2" name="GLWJ_Y/N_RESOURCE_AUDIT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="104" parent="2" name="GLWJ_Y/N_WASTE_WATER_PREPROCESSING_DIAGRAM">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="105" parent="2" name="GLWJ_Y/N_WASTE_WATER_DAILY_VALIDATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="106" parent="2" name="GLWJ_Y/N_OTHER_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="107" parent="2" name="GLWJ_Y/N_POLLUTION_ACCIDENT_EMERGENCY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="108" parent="2" name="GLWJ_DIFFICULTY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="109" parent="2" name="GLWJ_QUESTION_OBSTACLE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="110" parent="2" name="GLWJ_GOVERMENT_SUPPORT">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="111" parent="2" name="OTHER">
+        <data-type>longtext</data-type>
+      </column>
+      <key id="112" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="113" parent="3" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="114" parent="3" name="YQGW_INVESTIGATOR">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="115" parent="3" name="YQGW_REPORT_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="116" parent="3" name="JBQK_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="117" parent="3" name="JBQK_ADDRESS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="118" parent="3" name="JBQK_CATEGORY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="119" parent="3" name="JBQK_LAND">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="120" parent="3" name="JBQK_WATER_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="121" parent="3" name="JBQK_WATER_PER_DAY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="122" parent="3" name="JBQK_COMPANY_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="123" parent="3" name="JBQK_GDP">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="124" parent="3" name="JBQK_TAX">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="125" parent="3" name="JBQK_UNLOAD_CHARGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="126" parent="3" name="JBQK_Y/N_EVALUATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="127" parent="3" name="JBQK_Y/N_SCHEDULED_EVALUATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="128" parent="3" name="JBQK_PRE_EXAMINATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="129" parent="3" name="JBQK_CHEMISTRY_PARAMETER">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="130" parent="3" name="JBQK_WASTEWATER_TREATMENT1_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="131" parent="3" name="JBQK_WASTEWATER_TREATMENT1_RUNNING">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="132" parent="3" name="JBQK_WASTEWATER_TREATMENT1_WATER_DIRECTION">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="133" parent="3" name="JBQK_WASTEWATER_TREATMENT1_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="134" parent="3" name="JBQK_WASTEWATER_TREATMENT2_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="135" parent="3" name="JBQK_WASTEWATER_TREATMENT2_RUNNING">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="136" parent="3" name="JBQK_WASTEWATER_TREATMENT2_WATER_DIRECTION">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="137" parent="3" name="JBQK_WASTEWATER_TREATMENT2_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="138" parent="3" name="JBQK_WASTEWATER_TREATMENT3_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="139" parent="3" name="JBQK_WASTEWATER_TREATMENT3_RUNNING">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="140" parent="3" name="JBQK_WASTEWATER_TREATMENT3_WATER_DIRECTION">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="141" parent="3" name="JBQK_WASTEWATER_TREATMENT3_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="142" parent="3" name="JBQK_Y/N_TREATMENT_PLANT_PUNISHMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="143" parent="3" name="JBQK_Y/N_COMPANY_PUNISHMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="144" parent="3" name="JBQK_Y/N_POOL_SETTING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="145" parent="3" name="JBQK_POOL_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="146" parent="3" name="JBQK_POOL_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="147" parent="3" name="JBQK_POOL_LOCATION">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="148" parent="3" name="YQQY_COMPANY_CATEGORIES">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="149" parent="3" name="YQQY_ENVIRONMENT_PROTECTION">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="150" parent="3" name="YQQY_COMPANY_HAVE_TREATMENT_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="151" parent="3" name="YQQY_COMPANY_HAVE_STANDARD_UNLOADPLACE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="152" parent="3" name="YQQY_STANDARD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="153" parent="3" name="YQQY_COMPANY_LARGERTHAN100_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="154" parent="3" name="YQQY_COMPANY_OUT_DIRECTLY_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="155" parent="3" name="YQQY_COMPANY_IN_TREATMENT_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="156" parent="3" name="YQQY_COMPANY_HAVE_POOL_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="157" parent="3" name="YQQY_COMPANY_HAVE_POOL_CATEGORY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="158" parent="3" name="YQGW_NETWORK_CATEGORY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="159" parent="3" name="YQGW_Y/N_WASTE_DIVIDE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="160" parent="3" name="YQGW_Y/N_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="161" parent="3" name="YQGW_TRANSFER">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="162" parent="3" name="YQGW_Y/N_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="163" parent="3" name="YQGW_MONITORING_NODE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="164" parent="3" name="YQGW_MONITORING_PARAMETERS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="165" parent="3" name="YQGW_WASTE_UNLOAD_STANDARD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="166" parent="3" name="YQGW_MONITORING_FREQUENCY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="167" parent="3" name="YQGW_WASTEWATER_NETWORK_INVESTMENT_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="168" parent="3" name="YQGW_NETWORK_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="169" parent="3" name="YQGW_NETWORK_RUNNING_FEE_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="170" parent="3" name="YQGW_Y/N_RESYCLE_NETWORK">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="171" parent="3" name="YQGW_WATER_NETWORK_INVESTMENT_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="172" parent="3" name="YQGW_PIPE_NETWORK_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="173" parent="3" name="YQGW_PIPE_NETWORK_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="174" parent="3" name="YQSZ_WASTEWATER_DISCHARGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="175" parent="3" name="YQSZ_WASTEWATER_RESYCLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="176" parent="3" name="YQSZ_WASTEWATER_RESYCLE_CATEGORY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="177" parent="3" name="YQSZ_WASTEWATER_RESYCLE_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="178" parent="3" name="YQSZ_WASTEWATER_RESYCLE_USAGE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="179" parent="3" name="YQSZ_STAIRSTEP_USAGE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="180" parent="3" name="YQSZ_Y/N_INTERCOMPANY_USAGE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="181" parent="3" name="YQSZ_RESOURCE_RESYCLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="182" parent="3" name="YQSZ_RESYCLE_WATER_VALUE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="183" parent="3" name="YQSZ_RESYCLE_REWARDS_POLICY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="184" parent="3" name="YQSZ_RESYCLE_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="185" parent="3" name="YQSZ_RESYCLE_CATEGORIES_AND_VALUE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="186" parent="3" name="YQWS_RUNING_PARTY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="187" parent="3" name="YQWS_RUNING_PATTERN">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="188" parent="3" name="YQWS_RUNING_LOAD_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="189" parent="3" name="YQWS_POLLUTION_CATEGORIES">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="190" parent="3" name="YQWS_POLLUTION_SOURCE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="191" parent="3" name="YQWS_MONITORING_COVER_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="192" parent="3" name="YQWS_COMPANY_INFLENCE_TREATMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="193" parent="3" name="YQWS_TREATMENT_UNLOAD_STANDARD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="194" parent="3" name="YQWS_COMPANY_CATEGORIES">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="195" parent="3" name="YQWS_DISCHARGE_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="196" parent="3" name="WSCL_INVESTIGATOR">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="197" parent="3" name="WSCL_TELEPHONE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="198" parent="3" name="JBSJ_DESIGN_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="199" parent="3" name="JBSJ_WATER_PROCESSING">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="200" parent="3" name="JBSJ_Y/N_MEET_REQUIREMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="201" parent="3" name="JBSJ_MAX_DAY_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="202" parent="3" name="JBSJ_RUNNING_DAYS">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="203" parent="3" name="JBSJ_AVERAGE_DAY_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="204" parent="3" name="JBSJ_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="205" parent="3" name="JBSJ_UNLOAD_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="206" parent="3" name="JBSJ_WASTEWATER_PEOPLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="207" parent="3" name="JBSJ_LAND_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="208" parent="3" name="JBSJ_MUD_PEOPLE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="209" parent="3" name="JBSJ_CONSTRUCTION_YEAR">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="210" parent="3" name="JBSJ_CONSTRUCTION_INVESTMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="211" parent="3" name="JBSJ_MEDCINE_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="212" parent="3" name="JBSJ_ELECTRICITY_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="213" parent="3" name="JBSJ_PEOPLE_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="214" parent="3" name="JBSJ_EQUIPMENT_OLD_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="215" parent="3" name="JBSJ_OTHER_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="216" parent="3" name="JBSJ_MUD_PRODUCTIVITY_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="217" parent="3" name="JBSJ_MUD_WATER_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="218" parent="3" name="JBSJ_MUD_PROCESSING_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="219" parent="3" name="JBSJ_CONSTRUCTION_USAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="220" parent="3" name="JBSJ_LAND_USAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="221" parent="3" name="JBSJ_MUD_COMPOSIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="222" parent="3" name="JBSJ_MUD_DUMPLING">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="223" parent="3" name="JBSJ_MUD_BURN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="224" parent="3" name="JBSJ_MUD_OTHER_RESOURCE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="225" parent="3" name="JBSJ_NOISE_INFLUNCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="226" parent="3" name="JBSJ_OZONE_INFLUNCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="227" parent="3" name="JBSJ_Y/N_PH_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="228" parent="3" name="JBSJ_Y/N_WATER_LEVEL_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="229" parent="3" name="JBSJ_Y/N_GOOD_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="230" parent="3" name="JBSJ_AUTOMATIC_LEVEL">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="231" parent="3" name="SZZB_CODCR_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="232" parent="3" name="SZZB_CODCR_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="233" parent="3" name="SZZB_BOD5_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="234" parent="3" name="SZZB_BOD5_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="235" parent="3" name="SZZB_COLOR_DEGREE_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="236" parent="3" name="SZZB_COLOR_DEGREE_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="237" parent="3" name="SZZB_SS_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="238" parent="3" name="SZZB_SS_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="239" parent="3" name="SZZB_TP_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="240" parent="3" name="SZZB_TP_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="241" parent="3" name="SZZB_TN_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="242" parent="3" name="SZZB_TN_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="243" parent="3" name="SZZB_NH3N_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="244" parent="3" name="SZZB_NH3N_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="245" parent="3" name="SZZB_PH_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="246" parent="3" name="SZZB_PH_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="247" parent="3" name="SZZB_SALINITY_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="248" parent="3" name="SZZB_SALINITY_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="249" parent="3" name="SZZB_ORG_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="250" parent="3" name="SZZB_ORG_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="251" parent="3" name="SZZB_CU_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="252" parent="3" name="SZZB_CU_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="253" parent="3" name="SZZB_FE_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="254" parent="3" name="SZZB_FE_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="255" parent="3" name="SZZB_NG_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="256" parent="3" name="SZZB_NG_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="257" parent="3" name="SZZB_CD_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="258" parent="3" name="SZZB_CD_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="259" parent="3" name="SZZB_OTHER_METAL_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="260" parent="3" name="SZZB_OTHER_METAL_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="261" parent="3" name="SZZB_OTHER_POLLUTION_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="262" parent="3" name="SZZB_OTHER_POLLUTION_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="263" parent="3" name="SZZB_MEET_REQUIREMENT_RATE_IN">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="264" parent="3" name="SZZB_MEET_REQUIREMENT_RATE_OUT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="265" parent="3" name="SZZB__PROCESSING_PROCESS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="266" parent="3" name="WSCL_RECOVER_DAYS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="267" parent="3" name="WSCL_AUNTI_PRESSURE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="268" parent="3" name="WSCL_SUGGESTIONS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="269" parent="3" name="WSCL_Y/N_HAVE_RESYCLE_PLANT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="270" parent="3" name="WSCL_PROCESSING_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="271" parent="3" name="WSCL_APPLICATIONS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="272" parent="3" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="273" parent="4" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="274" parent="4" name="INVESTIGATOR">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="275" parent="4" name="REPORT_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="276" parent="4" name="JBQK_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="277" parent="4" name="JBQK_TYPE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="278" parent="4" name="JBQK_ADDRESS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="279" parent="4" name="JBQK_LEADER">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="280" parent="4" name="JBQK_CONTACT">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="281" parent="4" name="JBQK_TELEPHONE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="282" parent="4" name="JBQK_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="283" parent="4" name="JBQK_FUNDING_TIME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="284" parent="4" name="JBQK_NUMBER_COMPANY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="285" parent="4" name="JBQK_REACH_STANDARED_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="286" parent="4" name="JBQK_CHECK_IMPLEMENT_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="287" parent="4" name="JBQK_ACCESS_IMPMEMENT_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="288" parent="4" name="JBQK_ACCEPTANCE_ENVIRONMENT_PROTECTION_FACTOR">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="289" parent="4" name="JBQK_YEAR_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="290" parent="4" name="JBQK_NUMBER_COMPANY_USING_RESYCLING_WATER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="291" parent="4" name="JBQK_ACREAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="292" parent="4" name="JBQK_TAX">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="293" parent="4" name="JBQK_GREEN_SPACE_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="294" parent="4" name="JBQK_POLLUTION_EXPENSE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="295" parent="4" name="JBQK_POLLUTION_DISCHARGE_STANDARED">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="296" parent="4" name="JBQK_WATER_USING">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="297" parent="4" name="JBQK_WATER_VALUE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="298" parent="4" name="JBQK_WATER_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="299" parent="4" name="JBQK_WATER_BODY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="300" parent="4" name="JBQK_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="301" parent="4" name="JBQK_WATER_RECYCLE_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="302" parent="4" name="JBQK_ENVIRONMENT_MERIT_GOVERMENT_EXAMINE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="303" parent="4" name="JBQK_URGEMENT_SETTING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="304" parent="4" name="JBQK_SOLID_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="305" parent="4" name="JBQK_DANGER_SOLID_PRODUCTION">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="306" parent="4" name="JBQK_WASTE_EXPENSE_COVER_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="307" parent="4" name="JBQK_EXAMINE_METHOD">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="308" parent="4" name="JBQK_COMPANY_OVERLOAD_PUNISHMENT">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="309" parent="4" name="JBQK_WASTE_PROCESSING_OVERLOAD_PUNISHMENT">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="310" parent="4" name="JBQK_WASTE_PROCESSING_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="311" parent="4" name="JBQK_WASTE_PROCESSING_CONSTRUCTION">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="312" parent="4" name="JBQK_WASTE_PROCESSING_SIZE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="313" parent="4" name="JBQK_RUNING_PATTERN">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="314" parent="4" name="JBQK_Y/N_ACCIDENT_POOL">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="315" parent="4" name="JBQK_ACCIDENT_POOL_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="316" parent="4" name="YQCL_WATER_COLLECTION_NETWORK">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="317" parent="4" name="YQCL_WATER_COLLECTION_METHOD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="318" parent="4" name="YQCL_Y/N_INDUSTRIAL_LIFE_SEPERATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="319" parent="4" name="YQCL_Y/N_COLLECTION_SEPERATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="320" parent="4" name="YQCL_DISCHARGING_PLACE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="321" parent="4" name="YQCL_DISCHARGING_MONITORING_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="322" parent="4" name="YQCL_Y/N_FEATURED_POLLUTION_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="323" parent="4" name="YQCL_NETWORK_TRANSFER">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="324" parent="4" name="YQCL_NETWORK_PLACE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="325" parent="4" name="YQCL_MONITORING_FREQUNCY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="326" parent="4" name="YQCL_MONITORING_FACTOR">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="327" parent="4" name="YQCL_NETWORK_PROVIDER">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="328" parent="4" name="YQCL_NETWORK_MANAGEMENT_SOURCE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="329" parent="4" name="ZSHY_Y/N_REPRODUCE_WATER">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="330" parent="4" name="ZSHY_RESCYCLE_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="331" parent="4" name="ZSHY_Y/N_RESCYCLE_NETWORK">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="332" parent="4" name="ZSHY_RESCYCLE_MATERIAL">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="333" parent="4" name="ZSHY_NETWORK_RUNING_VALUE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="334" parent="4" name="ZSHY_NETWORK_PROVIDER">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="335" parent="4" name="ZSHY_NETWORK_EXPENSE_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="336" parent="4" name="ZSHY_RESCYCLE_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="337" parent="4" name="ZSHY_RESCYCLE_WATER_VALUE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="338" parent="4" name="ZSHY_RESCYCLE_CONSTRUCTION_COST">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="339" parent="4" name="ZSHY_RESCYCLE_PLACE_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="340" parent="4" name="ZSHY_RUNING_EXPENSE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="341" parent="4" name="ZSHY_RESCYCLE_PRODUCE_ELECTRICITY_COST">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="342" parent="4" name="ZSHY_RESCYCLE_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="343" parent="4" name="ZSHY_PROFIT_TIME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="344" parent="4" name="ZSHY_RESCYCLE_WATER_USAGE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="345" parent="4" name="ZSHY_RESCYCLE_WATER_IN_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="346" parent="4" name="ZSHY_RESCYCLE_WATER_OUT_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="347" parent="4" name="ZSHY_RESCYCLE_WATER_PROCESS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="348" parent="4" name="ZSHY_RESCYCLE_WATER_STABILITY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="349" parent="4" name="ZSHY_SOLID_PRODUCTIVITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="350" parent="4" name="ZSHY_RESCYCLE_COMPANY_SUGGESTION">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="351" parent="4" name="FSTJ_USAGE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="352" parent="4" name="ZYHS_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="353" parent="4" name="ZYHS_CATEGORY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="354" parent="4" name="YQGL_CONSTRUCTION_MAP">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="355" parent="4" name="YQGL_PLAN_EVALUATION_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="356" parent="4" name="YQGL_REVIEW_EVALUATION_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="357" parent="4" name="YQGL_ANNUAL_EVALUATION_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="358" parent="4" name="YQGL_STEP_USAGE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="359" parent="4" name="YQGL_EMERGENCY_PROCESSING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="360" parent="4" name="YQGL_REWARDS_AND_PUNISHMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="361" parent="4" name="YQGL_CHARGE_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="362" parent="4" name="YQGL_RECYCLE_MANAGEMENT_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="363" parent="4" name="YQGL_NETWORK_PROFILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="364" parent="4" name="YQGL_MANAGEMENT_DUTY_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="365" parent="4" name="YQGL_COMPANY_ENTER_PERMIT_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="366" parent="4" name="YQGL_COMPANY_DISCHARGE_PERMIT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="367" parent="4" name="YQGL_DISCHARGE_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="368" parent="4" name="YQGL_ANNUAL_DEVELOPMENT_REPORT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="369" parent="4" name="YQGL_ENVIRONMENT_REPORT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="370" parent="4" name="YQGL_POLLUTION_TOTAL_DATA">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="371" parent="4" name="YQGL_COMPANY_EVALUATION_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="372" parent="4" name="YQGL_NETWORK_DESIGN_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="373" parent="4" name="YQGL_WASTEWATER_TREATMENT_PLANT_DESIGN_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="374" parent="4" name="YQGL_PARAMETER_MONITORING_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="375" parent="4" name="YQGL_WATER_RECYCLE_ENCOURAGE_POLICY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="376" parent="4" name="YQGL_RESOURCE_RECYCLE_ENCOURAGE_POLICY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="377" parent="4" name="YQGL_CLEAN_PRODUCTIVITY_OBJECTIVE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="378" parent="4" name="YQGL_CLEAN_PRODUCTIVITY_REWARDS_AND_PUNISHMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="379" parent="4" name="YQGL_POLLUTION_TOTAL_OBJECTIVE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="380" parent="4" name="YQGL_POLLUTION_TOTAL_MANAGEMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="381" parent="4" name="YQGL_CONTRADICTION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="382" parent="4" name="YQGL_INFORMATION_PUBLIC">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="383" parent="4" name="YQGL_OTHER_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="384" parent="4" name="YQGL_SPECIAL_POLICY">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="385" parent="4" name="YQGL_THIRD_PARTY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="386" parent="4" name="YQGL_MONITORING_PUNISHMENT_POLICY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="387" parent="4" name="YQGL_LAW_PROBLEM">
+        <data-type>longtext</data-type>
+      </column>
+      <key id="388" parent="4" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="389" parent="5" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="390" parent="5" name="INVESTIGATOR">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="391" parent="5" name="REPORT_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="392" parent="5" name="GYYQ_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="393" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="394" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="395" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_COMPANY">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="396" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_CONTACT">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="397" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_TELEPHONE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="398" parent="5" name="GYYQ_WASTEWATER_TREATMENT_PLANT_FOUNDATION_DATE">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="399" parent="5" name="YQFS_WATER_NETWORK">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="400" parent="5" name="YQFS_WATER_NETWORK_INSTRUMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="401" parent="5" name="YQFS_WATER_NETWORK_MONITORING_PLACE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="402" parent="5" name="YQFS_WATER_NETWORK_MONITORING_FREQUENCY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="403" parent="5" name="YQFS_Y/N_FEATURED_POLLUTION_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="404" parent="5" name="YQFS_COLLECTION_CLASSCIFICATION">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="405" parent="5" name="YQFS_DOMESTIC_INDUSTRIAL_SPLIT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="406" parent="5" name="YQFS_MONITORING_FREQUENCY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="407" parent="5" name="YQFS_NETWORK_TRANSFER_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="408" parent="5" name="YQFS_MONITORING_OBJECTIVE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="409" parent="5" name="YQFS_NETWORK_INVESTMENT_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="410" parent="5" name="YQFS_NETWORK_RUNING_FEE_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="411" parent="5" name="YQFS_Y/N_RECYCLE_NETWORK">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="412" parent="5" name="YQFS_WATER_PIPE_NETWORK_INVESTMENT_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="413" parent="5" name="YQFS_WATER_PIPE_NETWORK_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="414" parent="5" name="YQFS_WATER_PIPE_NETWORK_RUNNING_FEE_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="415" parent="5" name="YQFS_CHARGE_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="416" parent="5" name="YQWS_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="417" parent="5" name="YQWS_RUNNING_PATTERN">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="418" parent="5" name="YQWS_WATER_PROCESSING_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="419" parent="5" name="YQWS_LAND_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="420" parent="5" name="YQWS_MAX_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="421" parent="5" name="YQWS_AVERAGE_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="422" parent="5" name="YQWS_CONSTRUCTION_INVESTMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="423" parent="5" name="YQWS_RUNNING_DAYS">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="424" parent="5" name="YQWS_CONSTRUCTION_PARTY">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="425" parent="5" name="YQWS_Y/N_MEET_REQUIREMENT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="426" parent="5" name="YQWS_PEOPLE_NUMBER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="427" parent="5" name="YQWS_PEOPLE_WASTEWATER_TREATMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="428" parent="5" name="YQWS_PEOPLE_DIRTY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="429" parent="5" name="YQWS_MEDCINE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="430" parent="5" name="YQWS_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="431" parent="5" name="YQWS_MEDCINE_EXPENSE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="432" parent="5" name="YQWS_EQUIPMENT_OLD_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="433" parent="5" name="YQWS_ELECTRICITY_EXPENSE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="434" parent="5" name="YQWS_ELECTRICITY_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="435" parent="5" name="YQWS_OTHER_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="436" parent="5" name="YQWS_PEOPLE_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="437" parent="5" name="YQWS_DIRTY_MUD_PRODUCTIVITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="438" parent="5" name="YQWS_MUD_WATER_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="439" parent="5" name="YQWS_MUD_USAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="440" parent="5" name="YQWS_MUD_LAND_USAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="441" parent="5" name="YQWS_MUD_DUMPLING_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="442" parent="5" name="YQWS_MUD_BURN_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="443" parent="5" name="YQWS_MUD_COMPOSIT_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="444" parent="5" name="YQWS_OTHER_RESOURCE_USAGE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="445" parent="5" name="YQWS_Y/N_OZONE_CONTROL">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="446" parent="5" name="YQWS_OZONE_INFLUENCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="447" parent="5" name="YQWS_NOISE_INFLUENCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="448" parent="5" name="YQWS_MUD_PROCESSING_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="449" parent="5" name="YQWS_EQUIPMENT_GOOD_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="450" parent="5" name="YQWS_PEOPLE_WORK_HOURS">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="451" parent="5" name="YQWS_Y/N_WATER_LEVEL_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="452" parent="5" name="YQWS_Y/N_PH_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="453" parent="5" name="YQWS_AUTOMATIC_LEVEL">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="454" parent="5" name="YQWS_Y/N_GOOD_MONITORING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="455" parent="5" name="YQWS_WASTEWATER_SOURCE">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="456" parent="5" name="YQWS_TREATEMENT_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="457" parent="5" name="YQWS_TREATEMENT_SUGGESTIONS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="458" parent="5" name="YQWS_MAIN_WASTE_IN_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="459" parent="5" name="YQWS_FEATURED_WASTE_IN_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="460" parent="5" name="YQWS_MAIN_WASTE_OUT_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="461" parent="5" name="YQWS_FEATURED_WASTE_OUT_DENSITY">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="462" parent="5" name="YQWS_PROCESSING_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="463" parent="5" name="YQWS_Y/N_PARALLEL_PROCESSING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="464" parent="5" name="YQWS_PROCESSING_PROCESS_1">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="465" parent="5" name="YQWS_PROCESSING_PROCESS_2">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="466" parent="5" name="YQWS_MAIN_PARAMETERS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="467" parent="5" name="YQWS_ANNUAL_WATER_GOOD_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="468" parent="5" name="YQWS_RESYCLE_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="469" parent="5" name="YQWS_ANTI_PRESSURE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="470" parent="5" name="YQWS_RECOVER_DAYS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="471" parent="5" name="YQWS_MONITORING_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="472" parent="5" name="YQWS_ABNORMAL_PROCESSING">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="473" parent="5" name="YQWS_Y/N_ACCIDENT_POOL">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="474" parent="5" name="YQWS_ACCIDENT_POOL_VOLUME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="475" parent="5" name="YQWS_Y/N_RESYCLE_MEANS">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="476" parent="5" name="YQWS_Y/N_ANTI_ACCIDENT_PLAN">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="477" parent="5" name="YQWS_Y/N_DIVIDE_ENTER_PROCESSING">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="478" parent="5" name="YQWS_MONITORING_MEANS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="479" parent="5" name="YQWS_TREATMENT_REPORT">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="480" parent="5" name="GLCM_Y/N_TECHNIQUE_PROBLEM">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="481" parent="5" name="GLCM_TECHNIQUE_PROBLEM_REASON">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="482" parent="5" name="GLCM_Y/N_ECNOMIC_PROBLEM">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="483" parent="5" name="GLCM_INCOME_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="484" parent="5" name="GLCM_LOSE_SOURCE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="485" parent="5" name="GLCM_RELATIONSHIP">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="486" parent="5" name="GLCM_Y/N_PROBLEM">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="487" parent="5" name="GLCM_THIRD_PARTY_SUGGESTIONS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="488" parent="5" name="GLCM_REQUIREMENTS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="489" parent="5" name="ZSHY_DESIGN_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="490" parent="5" name="ZSHY_RUNNING_WATER_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="491" parent="5" name="ZSHY_LAND_SIZE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="492" parent="5" name="ZSHY_CONSTRUCTION_INVESTMENT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="493" parent="5" name="ZSHY_RUNNING_FEE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="494" parent="5" name="ZSHY_ANNUAL_RESCYCLE_WATER">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="495" parent="5" name="ZSHY_RESYCLE_PROFIT">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="496" parent="5" name="ZSHY_RESYCLE_TIME">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="497" parent="5" name="ZSHY_RESYCLE_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="498" parent="5" name="ZSHY_RESYCLE_IN_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="499" parent="5" name="ZSHY_RESYCLE_OUT_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="500" parent="5" name="ZSHY_RESYCLE_UNLOAD_STANDARD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="501" parent="5" name="ZSHY_RESYCLE_PROCESSING_PROCESS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="502" parent="5" name="ZSHY_STABILITY_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="503" parent="5" name="ZSHY_SOLID_RATE">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="504" parent="5" name="ZSHY_SOLID_PROCESSING_MEANS">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="505" parent="5" name="ZSHY_Y/N_CONTROL_SYSTEM">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="506" parent="5" name="ZSHY_PROCESS_REPORT">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="507" parent="5" name="ZSHY_PROCESS_FILE">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="508" parent="5" name="ZSHY_OTHER">
+        <data-type>longtext</data-type>
+      </column>
+      <key id="509" parent="5" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="510" parent="6" name="uid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="511" parent="6" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="512" parent="6" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="513" parent="6" name="type">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="514" parent="6" name="unit">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="515" parent="6" name="mail">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="516" parent="6" name="submit">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="517" parent="6" name="PRIMARY">
+        <columns>uid</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
