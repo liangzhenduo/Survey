@@ -98,16 +98,17 @@
 			<?php
 				if(isset($_SESSION['username'])){
 					$username=$_SESSION['username'];
-					$query="select `type` from user_info where username='$username'";
+					$query="select `type`,`submit` from user_info where username='$username'";
 					$result = mysqli_query($con,$query);
 					$row =mysqli_fetch_array($result);
-					$res=$row[0];
+					$type=$row[0];
+					$submit=$row[1];
 			?>
 
 			<div class="rows">
 				<div class="col-lg-12" style="height:100px"></div>
 			</div>
-				<?php if($res==1||$res==0){?>
+				<?php if($type==1&&$submit==0||$type==0){?>
 					<div class="col-lg-4">
 						<a href="Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业调查表</a>
 					</div>
@@ -117,7 +118,7 @@
 					</div>
 
 				<?php }
-				if($res==2||$res==0){?>
+				if($type==2&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
 				<a href="SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商调查表</a>
 			</div>
@@ -127,7 +128,7 @@
 					</div>
 
 				<?php }
-				if($res==3||$res==0){?>
+				if($type==3&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
 				<a href="IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会调查表</a>
 			</div>

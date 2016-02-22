@@ -10,8 +10,9 @@ else {
     $query="select `type` from user_info where `username`='$username'";
     $result = mysqli_query($con,$query);
     $row =mysqli_fetch_array($result);
-    $res=$row[0];
-    if($res!=2&&$res!=0){
+    $type=$row[0];
+    $submit=$row[1];
+    if($type!=2&&$type!=0||$submit==1){
         header("location: home.php");
     }
 }
