@@ -7,7 +7,7 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
 	$username=$_SESSION['username'];
-	$query="select `type`,`submit` from user_info where username='$username'";
+	$query="select `type`, `submit` from user_info where username='$username'";
 	$result = mysqli_query($con,$query);
 	$row =mysqli_fetch_array($result);
 	$type=$row[0];
@@ -143,7 +143,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">是否开展了清洁生产</label><br/>
-							<label>是</label><input type="radio" name="QJSC_Y/N_CLEANPRODUCT" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="QJSC_Y/N_CLEANPRODUCT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="QJSC_Y/N_CLEANPRODUCT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -164,12 +164,12 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">是否有水梯级利用</label><br/>
-							<label>是</label><input type="radio" name="QJSC_Y/N_WATER_RUNDLEUSE" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="QJSC_Y/N_WATER_RUNDLEUSE" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="QJSC_Y/N_WATER_RUNDLEUSE" value="0" placeholder="" required><br/><br/>
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">是否有再生水利用</label><br/>
-							<label>是</label><input type="radio" name="QJSC_Y/N_WATER_REUSE" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="QJSC_Y/N_WATER_REUSE" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="QJSC_Y/N_WATER_REUSE" value="0" placeholder="" required><br/><br/>
 						</div>
 					</div>
@@ -203,7 +203,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">是否设置污水处理设施</label><br/>
-							<label>是</label><input type="radio" name="WSCL_Y/N_SEWAGE_TREATMENT_FACILITY" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="WSCL_Y/N_SEWAGE_TREATMENT_FACILITY" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="WSCL_Y/N_SEWAGE_TREATMENT_FACILITY" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -220,10 +220,10 @@ else {
 						</div>
 						<div class="col-xs-6"><label for="InputName">如果实现了再生循环利用，请提供<br/> </label></div>
 							<div class="col-xs-3">
-								<label for="InputName">利用率</label> <input type="number" class="form-control" name="WSCL_REUSE_UTILIZATION_RATIO" placeholder="" required>
+								<label for="InputName">利用率</label> <input type="number" class="form-control" name="WSCL_REUSE_UTILIZATION_RATIO" placeholder="" >
 							</div>
 							<div class="col-xs-3">
-								<label for="InputName">再生循环利用管理办法</label> <input type="text" class="form-control" name="WSCL_REUSE_UTILIZATION_METHOD" required placeholder=""><br/>
+								<label for="InputName">再生循环利用管理办法</label> <input type="text" class="form-control" name="WSCL_REUSE_UTILIZATION_METHOD" placeholder="" ><br/>
 							</div>
 					</div>
 
@@ -305,7 +305,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">设施是否存在高温、高压条件</label><br/>
-							<label>是</label><input type="radio" name="WSCL_Y/N_HIGH_TEMPREATURE_PRESSURE" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="WSCL_Y/N_HIGH_TEMPREATURE_PRESSURE" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="WSCL_Y/N_HIGH_TEMPREATURE_PRESSURE" value="0" placeholder="" required><br/><br/><br/>
 						</div>
 					</div>
@@ -313,7 +313,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">特征污染物种类</label><br/>
-							<label>重金属</label><input type="checkbox" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="checkbox" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;盐类</label><input type="checkbox" name="WSCL_TYPICAL_POLLUTION_YAN" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;难降解机物</label><input type="checkbox" name="WSCL_TYPICAL_POLLUTION_NAN" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;放射性</label><input type="checkbox" name="WSCL_TYPICAL_POLLUTION_FANG" placeholder="">
@@ -408,7 +408,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">特征污染物的管控途径</label><br/>
-							<label>车间管控</label><input type="radio" name="WSCL_POLLUTION_CONTROL_METHOD" value="车间管控" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;车间管控</label><input type="radio" name="WSCL_POLLUTION_CONTROL_METHOD" value="车间管控" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;总排放口管控</label><input type="radio" name="WSCL_POLLUTION_CONTROL_METHOD" value="总排放口管控" placeholder="" required><br/><br/>
 						</div>
 					</div>
@@ -470,7 +470,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">污泥是否属于危废</label><br/>
-							<label>是</label><input type="radio" name="WSCL_MUD_Y/N_DANGEROUS_WASTE" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="WSCL_MUD_Y/N_DANGEROUS_WASTE" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="WSCL_MUD_Y/N_DANGEROUS_WASTE" placeholder="" required><br/><br/>
 						</div>
 					</div>
@@ -487,12 +487,12 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">标准化排放口设置</label><br/>
-							<label>是</label><input type="radio" name="WSCL_Y/N_STANDARD_DISCHARGE_OUTLET" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="WSCL_Y/N_STANDARD_DISCHARGE_OUTLET" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="WSCL_Y/N_STANDARD_DISCHARGE_OUTLET" value="0" placeholder="" required><br/><br/>
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">是否对污水进行日常监测</label><br/>
-							<label>是</label><input type="radio" name="WSCL_Y/N_DAILY_MONITORING" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="WSCL_Y/N_DAILY_MONITORING" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="WSCL_Y/N_DAILY_MONITORING" value="0" placeholder="" required><br/><br/>
 						</div>
 					</div>
@@ -500,7 +500,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">在线仪表设置情况</label><br/>
-							<label>流量</label><input type="checkbox" name="WSCL_ONLINE_INSTRUMENT_SETTING_DIS" placeholder="">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;流量</label><input type="checkbox" name="WSCL_ONLINE_INSTRUMENT_SETTING_DIS" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;pH</label><input type="checkbox" name="WSCL_ONLINE_INSTRUMENT_SETTING_PH" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;COD</label><input type="checkbox" name="WSCL_ONLINE_INSTRUMENT_SETTING_COD" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;NH3</label><input type="checkbox" name="WSCL_ONLINE_INSTRUMENT_SETTING_NH" placeholder="">
@@ -512,7 +512,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">何种监测手段</label><br/>
-							<label>在线监测</label><input type="radio" name="WSCL_WHICH_MONITOR_METHOD" value="在线监测" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;在线监测</label><input type="radio" name="WSCL_WHICH_MONITOR_METHOD" value="在线监测" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;人工监测</label><input type="radio" name="WSCL_WHICH_MONITOR_METHOD" value="人工监测" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;人工与自动监测结合</label><input type="radio" name="WSCL_WHICH_MONITOR_METHOD" value="人工与自动监测结合" placeholder="" required><br/><br/>
 						</div>
@@ -530,7 +530,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">是否使用再生水、梯级利用或重要资源回收技术</label><br/>
-							<label>再生水回用</label><input type="checkbox" name="XHJJ_Y/N_RESYCLE_WATER" placeholder="">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;再生水回用</label><input type="checkbox" name="XHJJ_Y/N_RESYCLE_WATER" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;废水梯级利用</label><input type="checkbox" name="XHJJ_Y/N_RUNDLE" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;重要资源回收</label><input type="checkbox" name="XHJJ_Y/N_RESOUCE_RESYCLE" placeholder=""><br/><br/>
 						</div>
@@ -539,15 +539,15 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">再生水制备工艺</label><br/>
-							<label>膜滤法</label><input type="checkbox" name="XHJJ_Y/N_WATER_RESYCLE_METHOD1" placeholder="">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;膜滤法</label><input type="checkbox" name="XHJJ_Y/N_WATER_RESYCLE_METHOD1" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;活性炭吸附法</label><input type="checkbox" name="XHJJ_Y/N_WATER_RESYCLE_METHOD2" placeholder="">
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;高级氧化法</label><input type="checkbox" name="XHJJ_Y/N_WATER_RESYCLE_METHOD3" placeholder=""><br/>
 						</div>
 						<div class="col-xs-6">
-							<label>多方法联用</label> <input type="text" class="form-control" name="XHJJ_Y/N_WATER_RESYCLE_METHOD4" placeholder="" required>
+							<label>多方法联用</label> <input type="text" class="form-control" name="XHJJ_Y/N_WATER_RESYCLE_METHOD4" placeholder="" >
 						</div>
 						<div class="col-xs-6">
-							<label>其它方法</label> <input type="text" class="form-control" name="XHJJ_Y/N_WATER_RESYCLE_METHOD5" placeholder="" required><br/>
+							<label>其它方法</label> <input type="text" class="form-control" name="XHJJ_Y/N_WATER_RESYCLE_METHOD5" placeholder="" ><br/>
 						</div>
 					</div>
 
@@ -607,12 +607,12 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">是否实现了雨污分离</label><br/>
-							<label>是</label><input type="radio" name="SGCLI_Y/N_RAIN_AND_WASTE_SEPERATION" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="SGCLI_Y/N_RAIN_AND_WASTE_SEPERATION" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="SGCLI_Y/N_RAIN_AND_WASTE_SEPERATION" value="0" placeholder="" required><br/><br/>
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">是否实现了生活污水与工业污水的分离</label><br/>
-							<label>是</label><input type="radio" name="SGCL_Y/N_LIFEWASTE_INDUSTIRALWASTE_SEPERATION" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="SGCL_Y/N_LIFEWASTE_INDUSTIRALWASTE_SEPERATION" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="SGCL_Y/N_LIFEWASTE_INDUSTIRALWASTE_SEPERATION" value="0" placeholder="" required><br/><br/>
 						</div>
 					</div>
@@ -620,7 +620,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">是否设置了事故水池</label><br/>
-							<label>是</label><input type="radio" name="SGCL_Y/N_ACCIDENT_POOL" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="SGCL_Y/N_ACCIDENT_POOL" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="SGCL_Y/N_ACCIDENT_POOL" value="0" placeholder="" required><br/><br/>
 						</div>
 						<div class="col-xs-6">
@@ -639,7 +639,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">企业ISO文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_ISO" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_ISO" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_ISO" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -651,7 +651,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">企业环评文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_ENVIRONMENT_EVALUATE" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_ENVIRONMENT_EVALUATE" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_ENVIRONMENT_EVALUATE" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -663,7 +663,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">公司水污染管理措施文件(包括污水预处理管理规定、污水再生循环管理办法等)</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -675,7 +675,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">企业污水处理设计文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_COMPANY_POLLUTION_MANAGEMENT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -687,7 +687,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">企业能源审计文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_RESOURCE_AUDIT" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_RESOURCE_AUDIT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_RESOURCE_AUDIT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -699,7 +699,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">污水预处理中控图</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_PREPROCESSING_DIAGRAM" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_PREPROCESSING_DIAGRAM" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_PREPROCESSING_DIAGRAM" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -711,7 +711,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">水污染日常监测管理文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_DAILY_VALIDATION" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_DAILY_VALIDATION" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_WASTE_WATER_DAILY_VALIDATION" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -723,7 +723,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">其他环境管理文件</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_OTHER_MANAGEMENT" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_OTHER_MANAGEMENT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_OTHER_MANAGEMENT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -735,7 +735,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">有无环境污染事故应急预案</label><br/>
-							<label>是</label><input type="radio" name="GLWJ_Y/N_POLLUTION_ACCIDENT_EMERGENCY" value="1" placeholder="" required>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_Y/N_POLLUTION_ACCIDENT_EMERGENCY" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_Y/N_POLLUTION_ACCIDENT_EMERGENCY" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
@@ -764,7 +764,7 @@ else {
 						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title=""></textarea><br/>
 					</div>
 
-					<h1 align="center"><input class="btn btn-primary disabled" type="submit" name="submit"/></h1>
+					<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
 
 				</form>
 			</div>
