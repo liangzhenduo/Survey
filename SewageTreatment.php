@@ -854,16 +854,16 @@ else {
                         <label for="InputName">与园区管委会和环保部门的对接关系</label> <input type="text" class="form-control" name="GLCM_RELATIONSHIP" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-12">
-                        <label for="InputName">在政策的落实方面存在的问题或困难</label> <input type="text" class="form-control" name="GLCM_PROBLEM" placeholder="" required><br/>
+                        <label for="InputName">在政策的落实方面存在的问题或困难</label> <input type="text" class="form-control" name="GLCM_PROBLEM" placeholder="" ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">若是第三方运营商，对管理模式或服务模式有什么新的想法或规划</label> <input type="text" class="form-control" name="GLCM_THIRD_PARTY_SUGGESTIONS" placeholder="" required><br/>
+                        <label for="InputName">若是第三方运营商，对管理模式或服务模式有什么新的想法或规划</label> <input type="text" class="form-control" name="GLCM_THIRD_PARTY_SUGGESTIONS" placeholder="" ><br/>
                     </div>
                     <div class="col-xs-12">
-                        <label for="InputName">对于政府或管理部门有什么需求，如政策上的支持，经济上的补贴，监管方面的加强等</label> <input type="text" class="form-control" name="GLCM_REQUIREMENTS" placeholder="" required><br/><br/>
+                        <label for="InputName">对于政府或管理部门有什么需求，如政策上的支持，经济上的补贴，监管方面的加强等</label> <input type="text" class="form-control" name="GLCM_REQUIREMENTS" placeholder="" ><br/><br/>
                     </div>
                 </div>
 
