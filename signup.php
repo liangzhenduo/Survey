@@ -31,9 +31,13 @@ if(isset($_POST['submit'])) {
             else if($_POST['usertype']==2){
                 $query="INSERT INTO SewageTreatmentQuestionnaire(ID) values('$res')";
                 $result = mysqli_query($con, $query);
+                $query="INSERT INTO SewageTreatmentInvestigation(ID) values('$res')";
+                $result = mysqli_query($con, $query);
             }
             else if($_POST['usertype']==3){
                 $query="INSERT INTO IndustrialParkQuestionnaire(ID) values('$res')";
+                $result = mysqli_query($con, $query);
+                $query="INSERT INTO IndustrialParkInvestigation(ID) values('$res')";
                 $result = mysqli_query($con, $query);
             }
             header("location: signin.php?status=1");

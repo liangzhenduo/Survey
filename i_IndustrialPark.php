@@ -15,6 +15,9 @@ else {
     if($type!=3&&$type!=0||$submit==1){
         header("location: home.php");
     }
+    else{
+
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -89,7 +92,7 @@ else {
         <div class="col-lg-6">
             <form class="form-signin" method="POST" action="#">
 
-                <h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>函件调查表</h4><br/>
+                <h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>工业园区管委会\园区环保主管部门函件调查表</h4><br/>
 
                 <div class="form-group">
                     <div class="col-xs-6">
@@ -154,13 +157,13 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否将环境绩效纳入政府考核</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="JBQK_Y/N_EVALUATION" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="JBQK_Y/N_EVALUATION" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="JBQK_YN_EVALUATION" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="JBQK_YN_EVALUATION" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">园区是否做规划环评</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="JBQK_Y/N_SCHEDULED_EVALUATION" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="JBQK_Y/N_SCHEDULED_EVALUATION" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="JBQK_YN_SCHEDULED_EVALUATION" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="JBQK_YN_SCHEDULED_EVALUATION" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
@@ -241,21 +244,21 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">园区对企业超标/违规排放处罚措施</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_Y/N_TREATMENT_PLANT_PUNISHMENT" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_Y/N_TREATMENT_PLANT_PUNISHMENT" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_YN_TREATMENT_PLANT_PUNISHMENT" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_YN_TREATMENT_PLANT_PUNISHMENT" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">园区对污水厂超标/违规排放处罚措施</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_Y/N_COMPANY_PUNISHMENT" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_Y/N_COMPANY_PUNISHMENT" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_YN_COMPANY_PUNISHMENT" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_YN_COMPANY_PUNISHMENT" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">园区事故水池设置</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_Y/N_POOL_SETTING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_Y/N_POOL_SETTING" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="JBQK_YN_POOL_SETTING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="JBQK_YN_POOL_SETTING" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">园区事故水池容积(m^3)</label> <input type="number" class="form-control" name="JBQK_POOL_VOLUME" placeholder="" required><br/>
@@ -378,16 +381,16 @@ else {
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">工业废水分质分类收集</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_Y/N_WASTE_DIVIDE" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_Y/N_WASTE_DIVIDE" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_YN_WASTE_DIVIDE" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_YN_WASTE_DIVIDE" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">生活污水和工业废水分流</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_Y/N_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_Y/N_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">污水管网转输形式</label><br/>
@@ -399,8 +402,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">园区污水管网节点监控</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_Y/N_MONITORING" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_Y/N_MONITORING" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_YN_MONITORING" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_YN_MONITORING" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">污水管网节点监控个数(个)</label> <input type="number" class="form-control" name="YQGW_MONITORING_NODE_NUMBER" placeholder="" required><br/>
@@ -463,8 +466,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">中水回用管道</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_Y/N_RESYCLE_NETWORK" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_Y/N_RESYCLE_NETWORK" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_YN_RESYCLE_NETWORK" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_YN_RESYCLE_NETWORK" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">中水管网投资来源</label><br/>
@@ -541,15 +544,15 @@ else {
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;生产用水</label><input type="radio" name="YQSZ_STAIRSTEP_USAGE" value="生产用水" placeholder="">
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;循环冷却</label><input type="radio" name="YQSZ_STAIRSTEP_USAGE" value="循环冷却" placeholder="">
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;冲洗、消防用水</label><input type="radio" name="YQSZ_STAIRSTEP_USAGE" value="冲洗、消防用水" placeholder="">
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其它</label><input type="text" name="XHJJ_Y/N_WATER_RESYCLE_METHOD3" placeholder=""><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其它</label><input type="text" name="XHJJ_YN_WATER_RESYCLE_METHOD3" placeholder=""><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否存在企业间废水再利用</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQSZ_Y/N_INTERCOMPANY_USAGE" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQSZ_Y/N_INTERCOMPANY_USAGE" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQSZ_YN_INTERCOMPANY_USAGE" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQSZ_YN_INTERCOMPANY_USAGE" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">重要资源回收收益(万元)</label> <input type="number" class="form-control" name="YQSZ_RESOURCE_RESYCLE" placeholder="" required><br/>

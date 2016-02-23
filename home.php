@@ -105,36 +105,59 @@
 					$submit=$row[1];
 			?>
 
-			<div class="rows">
-				<div class="col-lg-12" style="height:100px"></div>
-			</div>
+
 				<?php if($type==1&&$submit==0||$type==0){?>
 					<div class="col-lg-4">
-						<a href="q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业调查表</a>
+						<a href="q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
 					</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业现场调查表</a>
 					</div>
 
 				<?php }
 				if($type==2&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
-				<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商调查表</a>
+				<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
 			</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商现场调查表</a>
 					</div>
 
 				<?php }
 				if($type==3&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
-				<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会调查表</a>
+				<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
 			</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会现场调查表</a>
+					</div>
+				<?php }?>
+
+					<div class="rows">
+						<div class="col-lg-4" style="height:100px"></div>
+					</div>
+
+				<?php
+				if($type==2&&$submit==0||$type==0){?>
+					<div class="col-lg-4">
+						<a href="i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商函件调查表</a>
+					</div>
+				<?php }else{?>
+					<div class="col-lg-4">
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商函件调查表</a>
+					</div>
+
+				<?php }
+				if($type==3&&$submit==0||$type==0){?>
+					<div class="col-lg-4">
+						<a href="i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
+					</div>
+				<?php }else{?>
+					<div class="col-lg-4">
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会函件调查表</a>
 					</div>
 				<?php }?>
 

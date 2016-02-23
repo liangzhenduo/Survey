@@ -28,7 +28,7 @@ else {
 	<meta name="author" content="">
 	<link rel="icon" href="image/photo.jpg">
 
-	<title>排污企业调研表</title>
+	<title>现场调查表</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
@@ -89,7 +89,7 @@ else {
   			<div class="col-lg-6">
   				<form class="form-signin" method="POST" action="#">
 
-  					<h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>园区内主要排污企业</h4><br/>
+  					<h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>工业园区主要排污企业现场调查表</h4><br/>
 
 					<div class="form-group">
 						<div class="col-xs-6">
