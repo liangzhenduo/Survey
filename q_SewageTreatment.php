@@ -780,7 +780,7 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否制定了污水回用管理办法</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YYQWS_Y/N_RESYCLE_MEANS" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_RESYCLE_MEANS" value="1" placeholder="" required>
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_RESYCLE_MEANS" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">

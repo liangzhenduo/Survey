@@ -96,7 +96,7 @@ else {
 							<label for="InputName">调查人</label> <input type="text" class="form-control" name="INVESTIGATOR" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">数据年限</label> <input type="date" class="form-control" name="REPORT_DATE" required placeholder=""><br/><br/>
+							<label for="InputName">数据年限</label> <input type="date" class="form-control" name="REPORT_DATE" placeholder="" required><br/><br/>
 						</div>
 					</div>
 

@@ -110,31 +110,31 @@
 			</div>
 				<?php if($type==1&&$submit==0||$type==0){?>
 					<div class="col-lg-4">
-						<a href="Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业调查表</a>
+						<a href="q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业调查表</a>
 					</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a href="Company.php" class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业调查表</a>
 					</div>
 
 				<?php }
 				if($type==2&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
-				<a href="SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商调查表</a>
+				<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商调查表</a>
 			</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a href="SewageTreatment.php" class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商调查表</a>
 					</div>
 
 				<?php }
 				if($type==3&&$submit==0||$type==0){?>
 			<div class="col-lg-4">
-				<a href="IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会调查表</a>
+				<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会调查表</a>
 			</div>
 				<?php }else{?>
 					<div class="col-lg-4">
-						<a href="IndustrialPark.php" class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会调查表</a>
 					</div>
 				<?php }?>
 

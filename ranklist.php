@@ -1,6 +1,6 @@
 <?php
 include "signin.php";
-if(!isset($_SESSION['user'])){		//not logged in
+if(!isset($_SESSION['username'])){		//not logged in
     header("location: index.php");
 }
 //session_start();
