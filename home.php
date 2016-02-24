@@ -69,7 +69,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
-              <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              <li><a href="ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
               <?php 
               	if(isset($_SESSION['username'])){
@@ -98,70 +98,82 @@
 			<?php
 				if(isset($_SESSION['username'])){
 					$username=$_SESSION['username'];
-					$query="select `type`,`submit` from user_info where username='$username'";
+					$query="select `type` from user_info where username='$username'";
 					$result = mysqli_query($con,$query);
 					$row =mysqli_fetch_array($result);
 					$type=$row[0];
-					$submit=$row[1];
 			?>
 
+				<div class="col-lg-12" style="height:80px"></div>
 
-				<?php if($type==1&&$submit==0||$type==0){?>
+				<?php
+					if($type==1||$type==0){?>
 					<div class="col-lg-4">
 						<a href="q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
 					</div>
-				<?php }else{?>
+				<?php
+					}else{?>
 					<div class="col-lg-4">
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业现场调查表</a>
 					</div>
 
-				<?php }
-				if($type==2&&$submit==0||$type==0){?>
-			<div class="col-lg-4">
-				<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
-			</div>
-				<?php }else{?>
+				<?php
+					}
+					if($type==2||$type==0){?>
+					<div class="col-lg-4">
+						<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
+					</div>
+				<?php
+					}else{?>
 					<div class="col-lg-4">
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商现场调查表</a>
 					</div>
 
-				<?php }
-				if($type==3&&$submit==0||$type==0){?>
-			<div class="col-lg-4">
-				<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
-			</div>
-				<?php }else{?>
+				<?php
+					}
+					if($type==3||$type==0){?>
+					<div class="col-lg-4">
+						<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
+					</div>
+				<?php
+					}else{?>
 					<div class="col-lg-4">
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会现场调查表</a>
 					</div>
-				<?php }?>
+				<?php
+					}?>
 
+					<div class="col-lg-12" style="height:20px"></div>
 					<div class="rows">
 						<div class="col-lg-4" style="height:100px"></div>
 					</div>
 
 				<?php
-				if($type==2&&$submit==0||$type==0){?>
+					if($type==2||$type==0){?>
 					<div class="col-lg-4">
 						<a href="i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商函件调查表</a>
 					</div>
-				<?php }else{?>
+				<?php
+					}else{?>
 					<div class="col-lg-4">
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商函件调查表</a>
 					</div>
 
-				<?php }
-				if($type==3&&$submit==0||$type==0){?>
+				<?php
+					}
+					if($type==3||$type==0){?>
 					<div class="col-lg-4">
 						<a href="i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
 					</div>
-				<?php }else{?>
+				<?php
+					}else{?>
 					<div class="col-lg-4">
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会函件调查表</a>
 					</div>
-				<?php }?>
+				<?php
+					}?>
 
-			<div class="col-lg-12" style="height:100px"></div>
+			<div class="col-lg-12" style="height:20px"></div>
 
 			<?php
 				}else{ //未登录
@@ -179,19 +191,17 @@
   			</div>
   			<div class="col-lg-4"></div>
   			<div class="rows">
-				<div class="col-lg-12" style="height:100px"></div>
+				<div class="col-lg-12" style="height:120px"></div>
 			</div>
 			<?php
 				}
 			?>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			
+
 				<h3><ul class="nav navbar-nav navbar-right">
-						<li><a class="page-scroll" href="#info"><span style="color: black; ">Info &nbsp;</span></a></li>
-						<li><a class="page-scroll" href="#rules"><span style="color: black; ">Rules &nbsp;</span></a></li>
-						<li><a class="page-scroll" href="#scoring"><span style="color: black; ">Scoring </span></a></li>
+
 					</ul>
-				</h3>	
+				</h3>
 			</div>
 			
 			</span>

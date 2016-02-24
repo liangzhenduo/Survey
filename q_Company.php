@@ -17,7 +17,7 @@ else {
 	}
 	else if(isset($_POST['submit'])){
 		$update="UPDATE CompanyQuestionnaire SET
-`INVESTIGATOR`='$_POST[INVESTIGATOR]', 
+`INVESTIGATOR`='$_POST[INVESTIGATOR]',
 `REPORT_DATE`='$_POST[REPORT_DATE]', 
 `QYXX_NAME`='$_POST[QYXX_NAME]', 
 `QYXX_TYPE`='$_POST[QYXX_TYPE]', 
@@ -148,6 +148,14 @@ else {
 `OTHER`='$_POST[OTHER]'
 		WHERE `ID`='$uid'";
         $result = mysqli_query($con, $update);
+		$path="./files/$type/$username";
+		if(isset($_FILES['file'])) {
+			for ($i = 0; $i < count($_FILES['file']); $i++) {
+				if ($_FILES['file']['error'][$i] == 0) {
+					move_uploaded_file($_FILES['file']['tmp_name'][$i], $path . "/" . $_FILES['file']['name'][$i]);
+				}
+			}
+		}
         header("location: index.php");
     }
 }
@@ -222,7 +230,7 @@ else {
   		<div class="rows">
   			<div class="col-lg-3"></div>
   			<div class="col-lg-6">
-  				<form class="form-signin" method="POST" action="#">
+  				<form class="form-signin" method="POST" action="#" enctype="multipart/form-data">
 
   					<h4 align="center">“重点流域典型工业园区水污染防治技术评估和管理制度研究”课题<br/>工业园区主要排污企业现场调查表</h4><br/>
 
@@ -283,7 +291,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">如果开展了清洁生产工作，请提供清洁生产审计报告（方案）</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -343,7 +351,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label for="InputName">请提供企业污水处理管理文件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -667,7 +675,7 @@ else {
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">请提供相应的管理文件及监测标准</label>
-							<input type="file" name="" value=""><br/><br/>
+							<input type="file" name="file[]"><br/><br/>
 						</div>
 					</div>
 
@@ -796,7 +804,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -808,19 +816,19 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-xs-6">
-							<label for="InputName">公司水污染管理措施文件(包括污水预处理管理规定、污水再生循环管理办法等)</label><br/>
+							<label for="InputName">公司水污染管理措施文件(污水预处理管理规定、污水再生循环管理办法等)</label><br/>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLWJ_YN_COMPANY_POLLUTION_MANAGEMENT" value="1" placeholder="" required>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLWJ_YN_COMPANY_POLLUTION_MANAGEMENT" value="0" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/><br/>
+							<input type="file" name="file[]"><br/><br/>
 						</div>
 					</div>
 
@@ -832,7 +840,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -844,7 +852,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -856,7 +864,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -868,7 +876,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -880,7 +888,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如有，请提供相关文件作为附件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -892,7 +900,7 @@ else {
 						</div>
 						<div class="col-xs-6">
 							<label>如果已建立应急预案，请提供文件</label>
-							<input type="file" name="" value=""><br/>
+							<input type="file" name="file[]"><br/>
 						</div>
 					</div>
 
@@ -913,7 +921,7 @@ else {
 
 					<br/><h3 align="center">其他</h3><br/>
 					<div class="col-xs-12">
-						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title=""></textarea><br/>
+						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title=""></textarea><br/><br/>
 					</div>
 
 					<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>

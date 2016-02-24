@@ -1,9 +1,9 @@
 <?php
 include "signin.php";
-if(!isset($_SESSION['username'])){		//not logged in
+/*if(!isset($_SESSION['username'])){		//not logged in
     header("location: index.php");
-}
-//session_start();
+}*/
+session_start();
 
 ?>
 <!DOCTYPE html>

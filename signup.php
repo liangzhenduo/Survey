@@ -17,10 +17,8 @@ if(isset($_POST['submit'])) {
             $error = "用户已存在!";
         }
         else {
-            if($_POST['username']=='root')
+            if($_POST['username']=='root'||$_POST['username']=='Shintaku')
                 $_POST['usertype']=0;
-                /*$query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','0','$_POST[unit]','$_POST[mail]')";
-            else*/
             $query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
             $result = mysqli_query($con, $query);
             $username=$_POST['username'];
@@ -31,18 +29,21 @@ if(isset($_POST['submit'])) {
             if($_POST['usertype']==1){
                 $query="INSERT INTO CompanyQuestionnaire(ID) values('$res')";
                 $result = mysqli_query($con, $query);
+                mkdir("./files/1/$username");
             }
             else if($_POST['usertype']==2){
                 $query="INSERT INTO SewageTreatmentQuestionnaire(ID) values('$res')";
                 $result = mysqli_query($con, $query);
                 $query="INSERT INTO SewageTreatmentInvestigation(ID) values('$res')";
                 $result = mysqli_query($con, $query);
+                mkdir("./files/2/$username");
             }
             else if($_POST['usertype']==3){
                 $query="INSERT INTO IndustrialParkQuestionnaire(ID) values('$res')";
                 $result = mysqli_query($con, $query);
                 $query="INSERT INTO IndustrialParkInvestigation(ID) values('$res')";
                 $result = mysqli_query($con, $query);
+                mkdir("./files/3/$username");
             }
             header("location: signin.php?status=1");
         }
