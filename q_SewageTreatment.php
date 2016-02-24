@@ -7,13 +7,194 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
     $username=$_SESSION['username'];
-    $query="select `type`, `submit` from user_info where `username`='$username'";
+    $query="select `type`, `uid` from user_info where `username`='$username'";
     $result = mysqli_query($con,$query);
     $row =mysqli_fetch_array($result);
     $type=$row[0];
-    $submit=$row[1];
-    if($type!=2&&$type!=0||$submit==1){
+    $uid=$row[1];
+    if($type!=2&&$type!=0){
         header("location: home.php");
+    }
+    else if(isset($_POST['submit'])){
+        $update="UPDATE SewageTreatmentQuestionnaire SET
+`INVESTIGATOR`='$_POST[INVESTIGATOR]', 
+`REPORT_DATE`='$_POST[REPORT_DATE]', 
+`GYYQ_NAME`='$_POST[GYYQ_NAME]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_NUMBER`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_NUMBER]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_NAME`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_NAME]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_COMPANY`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_COMPANY]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_CONTACT`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_CONTACT]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_TELEPHONE`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_TELEPHONE]', 
+`GYYQ_WASTEWATER_TREATMENT_PLANT_FOUNDATION_DATE`='$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_FOUNDATION_DATE]', 
+`YQFS_WATER_NETWORK`='$_POST[YQFS_WATER_NETWORK]', 
+`YQFS_WATER_NETWORK_INSTRUMENT`='$_POST[YQFS_WATER_NETWORK_INSTRUMENT]', 
+`YQFS_WATER_NETWORK_MONITORING_PLACE_NUMBER`='$_POST[YQFS_WATER_NETWORK_MONITORING_PLACE_NUMBER]', 
+`YQFS_WATER_NETWORK_MONITORING_FREQUENCY`='$_POST[YQFS_WATER_NETWORK_MONITORING_FREQUENCY]', 
+`YQFS_YN_FEATURED_POLLUTION_MONITORING`='$_POST[YQFS_YN_FEATURED_POLLUTION_MONITORING]', 
+`YQFS_COLLECTION_CLASSCIFICATION`='$_POST[YQFS_COLLECTION_CLASSCIFICATION]', 
+`YQFS_DOMESTIC_INDUSTRIAL_SPLIT`='$_POST[YQFS_DOMESTIC_INDUSTRIAL_SPLIT]', 
+`YQFS_MONITORING_FREQUENCY`='$_POST[YQFS_MONITORING_FREQUENCY]', 
+`YQFS_NETWORK_TRANSFER_MEANS`='$_POST[YQFS_NETWORK_TRANSFER_MEANS]', 
+`YQFS_MONITORING_OBJECTIVE_LIU`='$_POST[YQFS_MONITORING_OBJECTIVE_LIU]', 
+`YQFS_MONITORING_OBJECTIVE_PH`='$_POST[YQFS_MONITORING_OBJECTIVE_PH]', 
+`YQFS_MONITORING_OBJECTIVE_WEN`='$_POST[YQFS_MONITORING_OBJECTIVE_WEN]', 
+`YQFS_MONITORING_OBJECTIVE_HUA`='$_POST[YQFS_MONITORING_OBJECTIVE_HUA]', 
+`YQFS_MONITORING_OBJECTIVE_SHENG`='$_POST[YQFS_MONITORING_OBJECTIVE_SHENG]', 
+`YQFS_MONITORING_OBJECTIVE_AN`='$_POST[YQFS_MONITORING_OBJECTIVE_AN]', 
+`YQFS_MONITORING_OBJECTIVE_DAN`='$_POST[YQFS_MONITORING_OBJECTIVE_DAN]', 
+`YQFS_MONITORING_OBJECTIVE_LIN`='$_POST[YQFS_MONITORING_OBJECTIVE_LIN]', 
+`YQFS_MONITORING_OBJECTIVE_ZHONG`='$_POST[YQFS_MONITORING_OBJECTIVE_ZHONG]', 
+`YQFS_MONITORING_OBJECTIVE_NAN`='$_POST[YQFS_MONITORING_OBJECTIVE_NAN]', 
+`YQFS_MONITORING_OBJECTIVE_OTHER`='$_POST[YQFS_MONITORING_OBJECTIVE_OTHER]', 
+`YQFS_NETWORK_INVESTMENT_SOURCE`='$_POST[YQFS_NETWORK_INVESTMENT_SOURCE]', 
+`YQFS_NETWORK_RUNING_FEE_SOURCE`='$_POST[YQFS_NETWORK_RUNING_FEE_SOURCE]', 
+`YQFS_YN_RECYCLE_NETWORK`='$_POST[YQFS_YN_RECYCLE_NETWORK]', 
+`YQFS_WATER_PIPE_NETWORK_INVESTMENT_SOURCE`='$_POST[YQFS_WATER_PIPE_NETWORK_INVESTMENT_SOURCE]', 
+`YQFS_WATER_PIPE_NETWORK_RUNNING_FEE`='$_POST[YQFS_WATER_PIPE_NETWORK_RUNNING_FEE]', 
+`YQFS_WATER_PIPE_NETWORK_RUNNING_FEE_SOURCE`='$_POST[YQFS_WATER_PIPE_NETWORK_RUNNING_FEE_SOURCE]', 
+`YQFS_CHARGE_STANDARD`='$_POST[YQFS_CHARGE_STANDARD]', 
+`YQWS_SIZE`='$_POST[YQWS_SIZE]', 
+`YQWS_RUNNING_PATTERN`='$_POST[YQWS_RUNNING_PATTERN]', 
+`YQWS_WATER_PROCESSING_VOLUME`='$_POST[YQWS_WATER_PROCESSING_VOLUME]', 
+`YQWS_LAND_SIZE`='$_POST[YQWS_LAND_SIZE]', 
+`YQWS_MAX_WATER_SIZE`='$_POST[YQWS_MAX_WATER_SIZE]', 
+`YQWS_AVERAGE_WATER_SIZE`='$_POST[YQWS_AVERAGE_WATER_SIZE]', 
+`YQWS_CONSTRUCTION_INVESTMENT`='$_POST[YQWS_CONSTRUCTION_INVESTMENT]', 
+`YQWS_RUNNING_DAYS`='$_POST[YQWS_RUNNING_DAYS]', 
+`YQWS_CONSTRUCTION_PARTY`='$_POST[YQWS_CONSTRUCTION_PARTY]', 
+`YQWS_YN_MEET_REQUIREMENT`='$_POST[YQWS_YN_MEET_REQUIREMENT]', 
+`YQWS_PEOPLE_NUMBER`='$_POST[YQWS_PEOPLE_NUMBER]', 
+`YQWS_PEOPLE_WASTEWATER_TREATMENT`='$_POST[YQWS_PEOPLE_WASTEWATER_TREATMENT]', 
+`YQWS_PEOPLE_DIRTY`='$_POST[YQWS_PEOPLE_DIRTY]', 
+`YQWS_MEDCINE`='$_POST[YQWS_MEDCINE]', 
+`YQWS_RUNNING_FEE`='$_POST[YQWS_RUNNING_FEE]', 
+`YQWS_MEDCINE_EXPENSE`='$_POST[YQWS_MEDCINE_EXPENSE]', 
+`YQWS_EQUIPMENT_OLD_FEE`='$_POST[YQWS_EQUIPMENT_OLD_FEE]', 
+`YQWS_ELECTRICITY_EXPENSE`='$_POST[YQWS_ELECTRICITY_EXPENSE]', 
+`YQWS_ELECTRICITY_FEE`='$_POST[YQWS_ELECTRICITY_FEE]', 
+`YQWS_OTHER_FEE`='$_POST[YQWS_OTHER_FEE]', 
+`YQWS_PEOPLE_FEE`='$_POST[YQWS_PEOPLE_FEE]', 
+`YQWS_DIRTY_MUD_PRODUCTIVITY`='$_POST[YQWS_DIRTY_MUD_PRODUCTIVITY]', 
+`YQWS_MUD_WATER_RATE`='$_POST[YQWS_MUD_WATER_RATE]', 
+`YQWS_MUD_USAGE`='$_POST[YQWS_MUD_USAGE]', 
+`YQWS_MUD_LAND_USAGE`='$_POST[YQWS_MUD_LAND_USAGE]', 
+`YQWS_MUD_DUMPLING_SIZE`='$_POST[YQWS_MUD_DUMPLING_SIZE]', 
+`YQWS_MUD_BURN_SIZE`='$_POST[YQWS_MUD_BURN_SIZE]', 
+`YQWS_MUD_COMPOSIT_SIZE`='$_POST[YQWS_MUD_COMPOSIT_SIZE]', 
+`YQWS_OTHER_RESOURCE_USAGE`='$_POST[YQWS_OTHER_RESOURCE_USAGE]', 
+`YQWS_YN_OZONE_CONTROL`='$_POST[YQWS_YN_OZONE_CONTROL]', 
+`YQWS_OZONE_INFLUENCE`='$_POST[YQWS_OZONE_INFLUENCE]', 
+`YQWS_NOISE_INFLUENCE`='$_POST[YQWS_NOISE_INFLUENCE]', 
+`YQWS_MUD_PROCESSING_MEANS`='$_POST[YQWS_MUD_PROCESSING_MEANS]', 
+`YQWS_EQUIPMENT_GOOD_RATE`='$_POST[YQWS_EQUIPMENT_GOOD_RATE]', 
+`YQWS_PEOPLE_WORK_HOURS`='$_POST[YQWS_PEOPLE_WORK_HOURS]', 
+`YQWS_YN_WATER_LEVEL_MONITORING`='$_POST[YQWS_YN_WATER_LEVEL_MONITORING]', 
+`YQWS_YN_PH_MONITORING`='$_POST[YQWS_YN_PH_MONITORING]', 
+`YQWS_AUTOMATIC_LEVEL`='$_POST[YQWS_AUTOMATIC_LEVEL]', 
+`YQWS_YN_GOOD_MONITORING`='$_POST[YQWS_YN_GOOD_MONITORING]', 
+`YQWS_WASTEWATER_INDU`='$_POST[YQWS_WASTEWATER_INDU]', 
+`YQWS_WASTEWATER_LIFE`='$_POST[YQWS_WASTEWATER_LIFE]', 
+`YQWS_WASTEWATER_SOURCE`='$_POST[YQWS_WASTEWATER_SOURCE]', 
+`YQWS_TREATEMENT_STANDARD`='$_POST[YQWS_TREATEMENT_STANDARD]', 
+`YQWS_TREATEMENT_SUGGESTIONS`='$_POST[YQWS_TREATEMENT_SUGGESTIONS]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_COD`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_COD]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_BOD`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_BOD]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_TH`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_TH]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_SS`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_SS]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_TP`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_TP]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_SE`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_SE]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_PH`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_PH]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_WEN`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_WEN]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_NH`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_NH]', 
+`YQWS_MAIN_WASTE_IN_DENSITY_OTHER`='$_POST[YQWS_MAIN_WASTE_IN_DENSITY_OTHER]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_HG`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_HG]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_CD`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_CD]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_PB`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_PB]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_CR`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_CR]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_SB`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_SB]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_CU`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_CU]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_ARO`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_ARO]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_ANT`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_ANT]', 
+`YQWS_FEATURED_WASTE_IN_DENSITY_OTHER`='$_POST[YQWS_FEATURED_WASTE_IN_DENSITY_OTHER]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_COD`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_COD]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_BOD`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_BOD]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_TN`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_TN]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_SS`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_SS]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_TP`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_TP]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_SE`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_SE]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_PH`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_PH]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_WEN`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_WEN]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_NH`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_NH]', 
+`YQWS_MAIN_WASTE_OUT_DENSITY_OTHER`='$_POST[YQWS_MAIN_WASTE_OUT_DENSITY_OTHER]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_HG`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_HG]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_CD`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_CD]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_PB`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_PB]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_CR`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_CR]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_SB`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_SB]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_CU`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_CU]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_ARO`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_ARO]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_ANT`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_ANT]', 
+`YQWS_FEATURED_WASTE_OUT_DENSITY_OTHER`='$_POST[YQWS_FEATURED_WASTE_OUT_DENSITY_OTHER]', 
+`YQWS_PROCESSING_MEANS`='$_POST[YQWS_PROCESSING_MEANS]', 
+`YQWS_YN_PARALLEL_PROCESSING`='$_POST[YQWS_YN_PARALLEL_PROCESSING]', 
+`YQWS_PROCESSING_PROCESS_1`='$_POST[YQWS_PROCESSING_PROCESS_1]', 
+`YQWS_PROCESSING_PROCESS_2`='$_POST[YQWS_PROCESSING_PROCESS_2]', 
+`YQWS_MAIN_PARAMETERS`='$_POST[YQWS_MAIN_PARAMETERS]', 
+`YQWS_MAIN_PARAMETERS_MLSS_AE`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_AE]', 
+`YQWS_MAIN_PARAMETERS_MLSS_AN`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_AN]', 
+`YQWS_MAIN_PARAMETERS_MLSS_HY`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_HY]', 
+`YQWS_MAIN_PARAMETERS_HRT_AE`='$_POST[YQWS_MAIN_PARAMETERS_HRT_AE]', 
+`YQWS_MAIN_PARAMETERS_HRT_AN`='$_POST[YQWS_MAIN_PARAMETERS_HRT_AN]', 
+`YQWS_MAIN_PARAMETERS_HRT_HY`='$_POST[YQWS_MAIN_PARAMETERS_HRT_HY]', 
+`YQWS_MAIN_PARAMETERS_SRT_AE`='$_POST[YQWS_MAIN_PARAMETERS_SRT_AE]', 
+`YQWS_MAIN_PARAMETERS_SRT_AN`='$_POST[YQWS_MAIN_PARAMETERS_SRT_AN]', 
+`YQWS_MAIN_PARAMETERS_SRT_HY`='$_POST[YQWS_MAIN_PARAMETERS_SRT_HY]', 
+`YQWS_MAIN_PARAMETERS_SIZE_AE`='$_POST[YQWS_MAIN_PARAMETERS_SIZE_AE]', 
+`YQWS_MAIN_PARAMETERS_SIZE_AN`='$_POST[YQWS_MAIN_PARAMETERS_SIZE_AN]', 
+`YQWS_MAIN_PARAMETERS_SIZE_HY`='$_POST[YQWS_MAIN_PARAMETERS_SIZE_HY]', 
+`YQWS_ANNUAL_WATER_GOOD_RATE`='$_POST[YQWS_ANNUAL_WATER_GOOD_RATE]', 
+`YQWS_RESYCLE_WATER_SIZE`='$_POST[YQWS_RESYCLE_WATER_SIZE]', 
+`YQWS_ANTI_PRESSURE`='$_POST[YQWS_ANTI_PRESSURE]', 
+`YQWS_RECOVER_DAYS_Q`='$_POST[YQWS_RECOVER_DAYS_Q]', 
+`YQWS_RECOVER_DAYS_P`='$_POST[YQWS_RECOVER_DAYS_P]', 
+`YQWS_MONITORING_RATE`='$_POST[YQWS_MONITORING_RATE]', 
+`YQWS_ABNORMAL_PROCESSING`='$_POST[YQWS_ABNORMAL_PROCESSING]', 
+`YQWS_YN_ACCIDENT_POOL`='$_POST[YQWS_YN_ACCIDENT_POOL]', 
+`YQWS_ACCIDENT_POOL_VOLUME`='$_POST[YQWS_ACCIDENT_POOL_VOLUME]', 
+`YQWS_YN_RESYCLE_MEANS`='$_POST[YQWS_YN_RESYCLE_MEANS]', 
+`YQWS_YN_ANTI_ACCIDENT_PLAN`='$_POST[YQWS_YN_ANTI_ACCIDENT_PLAN]', 
+`YQWS_YN_DIVIDE_ENTER_PROCESSING`='$_POST[YQWS_YN_DIVIDE_ENTER_PROCESSING]', 
+`YQWS_MONITORING_MEANS`='$_POST[YQWS_MONITORING_MEANS]', 
+`GLCM_YN_TECHNIQUE_PROBLEM`='$_POST[GLCM_YN_TECHNIQUE_PROBLEM]', 
+`GLCM_TECHNIQUE_PROBLEM_REASON`='$_POST[GLCM_TECHNIQUE_PROBLEM_REASON]', 
+`GLCM_YN_ECNOMIC_PROBLEM`='$_POST[GLCM_YN_ECNOMIC_PROBLEM]', 
+`GLCM_INCOME_SOURCE`='$_POST[GLCM_INCOME_SOURCE]', 
+`GLCM_LOSE_SOURCE`='$_POST[GLCM_LOSE_SOURCE]', 
+`GLCM_RELATIONSHIP`='$_POST[GLCM_RELATIONSHIP]', 
+`GLCM_PROBLEM`='$_POST[GLCM_PROBLEM]', 
+`GLCM_THIRD_PARTY_SUGGESTIONS`='$_POST[GLCM_THIRD_PARTY_SUGGESTIONS]', 
+`GLCM_REQUIREMENTS`='$_POST[GLCM_REQUIREMENTS]', 
+`ZSHY_DESIGN_WATER_SIZE`='$_POST[ZSHY_DESIGN_WATER_SIZE]', 
+`ZSHY_RUNNING_WATER_SIZE`='$_POST[ZSHY_RUNNING_WATER_SIZE]', 
+`ZSHY_LAND_SIZE`='$_POST[ZSHY_LAND_SIZE]', 
+`ZSHY_CONSTRUCTION_INVESTMENT`='$_POST[ZSHY_CONSTRUCTION_INVESTMENT]', 
+`ZSHY_RUNNING_FEE`='$_POST[ZSHY_RUNNING_FEE]', 
+`ZSHY_ANNUAL_RESCYCLE_WATER`='$_POST[ZSHY_ANNUAL_RESCYCLE_WATER]', 
+`ZSHY_RESYCLE_PROFIT`='$_POST[ZSHY_RESYCLE_PROFIT]', 
+`ZSHY_RESYCLE_TIME`='$_POST[ZSHY_RESYCLE_TIME]', 
+`ZSHY_RESYCLE_RATE`='$_POST[ZSHY_RESYCLE_RATE]', 
+`ZSHY_RESYCLE_IN_STANDARD`='$_POST[ZSHY_RESYCLE_IN_STANDARD]', 
+`ZSHY_RESYCLE_OUT_STANDARD`='$_POST[ZSHY_RESYCLE_OUT_STANDARD]', 
+`ZSHY_RESYCLE_UNLOAD_STANDARD`='$_POST[ZSHY_RESYCLE_UNLOAD_STANDARD]', 
+`ZSHY_RESYCLE_PROCESSING_PROCESS`='$_POST[ZSHY_RESYCLE_PROCESSING_PROCESS]', 
+`ZSHY_STABILITY_RATE`='$_POST[ZSHY_STABILITY_RATE]', 
+`ZSHY_SOLID_RATE`='$_POST[ZSHY_SOLID_RATE]', 
+`ZSHY_SOLID_PROCESSING_MEANS`='$_POST[ZSHY_SOLID_PROCESSING_MEANS]', 
+`ZSHY_YN_CONTROL_SYSTEM`='$_POST[ZSHY_YN_CONTROL_SYSTEM]', 
+`ZSHY_OTHER`='$_POST[ZSHY_OTHER]' 
+		WHERE `ID`='$uid'";
+        $result = mysqli_query($con, $update);
+        header("location: index.php");
     }
 }
 
@@ -147,7 +328,7 @@ else {
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;雨污分流</label><input type="radio" name="YQFS_WATER_NETWORK" value="雨污分流" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">管网投资(万元/km)</label> <input type="number" class="form-control" name="YQFS_WATER_NETWORK_INSTRUMENT" placeholder="" required><br/>
+                        <label for="InputName">管网投资(万元/km)</label> <input type="number" step="0.001" class="form-control" name="YQFS_WATER_NETWORK_INSTRUMENT" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -163,8 +344,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">特征污染物监控</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQFS_Y/N_FEATURED_POLLUTION_MONITORING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQFS_Y/N_FEATURED_POLLUTION_MONITORING" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQFS_YN_FEATURED_POLLUTION_MONITORING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQFS_YN_FEATURED_POLLUTION_MONITORING" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">工业废水分质分类收集</label><br/>
@@ -195,17 +376,28 @@ else {
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label for="InputName">污水管网节点监控指标</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;流量</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_LIU" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;pH</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_PH" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;温度</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_WEN" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;化学需氧量</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_HUA" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;生化需氧量</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_SHENG" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;氨氮</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_AN" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总氮</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_DAN" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总磷</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_LIN" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_ZHONG" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;难降解有机物</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_NAN" placeholder="" >
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="checkbox" name="YQFS_MONITORING_OBJECTIVE_OTHER" placeholder="" ><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;流量</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_LIU" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_LIU" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;pH</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_PH" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_PH" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;温度</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_WEN" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_WEN" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;化学需氧量</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_HUA" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_HUA" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;生化需氧量</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_SHENG" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_SHENG" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;氨氮</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_AN" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_AN" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总氮</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_DAN" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_DAN" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总磷</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_LIN" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_LIN" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_ZHONG" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_ZHONG" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;难降解有机物</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_NAN" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_NAN" placeholder="" >
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;其他</label><input type="hidden" name="YQFS_MONITORING_OBJECTIVE_OTHER" value="0">
+                        <input type="checkbox" value="1" name="YQFS_MONITORING_OBJECTIVE_OTHER" placeholder="" ><br/><br/>
                     </div>
                 </div>
 
@@ -227,8 +419,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">中水回用管道</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQFS_Y/N_RECYCLE_NETWORK" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQFS_Y/N_RECYCLE_NETWORK" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQFS_YN_RECYCLE_NETWORK" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQFS_YN_RECYCLE_NETWORK" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">中水管网投资来源</label><br/>
@@ -240,7 +432,7 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">中水管网运行费用(元/m^3水)</label> <input type="number" class="form-control" name="YQFS_WATER_PIPE_NETWORK_RUNNING_FEE" placeholder="" required><br/>
+                        <label for="InputName">中水管网运行费用(元/m^3水)</label> <input type="number" step="0.001" class="form-control" name="YQFS_WATER_PIPE_NETWORK_RUNNING_FEE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">中水管网运行费用来源</label><br/>
@@ -253,12 +445,16 @@ else {
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label for="InputName">排污收费标准</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;浓度</label><input type="radio" name="YQFS_CHARGE_STANDARD" value="浓度" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总量</label><input type="radio" name="YQFS_CHARGE_STANDARD" value="总量" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;统一收费</label><input type="radio" name="YQFS_CHARGE_STANDARD" value="统一收费" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;分类收费</label><input type="radio" name="YQFS_CHARGE_STANDARD" value="分类收费" placeholder="" required>
-                        <!--label>&nbsp;&nbsp;&nbsp;&nbsp;生活废水</label><input type="checkbox" name="contact" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;工业废水</label><input type="checkbox" name="contact" placeholder="" required--><br/><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;浓度</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
+                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="浓度" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总量</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
+                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="总量" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;统一收费</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
+                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="统一收费" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;分类收费</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
+                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="分类收费" placeholder="" required>
+                        <!--label>&nbsp;&nbsp;&nbsp;&nbsp;生活废水</label><input type="checkbox" value="1" name="contact" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;工业废水</label><input type="checkbox" value="1" name="contact" placeholder="" required--><br/><br/><br/>
                     </div>
                 </div>
 
@@ -266,7 +462,7 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水处理厂设计规模(m^3/d)</label> <input type="number" class="form-control" name="YQWS_SIZE" placeholder="" required><br/>
+                        <label for="InputName">污水处理厂设计规模(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_SIZE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">运行模式</label><br/>
@@ -278,28 +474,28 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">实际处理水量(m^3/d)</label> <input type="number" class="form-control" name="YQWS_WATER_PROCESSING_VOLUME" placeholder="" required><br/>
+                        <label for="InputName">实际处理水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_WATER_PROCESSING_VOLUME" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">占地面积(m^2)</label> <input type="number" class="form-control" name="YQWS_LAND_SIZE" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">年最大日水量(m^3/d)</label> <input type="number" class="form-control" name="YQWS_MAX_WATER_SIZE" placeholder="" required><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">年平均日水量(m^3/d)</label> <input type="number" class="form-control" name="YQWS_AVERAGE_WATER_SIZE" placeholder="" required><br/>
+                        <label for="InputName">占地面积(m^2)</label> <input type="number" step="0.001" class="form-control" name="YQWS_LAND_SIZE" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水厂建设投资(万元)</label> <input type="number" class="form-control" name="YQWS_CONSTRUCTION_INVESTMENT" placeholder="" required><br/>
+                        <label for="InputName">年最大日水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAX_WATER_SIZE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污水处理厂的年运行天数(天)</label> <input type="number" class="form-control" name="YQWS_RUNNING_DAYS" placeholder="" required><br/>
+                        <label for="InputName">年平均日水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_AVERAGE_WATER_SIZE" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">污水厂建设投资(万元)</label> <input type="number" step="0.001" class="form-control" name="YQWS_CONSTRUCTION_INVESTMENT" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">污水处理厂的年运行天数(天)</label> <input type="number" max="365" class="form-control" name="YQWS_RUNNING_DAYS" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -312,8 +508,8 @@ else {
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">园区污水厂的设计处理能力是否能满足实际需求</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_MEET_REQUIREMENT" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_MEET_REQUIREMENT" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_YN_MEET_REQUIREMENT" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_YN_MEET_REQUIREMENT" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
@@ -337,75 +533,75 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">运行费(万元/年)</label> <input type="number" class="form-control" name="YQWS_RUNNING_FEE" placeholder="" required><br/>
+                        <label for="InputName">运行费(万元/年)</label> <input type="number" step="0.001" class="form-control" name="YQWS_RUNNING_FEE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">年药剂费(万元/年)</label> <input type="number" class="form-control" name="YQWS_MEDCINE_EXPENSE" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">设备折旧费(万元/年)</label> <input type="number" class="form-control" name="YQWS_EQUIPMENT_OLD_FEE" placeholder="" required><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">年耗电量(kw/a)</label> <input type="number" class="form-control" name="YQWS_ELECTRICITY_EXPENSE" placeholder="" required><br/>
+                        <label for="InputName">年药剂费(万元/年)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MEDCINE_EXPENSE" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">电费(万元/年)</label> <input type="number" class="form-control" name="YQWS_ELECTRICITY_FEE" placeholder="" required><br/>
+                        <label for="InputName">设备折旧费(万元/年)</label> <input type="number" step="0.001" class="form-control" name="YQWS_EQUIPMENT_OLD_FEE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">其他费用(万元/a)</label> <input type="number" class="form-control" name="YQWS_OTHER_FEE" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">人工费(万元/a)</label> <input type="number" class="form-control" name="YQWS_PEOPLE_FEE" placeholder="" required><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">污泥产生量(t/d)</label> <input type="number" class="form-control" name="YQWS_DIRTY_MUD_PRODUCTIVITY" placeholder="" required><br/>
+                        <label for="InputName">年耗电量(kw/a)</label> <input type="number" step="0.001" class="form-control" name="YQWS_ELECTRICITY_EXPENSE" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污泥含水率(%)</label> <input type="number" class="form-control" name="YQWS_MUD_WATER_RATE" placeholder="" required><br/>
+                        <label for="InputName">电费(万元/年)</label> <input type="number" step="0.001" class="form-control" name="YQWS_ELECTRICITY_FEE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污泥建材利用(t/d)</label> <input type="number" class="form-control" name="YQWS_MUD_USAGE" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">污泥土地利用量(t/d)</label> <input type="number" class="form-control" name="YQWS_MUD_LAND_USAGE" placeholder="" required><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">污泥填埋量(t/d)</label> <input type="number" class="form-control" name="YQWS_MUD_DUMPLING_SIZE" placeholder="" required><br/>
+                        <label for="InputName">其他费用(万元/a)</label> <input type="number" step="0.001" class="form-control" name="YQWS_OTHER_FEE" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污泥焚烧量(t/d)</label> <input type="number" class="form-control" name="YQWS_MUD_BURN_SIZE" placeholder="" required><br/>
+                        <label for="InputName">人工费(万元/a)</label> <input type="number" step="0.001" class="form-control" name="YQWS_PEOPLE_FEE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污泥堆肥量(t/d)</label> <input type="number" class="form-control" name="YQWS_MUD_COMPOSIT_SIZE" placeholder="" required><br/>
+                        <label for="InputName">污泥产生量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_DIRTY_MUD_PRODUCTIVITY" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污泥其他资源利用量(t/d)</label> <input type="number" class="form-control" name="YQWS_OTHER_RESOURCE_USAGE" placeholder="" required><br/>
+                        <label for="InputName">污泥含水率(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_MUD_WATER_RATE" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥建材利用(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MUD_USAGE" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥土地利用量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MUD_LAND_USAGE" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥填埋量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MUD_DUMPLING_SIZE" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥焚烧量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MUD_BURN_SIZE" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥堆肥量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_MUD_COMPOSIT_SIZE" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">污泥其他资源利用量(t/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_OTHER_RESOURCE_USAGE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">有无臭气控制措施</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_Y/N_OZONE_CONTROL" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_Y/N_OZONE_CONTROL" value="0" placeholder="" required><br/><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_YN_OZONE_CONTROL" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_YN_OZONE_CONTROL" value="0" placeholder="" required><br/><br/><br/>
                     </div>
                 </div>
 
@@ -440,23 +636,23 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">设备完好率(%)</label> <input type="number" class="form-control" name="YQWS_EQUIPMENT_GOOD_RATE" placeholder="" required><br/>
+                        <label for="InputName">设备完好率(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_EQUIPMENT_GOOD_RATE" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">人工劳动强度(时/天)</label> <input type="number" class="form-control" name="YQWS_PEOPLE_WORK_HOURS" placeholder="" required><br/>
+                        <label for="InputName">人工劳动强度(时/天)</label> <input type="number" step="0.001" max="24" class="form-control" name="YQWS_PEOPLE_WORK_HOURS" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">水位自动监测</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_Y/N_WATER_LEVEL_MONITORING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;较弱</label><input type="radio" name="YQWS_Y/N_WATER_LEVEL_MONITORING" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_YN_WATER_LEVEL_MONITORING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;较弱</label><input type="radio" name="YQWS_YN_WATER_LEVEL_MONITORING" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">pH自动监测</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_Y/N_PH_MONITORING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_Y/N_PH_MONITORING" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_YN_PH_MONITORING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_YN_PH_MONITORING" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
@@ -470,8 +666,8 @@ else {
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">有无完善的监控系统</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_Y/N_GOOD_MONITORING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_Y/N_GOOD_MONITORING" value="0" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_YN_GOOD_MONITORING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_YN_GOOD_MONITORING" value="0" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
@@ -480,10 +676,10 @@ else {
                         <label for="InputName">园区污废水来源比例</label><br/>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">生产废水所占比例(%)</label> <input type="number" class="form-control" name="YQWS_WASTEWATER_INDU" placeholder="" required>
+                        <label for="InputName">生产废水所占比例(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_WASTEWATER_INDU" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">生活污水所占比例(%)</label> <input type="number" class="form-control" name="YQWS_WASTEWATER_LIFE" placeholder="" required>
+                        <label for="InputName">生活污水所占比例(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_WASTEWATER_LIFE" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
                         <label for="InputName">生产废水的主要来源</label> <input type="text" class="form-control" name="YQWS_WASTEWATER_SOURCE" placeholder="" required><br/>
@@ -498,7 +694,7 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">污水厂运行问题与建议</label> <input type="text" class="form-control" name="YQWS_TREATEMENT_SUGGESTIONS" placeholder="" required><br/>
+                        <label for="InputName">污水厂运行问题与建议</label> <input type="text" class="form-control" name="YQWS_TREATEMENT_SUGGESTIONS" placeholder="" ><br/>
                     </div>
                 </div>
 
@@ -507,34 +703,34 @@ else {
                         <label for="InputName">进水主要污染物浓度(mg/L)</label><br/>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">CODcr</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_COD" placeholder="" required>
+                        <label for="InputName">CODcr</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_COD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">BOD5</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_BOD" placeholder="" required>
+                        <label for="InputName">BOD5</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_BOD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">TN</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_TH" placeholder="" required>
+                        <label for="InputName">TN</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_TH" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">SS</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_SS" placeholder="" required>
+                        <label for="InputName">SS</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_SS" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">TP</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_TP" placeholder="" required>
+                        <label for="InputName">TP</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_TP" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">色度</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_SE" placeholder="" required>
+                        <label for="InputName">色度</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_SE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">pH</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_PH" placeholder="" required>
+                        <label for="InputName">pH</label> <input type="number" step="0.1" max="14" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_PH" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">温度</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_WEN" placeholder="" required>
+                        <label for="InputName">温度</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_WEN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">NH3-N</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_NH" placeholder="" required>
+                        <label for="InputName">NH3-N</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_NH" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">其他</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_OTHER" placeholder="" required><br/>
+                        <label for="InputName">其他</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_IN_DENSITY_OTHER" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -546,34 +742,34 @@ else {
                         <label for="InputName">重金属</label>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">汞</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_HG" placeholder="" required>
+                        <label for="InputName">汞</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_HG" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">镉</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CD" placeholder="" required>
+                        <label for="InputName">镉</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铅</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_PB" placeholder="" required>
+                        <label for="InputName">铅</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_PB" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铬</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CR" placeholder="" required>
+                        <label for="InputName">铬</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CR" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">砷</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_SB" placeholder="" required>
+                        <label for="InputName">砷</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_SB" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铜</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CU" placeholder="" required><br/>
+                        <label for="InputName">铜</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_CU" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-12">
                         <label for="InputName">难降解有机物</label>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">芳烃类</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_ARO" placeholder="" required>
+                        <label for="InputName">芳烃类</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_ARO" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">抗生素</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_ANT" placeholder="" required>
+                        <label for="InputName">抗生素</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_ANT" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">其他</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_OTHER" placeholder="" required><br/>
+                        <label for="InputName">其他</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_IN_DENSITY_OTHER" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -582,34 +778,34 @@ else {
                         <label for="InputName">出水主要污染物浓度(mg/L)</label><br/>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">CODcr</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_COD" placeholder="" required>
+                        <label for="InputName">CODcr</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_COD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">BOD5</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_BOD" placeholder="" required>
+                        <label for="InputName">BOD5</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_BOD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">TN</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_TN" placeholder="" required>
+                        <label for="InputName">TN</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_TN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">SS</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_SS" placeholder="" required>
+                        <label for="InputName">SS</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_SS" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">TP</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_TP" placeholder="" required>
+                        <label for="InputName">TP</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_TP" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">色度</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_SE" placeholder="" required>
+                        <label for="InputName">色度</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_SE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">pH</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_PH" placeholder="" required>
+                        <label for="InputName">pH</label> <input type="number" step="0.1" max="14" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_PH" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">温度</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_WEN" placeholder="" required>
+                        <label for="InputName">温度</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_WEN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">NH3-N</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_NH" placeholder="" required>
+                        <label for="InputName">NH3-N</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_NH" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">其他</label> <input type="number" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_OTHER" placeholder="" required><br/>
+                        <label for="InputName">其他</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_WASTE_OUT_DENSITY_OTHER" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -621,34 +817,34 @@ else {
                         <label for="InputName">重金属</label>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">汞</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_HG" placeholder="" required>
+                        <label for="InputName">汞</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_HG" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">镉</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CD" placeholder="" required>
+                        <label for="InputName">镉</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CD" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铅</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_PB" placeholder="" required>
+                        <label for="InputName">铅</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_PB" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铬</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CR" placeholder="" required>
+                        <label for="InputName">铬</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CR" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">砷</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_SB" placeholder="" required>
+                        <label for="InputName">砷</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_SB" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">铜</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CU" placeholder="" required><br/>
+                        <label for="InputName">铜</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_CU" placeholder="" required><br/>
                     </div>
                     <div class="col-xs-12">
                         <label for="InputName">难降解有机物</label>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">芳烃类</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_ARO" placeholder="" required>
+                        <label for="InputName">芳烃类</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_ARO" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">抗生素</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_ANT" placeholder="" required>
+                        <label for="InputName">抗生素</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_ANT" placeholder="" required>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">其他</label> <input type="number" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_OTHER" placeholder="" required><br/>
+                        <label for="InputName">其他</label> <input type="number" step="0.001" class="form-control" name="YQWS_FEATURED_WASTE_OUT_DENSITY_OTHER" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -658,17 +854,17 @@ else {
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">是否有并行处理工艺</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_PARALLEL_PROCESSING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_PARALLEL_PROCESSING" value="0" placeholder="" required><br/><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_YN_PARALLEL_PROCESSING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_YN_PARALLEL_PROCESSING" value="0" placeholder="" required><br/><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">处理工艺流程简介(1#)</label> <input type="text" class="form-control" name="YQWS_PROCESSING_PROCESS_1" placeholder="进水->" required><br/>
+                        <label for="InputName">处理工艺流程简介(1#)</label> <input type="text" class="form-control" name="YQWS_PROCESSING_PROCESS_1" placeholder="进水->" ><br/>
                     </div>
                     <div class="col-xs-12">
-                        <label for="InputName">处理工艺流程简介(2#)</label> <input type="text" class="form-control" name="YQWS_PROCESSING_PROCESS_2" placeholder="进水->" required><br/>
+                        <label for="InputName">处理工艺流程简介(2#)</label> <input type="text" class="form-control" name="YQWS_PROCESSING_PROCESS_2" placeholder="进水->" ><br/>
                     </div>
                 </div>
 
@@ -683,22 +879,22 @@ else {
                         <label for="InputName">HRT</label>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">好氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_AE" placeholder="" required>
+                        <label for="InputName">好氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_AE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">厌氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_AN" placeholder="" required>
+                        <label for="InputName">厌氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_AN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">缺氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_HY" placeholder="" required>
+                        <label for="InputName">缺氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_MLSS_HY" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">好氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_AE" placeholder="" required>
+                        <label for="InputName">好氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_AE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">厌氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_AN" placeholder="" required>
+                        <label for="InputName">厌氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_AN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">缺氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_HY" placeholder="" required><br/>
+                        <label for="InputName">缺氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_HRT_HY" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -710,31 +906,31 @@ else {
                         <label for="InputName">处理池有效容积</label>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">好氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_AE" placeholder="" required>
+                        <label for="InputName">好氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_AE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">厌氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_AN" placeholder="" required>
+                        <label for="InputName">厌氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_AN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">缺氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_HY" placeholder="" required>
+                        <label for="InputName">缺氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SRT_HY" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">好氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_AE" placeholder="" required>
+                        <label for="InputName">好氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_AE" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">厌氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_AN" placeholder="" required>
+                        <label for="InputName">厌氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_AN" placeholder="" required>
                     </div>
                     <div class="col-xs-2">
-                        <label for="InputName">缺氧</label> <input type="number" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_HY" placeholder="" required><br/><br/>
+                        <label for="InputName">缺氧</label> <input type="number" step="0.001" class="form-control" name="YQWS_MAIN_PARAMETERS_SIZE_HY" placeholder="" required><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">出水年达标率(%)</label> <input type="number" class="form-control" name="YQWS_ANNUAL_WATER_GOOD_RATE" placeholder="" required>
+                        <label for="InputName">出水年达标率(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_ANNUAL_WATER_GOOD_RATE" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">再生水处理规模(m^3/d)</label> <input type="number" class="form-control" name="YQWS_RESYCLE_WATER_SIZE" placeholder="" required><br/>
+                        <label for="InputName">再生水处理规模(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="YQWS_RESYCLE_WATER_SIZE" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -747,16 +943,16 @@ else {
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;较弱</label><input type="radio" name="YQWS_ANTI_PRESSURE" value="较弱" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">抗水质冲击生物池恢复天数</label> <input type="number" class="form-control" name="YQWS_RECOVER_DAYS_Q" placeholder="" required><br/>
+                        <label for="InputName">抗水质冲击生物池恢复天数</label> <input type="number" step="0.001" class="form-control" name="YQWS_RECOVER_DAYS_Q" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">抗水力冲击生物池恢复天数</label> <input type="number" class="form-control" name="YQWS_RECOVER_DAYS_P" placeholder="" required>
+                        <label for="InputName">抗水力冲击生物池恢复天数</label> <input type="number" step="0.001" class="form-control" name="YQWS_RECOVER_DAYS_P" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污水厂水质监测点覆盖率(%)</label> <input type="number" class="form-control" name="YQWS_MONITORING_RATE" placeholder="" required><br/>
+                        <label for="InputName">污水厂水质监测点覆盖率(%)</label> <input type="number" step="0.001" max="100" class="form-control" name="YQWS_MONITORING_RATE" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -769,19 +965,19 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">污水厂内有无事故水池</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_Y/N_ACCIDENT_POOL" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_Y/N_ACCIDENT_POOL" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQWS_YN_ACCIDENT_POOL" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQWS_YN_ACCIDENT_POOL" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">事故水池的容积(m^3)</label> <input type="number" class="form-control" name="YQWS_ACCIDENT_POOL_VOLUME" placeholder="" required><br/>
+                        <label for="InputName">事故水池的容积(m^3)</label> <input type="number" step="0.001" class="form-control" name="YQWS_ACCIDENT_POOL_VOLUME" placeholder="" ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否制定了污水回用管理办法</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_RESYCLE_MEANS" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_RESYCLE_MEANS" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_YN_RESYCLE_MEANS" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_YN_RESYCLE_MEANS" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label>如果已经制定，请提供</label>
@@ -792,8 +988,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否建立了应急预案</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_ANTI_ACCIDENT_PLAN" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_ANTI_ACCIDENT_PLAN" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_YN_ANTI_ACCIDENT_PLAN" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_YN_ANTI_ACCIDENT_PLAN" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label>如有应急预案，请提供</label>
@@ -804,8 +1000,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">是否采用了分质入网处理方式</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_Y/N_DIVIDE_ENTER_PROCESSING" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_Y/N_DIVIDE_ENTER_PROCESSING" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQWS_YN_DIVIDE_ENTER_PROCESSING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQWS_YN_DIVIDE_ENTER_PROCESSING" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">园区采取了何种监管手段</label><br/>
@@ -827,19 +1023,19 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">技术层面是否存在障碍</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLCM_Y/N_TECHNIQUE_PROBLEM" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLCM_Y/N_TECHNIQUE_PROBLEM" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLCM_YN_TECHNIQUE_PROBLEM" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLCM_YN_TECHNIQUE_PROBLEM" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">主要原因</label> <input type="text" class="form-control" name="GLCM_TECHNIQUE_PROBLEM_REASON" placeholder="" required><br/>
+                        <label for="InputName">主要原因</label> <input type="text" class="form-control" name="GLCM_TECHNIQUE_PROBLEM_REASON" placeholder="" ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">经济层面是否存在障碍</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLCM_Y/N_ECNOMIC_PROBLEM" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLCM_Y/N_ECNOMIC_PROBLEM" value="0" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="GLCM_YN_ECNOMIC_PROBLEM" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="GLCM_YN_ECNOMIC_PROBLEM" value="0" placeholder="" required>
                     </div>
                     <div class="col-xs-3">
                         <label for="InputName">盈利来自收入</label> <input type="text" class="form-control" name="GLCM_INCOME_SOURCE" placeholder="" required><br/>
@@ -871,43 +1067,43 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">设计水量(m^3/d)</label> <input type="number" class="form-control" name="ZSHY_DESIGN_WATER_SIZE" placeholder="" required>
+                        <label for="InputName">设计水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_DESIGN_WATER_SIZE" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">运行水量(m^3/d)</label> <input type="number" class="form-control" name="ZSHY_RUNNING_WATER_SIZE" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">占地面积(m^2)</label> <input type="number" class="form-control" name="ZSHY_LAND_SIZE" placeholder="" required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">工程建设投资费用(万元)</label> <input type="number" class="form-control" name="ZSHY_CONSTRUCTION_INVESTMENT" placeholder="" required><br/>
+                        <label for="InputName">运行水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_RUNNING_WATER_SIZE" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">运行费用(万元/a)</label> <input type="number" class="form-control" name="ZSHY_RUNNING_FEE" placeholder="" required>
+                        <label for="InputName">占地面积(m^2)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_LAND_SIZE" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">年回用水量(t/a)</label> <input type="number" class="form-control" name="ZSHY_ANNUAL_RESCYCLE_WATER" placeholder="" required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">回用收益(万元/a)</label> <input type="number" class="form-control" name="ZSHY_RESYCLE_PROFIT" placeholder="" required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">投资回收期(a)</label> <input type="number" class="form-control" name="ZSHY_RESYCLE_TIME" placeholder="" required><br/>
+                        <label for="InputName">工程建设投资费用(万元)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_CONSTRUCTION_INVESTMENT" placeholder="" required><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">废水回用比例(%)</label> <input type="number" class="form-control" name="ZSHY_RESYCLE_RATE" placeholder="" required>
+                        <label for="InputName">运行费用(万元/a)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_RUNNING_FEE" placeholder="" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">年回用水量(t/a)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_ANNUAL_RESCYCLE_WATER" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">回用收益(万元/a)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_RESYCLE_PROFIT" placeholder="" required>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">投资回收期(a)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_RESYCLE_TIME" placeholder="" required><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">废水回用比例(%)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_RESYCLE_RATE" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">再生水生产进水水质标准</label> <input type="text" class="form-control" name="ZSHY_RESYCLE_IN_STANDARD" placeholder="" required><br/>
@@ -931,10 +1127,10 @@ else {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">稳定达标率(%)</label> <input type="number" class="form-control" name="ZSHY_STABILITY_RATE" placeholder="" required>
+                        <label for="InputName">稳定达标率(%)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_STABILITY_RATE" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">一般固废产生量(t/a)</label> <input type="number" class="form-control" name="ZSHY_SOLID_RATE" placeholder="" required><br/>
+                        <label for="InputName">一般固废产生量(t/a)</label> <input type="number" step="0.001" class="form-control" name="ZSHY_SOLID_RATE" placeholder="" required><br/>
                     </div>
                 </div>
 
@@ -944,8 +1140,8 @@ else {
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">再生水处理中控系统</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="ZSHY_Y/N_CONTROL_SYSTEM" value="1" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="ZSHY_Y/N_CONTROL_SYSTEM" value="0" placeholder="" required><br/><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="ZSHY_YN_CONTROL_SYSTEM" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="ZSHY_YN_CONTROL_SYSTEM" value="0" placeholder="" required><br/><br/><br/>
                     </div>
                 </div>
 

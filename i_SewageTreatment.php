@@ -7,13 +7,12 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
     $username=$_SESSION['username'];
-    $query="select `type`, `submit`, `uid` from user_info where `username`='$username'";
+    $query="select `type`, `uid` from user_info where `username`='$username'";
     $result = mysqli_query($con,$query);
     $row =mysqli_fetch_array($result);
     $type=$row[0];
-    $submit=$row[1];
-    $uid=$row[2];
-    if($type!=2&&$type!=0||$submit==1){
+    $uid=$row[1];
+    if($type!=2&&$type!=0){
         header("location: home.php");
     }
     else if(isset($_POST['submit'])){

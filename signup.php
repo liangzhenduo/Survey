@@ -17,7 +17,11 @@ if(isset($_POST['submit'])) {
             $error = "用户已存在!";
         }
         else {
-            $query = "INSERT INTO user_info(username, password, `type`, unit, mail) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
+            if($_POST['username']=='root')
+                $_POST['usertype']=0;
+                /*$query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','0','$_POST[unit]','$_POST[mail]')";
+            else*/
+            $query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
             $result = mysqli_query($con, $query);
             $username=$_POST['username'];
             $query="select `uid` from user_info where `username`='$username'";
