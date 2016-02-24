@@ -563,8 +563,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">生活污水和工业废水分流</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;是</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;否</label><input type="radio" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">污水管网转输形式</label><br/>
@@ -576,8 +576,8 @@ else {
                 <div class="form-group">
                     <div class="col-xs-6">
                         <label for="InputName">园区污水管网节点监控</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_YN_MONITORING" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_YN_MONITORING" placeholder="" required><br/><br/>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;有</label><input type="radio" name="YQGW_YN_MONITORING" value="1" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;无</label><input type="radio" name="YQGW_YN_MONITORING" value="0" placeholder="" required><br/><br/>
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">污水管网节点监控个数(个)</label> <input type="number" class="form-control" name="YQGW_MONITORING_NODE_NUMBER" placeholder="" required><br/>
