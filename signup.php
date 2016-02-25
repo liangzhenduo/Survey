@@ -3,7 +3,6 @@ session_start();
 $error='';
 
 if(isset($_POST['submit'])) {
-
     include("connectdb.php");
 
     if($_POST['password'] != $_POST['retry']){

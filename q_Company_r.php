@@ -13,9 +13,10 @@ $type=$row[0];
 if($type!=0){
 	header("location: home.php");
 }
-$select="select * from CompanyQuestionnaire where `ID`='10'";
-$result = mysqli_query($con,$select);
-$rows = mysqli_fetch_array($result);
+if(isset($_GET['id'])) {
+	$select = "SELECT * FROM CompanyQuestionnaire WHERE `ID`='$_GET[id]'";
+	$result = mysqli_query($con, $select);
+	$rows = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +63,7 @@ $rows = mysqli_fetch_array($result);
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 
-						<li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+						<li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
 						<?php
 						if(isset($_SESSION['username'])){
@@ -294,7 +295,7 @@ $rows = mysqli_fetch_array($result);
 						<div class="col-xs-12">
 							<label for="InputName">特征污染物种类</label><br/>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_ZHONG" value="0">
-							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="" <?php if($rows[43]==1){ ?> checked <?php } ?> disabled disabled>
+							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="" <?php if($rows[43]==1){ ?> checked <?php } ?> disabled>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;盐类</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_YAN" value="0">
 							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_YAN" placeholder="" <?php if($rows[44]==1){ ?> checked <?php } ?> disabled>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;难降解机物</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_NAN" value="0">
@@ -668,7 +669,7 @@ $rows = mysqli_fetch_array($result);
 
 					<br/><h3 align="center">其他</h3><br/>
 					<div class="col-xs-12">
-						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title="" value="<?php echo $rows[129] ?>" disabled></textarea><br/><br/>
+						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title="" disabled><?php echo $rows[129] ?></textarea><br/><br/>
 					</div>
 
 					<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
@@ -677,10 +678,11 @@ $rows = mysqli_fetch_array($result);
 			</div>
 			<div class="col-lg-3"></div>
 
-			</div>
+		</div>
 
-  			</div> <!-- /container -->
-  		</body>
+	</div> <!-- /container -->
+  </body>
 
-  		</html>
+</html>
 
+<?php } ?>

@@ -13,9 +13,10 @@ $type=$row[0];
 if($type!=0){
     header("location: home.php");
 }
-$select="select * from IndustrialParkInvestigation where `ID`='12'";
-$result = mysqli_query($con,$select);
-$rows = mysqli_fetch_array($result);
+if(isset($_GET['id'])) {
+    $select="select * from IndustrialParkInvestigation where `ID`='$_GET[id]'";
+    $result = mysqli_query($con,$select);
+    $rows = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +63,7 @@ $rows = mysqli_fetch_array($result);
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
                     <?php
                     if(isset($_SESSION['username'])){
@@ -658,3 +659,4 @@ $rows = mysqli_fetch_array($result);
 
 </html>
 
+<?php } ?>

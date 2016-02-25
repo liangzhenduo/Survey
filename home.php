@@ -69,7 +69,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
-              <li><a href="ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
               <?php 
               	if(isset($_SESSION['username'])){

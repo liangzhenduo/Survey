@@ -13,9 +13,10 @@ $type=$row[0];
 if($type!=0){
     header("location: home.php");
 }
-$select="select * from SewageTreatmentQuestionnaire where `ID`='11'";
-$result = mysqli_query($con,$select);
-$rows = mysqli_fetch_array($result);
+if(isset($_GET['id'])) {
+    $select="select * from SewageTreatmentQuestionnaire where `ID`='$_GET[id]'";
+    $result = mysqli_query($con,$select);
+    $rows = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +34,6 @@ $rows = mysqli_fetch_array($result);
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -66,7 +64,7 @@ $rows = mysqli_fetch_array($result);
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
 
                     <?php
                     if(isset($_SESSION['username'])){
@@ -876,3 +874,4 @@ $rows = mysqli_fetch_array($result);
 
 </html>
 
+<?php } ?>
