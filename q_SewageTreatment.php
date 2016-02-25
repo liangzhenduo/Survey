@@ -139,7 +139,6 @@ else {
 `YQWS_YN_PARALLEL_PROCESSING`='$_POST[YQWS_YN_PARALLEL_PROCESSING]',
 `YQWS_PROCESSING_PROCESS_1`='$_POST[YQWS_PROCESSING_PROCESS_1]',
 `YQWS_PROCESSING_PROCESS_2`='$_POST[YQWS_PROCESSING_PROCESS_2]',
-`YQWS_MAIN_PARAMETERS`='$_POST[YQWS_MAIN_PARAMETERS]',
 `YQWS_MAIN_PARAMETERS_MLSS_AE`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_AE]',
 `YQWS_MAIN_PARAMETERS_MLSS_AN`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_AN]',
 `YQWS_MAIN_PARAMETERS_MLSS_HY`='$_POST[YQWS_MAIN_PARAMETERS_MLSS_HY]',
@@ -453,14 +452,10 @@ else {
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label for="InputName">排污收费标准</label><br/>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;浓度</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
-                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="浓度" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总量</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
-                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="总量" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;统一收费</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
-                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="统一收费" placeholder="" required>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;分类收费</label><input type="hidden" name="YQFS_CHARGE_STANDARD" value="0">
-                        <input type="radio" name="YQFS_CHARGE_STANDARD" value="分类收费" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;浓度</label> <input type="radio" name="YQFS_CHARGE_STANDARD" value="浓度" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;总量</label> <input type="radio" name="YQFS_CHARGE_STANDARD" value="总量" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;统一收费</label> <input type="radio" name="YQFS_CHARGE_STANDARD" value="统一收费" placeholder="" required>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;分类收费</label> <input type="radio" name="YQFS_CHARGE_STANDARD" value="分类收费" placeholder="" required>
                         <!--label>&nbsp;&nbsp;&nbsp;&nbsp;生活废水</label><input type="checkbox" value="1" name="contact" placeholder="" required>
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;工业废水</label><input type="checkbox" value="1" name="contact" placeholder="" required--><br/><br/><br/>
                     </div>

@@ -10,7 +10,7 @@ $query="select `type` from user_info where `username`='$username'";
 $result = mysqli_query($con,$query);
 $row =mysqli_fetch_array($result);
 $type=$row[0];
-if($type!=2&&$type!=0){
+if($type!=0){
     header("location: home.php");
 }
 $select="select * from SewageTreatmentInvestigation where `ID`='11'";

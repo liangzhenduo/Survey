@@ -10,7 +10,7 @@ $query="select `type` from user_info where username='$username'";
 $result = mysqli_query($con,$query);
 $row =mysqli_fetch_array($result);
 $type=$row[0];
-if($type!=1&&$type!=0){
+if($type!=0){
 	header("location: home.php");
 }
 $select="select * from CompanyQuestionnaire where `ID`='10'";
@@ -294,7 +294,7 @@ $rows = mysqli_fetch_array($result);
 						<div class="col-xs-12">
 							<label for="InputName">特征污染物种类</label><br/>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;重金属</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_ZHONG" value="0">
-							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="" <?php if($rows[43]==1){ ?> checked <?php } ?> disabled>
+							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_ZHONG" placeholder="" <?php if($rows[43]==1){ ?> checked <?php } ?> disabled disabled>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;盐类</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_YAN" value="0">
 							<input type="checkbox" value="1" name="WSCL_TYPICAL_POLLUTION_YAN" placeholder="" <?php if($rows[44]==1){ ?> checked <?php } ?> disabled>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;难降解机物</label><input type="hidden" name="WSCL_TYPICAL_POLLUTION_NAN" value="0">
@@ -654,15 +654,15 @@ $rows = mysqli_fetch_array($result);
 					<div class="form-group">
 						<div class="col-xs-12">
 							<label for="InputName">企业废水达标排放存在的困难</label>
-							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_DIFFICULTY" title="" value="<?php echo $rows[126] ?>" disabled></textarea><br/>
+							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_DIFFICULTY" title="" disabled><?php echo $rows[126] ?></textarea><br/>
 						</div>
 						<div class="col-xs-12">
 							<label for="InputName">企业对目前法律法规、政策和管理措施的疑异，在实施过程中的障碍</label>
-							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_QUESTION_OBSTACLE" title="" value="<?php echo $rows[127] ?>" disabled></textarea><br/>
+							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_QUESTION_OBSTACLE" title="" disabled><?php echo $rows[127] ?></textarea><br/>
 						</div>
 						<div class="col-xs-12">
 							<label for="InputName">企业从政府或管理部门处希望得到的支持</label>
-							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_GOVERMENT_SUPPORT" title="" value="<?php echo $rows[128] ?>" disabled></textarea><br/><br/>
+							<textarea class="textarea form-control input-lg" rows="5" name="GLWJ_GOVERMENT_SUPPORT" title="" disabled><?php echo $rows[128] ?></textarea><br/><br/>
 						</div>
 					</div>
 
