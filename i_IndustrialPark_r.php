@@ -5,17 +5,17 @@ $error='';
 if(!isset($_SESSION['username'])){		//未登录
     header("location: signin.php");
 }
-    $username=$_SESSION['username'];
-    $query="select `type` from user_info where username='$username'";
-    $result = mysqli_query($con,$query);
-    $row = mysqli_fetch_array($result);
-    $type=$row[0];
-    if($type!=0){
-        header("location: home.php");
-    }
-    $select="select * from IndustrialParkInvestigation where `ID`='12'";
-    $result = mysqli_query($con,$select);
-    $rows = mysqli_fetch_array($result);
+$username=$_SESSION['username'];
+$query="select `type` from user_info where username='$username'";
+$result = mysqli_query($con,$query);
+$row = mysqli_fetch_array($result);
+$type=$row[0];
+if($type!=0){
+    header("location: home.php");
+}
+$select="select * from IndustrialParkInvestigation where `ID`='12'";
+$result = mysqli_query($con,$select);
+$rows = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,10 +93,10 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">填表人</label> <input type="text" class="form-control" name="YQGW_INVESTIGATOR" placeholder="" value="<?php echo $rows[1] ?>" disabled required>
+                        <label for="InputName">填表人</label> <input type="text" class="form-control" name="YQGW_INVESTIGATOR" placeholder="" value="<?php echo $rows[1] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">联系电话</label> <input type="text" class="form-control" name="YQGW_CONTACT" required placeholder="" value=" <?php echo $rows[2] ?>" disabled><br/><br/>
+                        <label for="InputName">联系电话</label> <input type="text" class="form-control" name="YQGW_CONTACT"  placeholder="" value=" <?php echo $rows[2] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
@@ -104,61 +104,61 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">园区名称</label> <input type="text" class="form-control" name="JBQK_NAME" placeholder="" value=" <?php echo $rows[3] ?>" disabled required>
+                        <label for="InputName">园区名称</label> <input type="text" class="form-control" name="JBQK_NAME" placeholder="" value=" <?php echo $rows[3] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">园区地址</label> <input type="text" class="form-control" name="JBQK_ADDRESS" placeholder="" value=" <?php echo $rows[4] ?>" disabled required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">园区类型</label> <input type="text" class="form-control" name="JBQK_CATEGORY" placeholder="" value=" <?php echo $rows[5] ?>" disabled required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">园区出让工业用地面积(平方公里)</label> <input type="text" step="0.001" class="form-control" name="JBQK_LAND" placeholder="" value=" <?php echo $rows[6] ?>" disabled required><br/>
+                        <label for="InputName">园区地址</label> <input type="text" class="form-control" name="JBQK_ADDRESS" placeholder="" value=" <?php echo $rows[4] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">用水水源</label> <input type="text" class="form-control" name="JBQK_WATER_SOURCE" placeholder="" value=" <?php echo $rows[7] ?>" disabled required>
+                        <label for="InputName">园区类型</label> <input type="text" class="form-control" name="JBQK_CATEGORY" placeholder="" value=" <?php echo $rows[5] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">园区日均用水量(万吨)</label> <input type="text" step="0.001" class="form-control" name="JBQK_WATER_PER_DAY" placeholder="" value=" <?php echo $rows[8] ?>" disabled required><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">企业数量(已生产、在建、签订合同)</label> <input type="text" class="form-control" name="JBQK_COMPANY_NUMBER" placeholder="" value=" <?php echo $rows[9] ?>" disabled required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">工业年产值(GDP)万元</label> <input type="text" step="0.001" class="form-control" name="JBQK_GDP" placeholder="" value=" <?php echo $rows[10] ?>" disabled required><br/>
+                        <label for="InputName">园区出让工业用地面积(平方公里)</label> <input type="text" step="0.001" class="form-control" name="JBQK_LAND" placeholder="" value=" <?php echo $rows[6] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">年税收(万元)</label> <input type="text" step="0.001" class="form-control" name="JBQK_TAX" placeholder="" value=" <?php echo $rows[11] ?>" disabled required>
+                        <label for="InputName">用水水源</label> <input type="text" class="form-control" name="JBQK_WATER_SOURCE" placeholder="" value=" <?php echo $rows[7] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">排污收费的年征收额度(万元)</label> <input type="text" step="0.001" class="form-control" name="JBQK_UNLOAD_CHARGE" placeholder="" value=" <?php echo $rows[12] ?>" disabled required><br/>
+                        <label for="InputName">园区日均用水量(万吨)</label> <input type="text" step="0.001" class="form-control" name="JBQK_WATER_PER_DAY" placeholder="" value=" <?php echo $rows[8] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">是否将环境绩效纳入政府考核</label> <input type="text" class="form-control" name="JBQK_YN_EVALUATION" placeholder="" value=" <?php echo $rows[13] ?>" disabled required>
+                        <label for="InputName">企业数量(已生产、在建、签订合同)</label> <input type="text" class="form-control" name="JBQK_COMPANY_NUMBER" placeholder="" value=" <?php echo $rows[9] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">园区是否做规划环评</label> <input type="text" class="form-control" name="JBQK_YN_SCHEDULED_EVALUATION" placeholder="" value=" <?php echo $rows[14] ?>" disabled required><br/><br/>
+                        <label for="InputName">工业年产值(GDP)万元</label> <input type="text" step="0.001" class="form-control" name="JBQK_GDP" placeholder="" value=" <?php echo $rows[10] ?>" disabled ><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">年税收(万元)</label> <input type="text" step="0.001" class="form-control" name="JBQK_TAX" placeholder="" value=" <?php echo $rows[11] ?>" disabled >
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">排污收费的年征收额度(万元)</label> <input type="text" step="0.001" class="form-control" name="JBQK_UNLOAD_CHARGE" placeholder="" value=" <?php echo $rows[12] ?>" disabled ><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">是否将环境绩效纳入政府考核</label> <input type="text" class="form-control" name="JBQK_YN_EVALUATION" placeholder="" value=" <?php echo $rows[13] ?>" disabled >
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">园区是否做规划环评</label> <input type="text" class="form-control" name="JBQK_YN_SCHEDULED_EVALUATION" placeholder="" value=" <?php echo $rows[14] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">环保部门是否对建设项目进行前置审批</label> <input type="text" class="form-control" name="JBQK_PRE_EXAMINATION" placeholder="" value=" <?php echo $rows[15] ?>" disabled required><br/><br/>
+                        <label for="InputName">环保部门是否对建设项目进行前置审批</label> <input type="text" class="form-control" name="JBQK_PRE_EXAMINATION" placeholder="" value=" <?php echo $rows[15] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
@@ -230,28 +230,28 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">园区对企业超标/违规排放处罚措施</label> <input type="text" class="form-control"  name="JBQK_YN_TREATMENT_PLANT_PUNISHMENT" placeholder="" value=" <?php echo $rows[34] ?>" disabled required>
+                        <label for="InputName">园区对企业超标/违规排放处罚措施</label> <input type="text" class="form-control"  name="JBQK_YN_TREATMENT_PLANT_PUNISHMENT" placeholder="" value=" <?php echo $rows[34] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">园区对污水厂超标/违规排放处罚措施</label> <input type="text" class="form-control" name="JBQK_YN_COMPANY_PUNISHMENT" placeholder="" value=" <?php echo $rows[35] ?>" disabled required><br/><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">园区事故水池设置</label> <input type="text" class="form-control" name="JBQK_YN_POOL_SETTING" placeholder="" value=" <?php echo $rows[36] ?>" disabled required>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">园区事故水池容积(m^3)</label> <input type="text" step="0.001" class="form-control" name="JBQK_POOL_VOLUME" placeholder="" value=" <?php echo $rows[37] ?>" disabled required><br/>
+                        <label for="InputName">园区对污水厂超标/违规排放处罚措施</label> <input type="text" class="form-control" name="JBQK_YN_COMPANY_PUNISHMENT" placeholder="" value=" <?php echo $rows[35] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">园区事故水池数量</label> <input type="text" class="form-control" name="JBQK_POOL_NUMBER" placeholder="" value=" <?php echo $rows[38] ?>" disabled required>
+                        <label for="InputName">园区事故水池设置</label> <input type="text" class="form-control" name="JBQK_YN_POOL_SETTING" placeholder="" value=" <?php echo $rows[36] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">园区事故水池位置</label> <input type="text" class="form-control" name="JBQK_POOL_LOCATION" placeholder="" value=" <?php echo $rows[39] ?>" disabled required><br/><br/><br/>
+                        <label for="InputName">园区事故水池容积(m^3)</label> <input type="text" step="0.001" class="form-control" name="JBQK_POOL_VOLUME" placeholder="" value=" <?php echo $rows[37] ?>" disabled ><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">园区事故水池数量</label> <input type="text" class="form-control" name="JBQK_POOL_NUMBER" placeholder="" value=" <?php echo $rows[38] ?>" disabled >
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">园区事故水池位置</label> <input type="text" class="form-control" name="JBQK_POOL_LOCATION" placeholder="" value=" <?php echo $rows[39] ?>" disabled ><br/><br/><br/>
                     </div>
                 </div>
 
@@ -306,10 +306,10 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">设置污水处理设施的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_TREATMENT_NUMBER" placeholder="" value=" <?php echo $rows[56] ?>" disabled required>
+                        <label for="InputName">设置污水处理设施的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_TREATMENT_NUMBER" placeholder="" value=" <?php echo $rows[56] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">设置标准化排放口的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_STANDARD_UNLOADPLACE_NUMBER" placeholder="" value=" <?php echo $rows[57] ?>" disabled required><br/>
+                        <label for="InputName">设置标准化排放口的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_STANDARD_UNLOADPLACE_NUMBER" placeholder="" value=" <?php echo $rows[57] ?>" disabled ><br/>
                     </div>
                 </div>
 
@@ -333,19 +333,19 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">日排放水量100吨以上企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_LARGERTHAN100_NUMBER" placeholder="" value=" <?php echo $rows[64] ?>" disabled required>
+                        <label for="InputName">日排放水量100吨以上企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_LARGERTHAN100_NUMBER" placeholder="" value=" <?php echo $rows[64] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">达标直排外环境，不进园区污水管网企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_OUT_DIRECTLY_NUMBER" placeholder="" value=" <?php echo $rows[65] ?>" disabled required><br/>
+                        <label for="InputName">达标直排外环境，不进园区污水管网企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_OUT_DIRECTLY_NUMBER" placeholder="" value=" <?php echo $rows[65] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">排水纳入园区污水厂的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_IN_TREATMENT_NUMBER" placeholder="" value=" <?php echo $rows[66] ?>" disabled required>
+                        <label for="InputName">排水纳入园区污水厂的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_IN_TREATMENT_NUMBER" placeholder="" value=" <?php echo $rows[66] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">设置事故水池的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_POOL_NUMBER" placeholder="" value=" <?php echo $rows[67] ?>" disabled required><br/>
+                        <label for="InputName">设置事故水池的企业数量(个)</label> <input type="text" class="form-control" name="YQQY_COMPANY_HAVE_POOL_NUMBER" placeholder="" value=" <?php echo $rows[67] ?>" disabled ><br/>
                     </div>
                 </div>
 
@@ -382,28 +382,28 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">园区收水管网</label> <input type="text" class="form-control" name="YQGW_NETWORK_CATEGORY" placeholder="" value=" <?php echo $rows[80] ?>" disabled required>
+                        <label for="InputName">园区收水管网</label> <input type="text" class="form-control" name="YQGW_NETWORK_CATEGORY" placeholder="" value=" <?php echo $rows[80] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">工业废水分质分类收集</label> <input type="text" class="form-control" name="YQGW_YN_WASTE_DIVIDE" placeholder="" value=" <?php echo $rows[81] ?>" disabled required><br/><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">生活污水和工业废水分流</label> <input type="text" class="form-control" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" value=" <?php echo $rows[82] ?>" disabled required><br/><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">污水管网转输形式</label> <input type="text" class="form-control" name="YQGW_TRANSFER" value="地埋式" placeholder="" value=" <?php echo $rows[83] ?>" disabled required><br/><br/>
+                        <label for="InputName">工业废水分质分类收集</label> <input type="text" class="form-control" name="YQGW_YN_WASTE_DIVIDE" placeholder="" value=" <?php echo $rows[81] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">园区污水管网节点监控</label> <input type="text" class="form-control" name="YQGW_YN_MONITORING" placeholder="" value=" <?php echo $rows[84] ?>" disabled required><br/><br/>
+                        <label for="InputName">生活污水和工业废水分流</label> <input type="text" class="form-control" name="YQGW_YN_LIFE_AND_INDUSTRIAL_WASTE_DIVIDE" placeholder="" value=" <?php echo $rows[82] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污水管网节点监控个数(个)</label> <input type="text" class="form-control" name="YQGW_MONITORING_NODE_NUMBER" placeholder="" value=" <?php echo $rows[85] ?>" disabled required><br/>
+                        <label for="InputName">污水管网转输形式</label> <input type="text" class="form-control" name="YQGW_TRANSFER" placeholder="" value=" <?php echo $rows[83] ?>" disabled ><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">园区污水管网节点监控</label> <input type="text" class="form-control" name="YQGW_YN_MONITORING" placeholder="" value=" <?php echo $rows[84] ?>" disabled >
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">污水管网节点监控个数(个)</label> <input type="text" class="form-control" name="YQGW_MONITORING_NODE_NUMBER" placeholder="" value=" <?php echo $rows[85] ?>" disabled ><br/>
                     </div>
                 </div>
 
@@ -437,43 +437,43 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">排污收费标准</label> <input type="text" class="form-control" name="YQGW_WASTE_UNLOAD_STANDARD" placeholder="" value=" <?php echo $rows[97] ?>" disabled required><br/><br/><br/>
+                        <label for="InputName">排污收费标准</label> <input type="text" class="form-control" name="YQGW_WASTE_UNLOAD_STANDARD" placeholder="" value=" <?php echo $rows[97] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水管网节点监控频次(次/周)</label> <input type="text" class="form-control" name="YQGW_MONITORING_FREQUENCY" placeholder="" value=" <?php echo $rows[98] ?>" disabled required><br/>
+                        <label for="InputName">污水管网节点监控频次(次/周)</label> <input type="text" class="form-control" name="YQGW_MONITORING_FREQUENCY" placeholder="" value=" <?php echo $rows[98] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">污水管网投资来源</label> <input type="text" class="form-control" name="YQGW_WASTEWATER_NETWORK_INVESTMENT_SOURCE" placeholder="" value=" <?php echo $rows[99] ?>" disabled required><br/><br/><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-6">
-                        <label for="InputName">污水管网运行费用(元/m^3水)</label> <input type="text" step="0.001" class="form-control" name="YQGW_NETWORK_RUNNING_FEE" placeholder="" value=" <?php echo $rows[100] ?>" disabled required><br/>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="InputName">污水管网维护费来源</label> <input type="text" class="form-control" name="YQGW_NETWORK_RUNNING_FEE_SOURCE" placeholder="" value=" <?php echo $rows[101] ?>" disabled required><br/><br/><br/>
+                        <label for="InputName">污水管网投资来源</label> <input type="text" class="form-control" name="YQGW_WASTEWATER_NETWORK_INVESTMENT_SOURCE" placeholder="" value=" <?php echo $rows[99] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">中水回用管道</label> <input type="text" class="form-control" name="YQGW_YN_RESYCLE_NETWORK" placeholder="" value=" <?php echo $rows[102] ?>" disabled required><br/><br/>
+                        <label for="InputName">污水管网运行费用(元/m^3水)</label> <input type="text" step="0.001" class="form-control" name="YQGW_NETWORK_RUNNING_FEE" placeholder="" value=" <?php echo $rows[100] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">中水管网投资来源</label> <input type="text" class="form-control" name="YQGW_WATER_NETWORK_INVESTMENT_SOURCE" placeholder="" value=" <?php echo $rows[103] ?>" disabled required><br/><br/>
+                        <label for="InputName">污水管网维护费来源</label> <input type="text" class="form-control" name="YQGW_NETWORK_RUNNING_FEE_SOURCE" placeholder="" value=" <?php echo $rows[101] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">中水管网运行费用(元/m^3水)</label> <input type="text" step="0.001" class="form-control" name="YQGW_PIPE_NETWORK_RUNNING_FEE" placeholder="" value=" <?php echo $rows[104] ?>" disabled required><br/>
+                        <label for="InputName">中水回用管道</label> <input type="text" class="form-control" name="YQGW_YN_RESYCLE_NETWORK" placeholder="" value=" <?php echo $rows[102] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">中水管网运行费用来源</label> <input type="text" class="form-control" name="YQGW_PIPE_NETWORK_SOURCE" placeholder="" value=" <?php echo $rows[105] ?>" disabled required><br/><br/><br/><br/>
+                        <label for="InputName">中水管网投资来源</label> <input type="text" class="form-control" name="YQGW_WATER_NETWORK_INVESTMENT_SOURCE" placeholder="" value=" <?php echo $rows[103] ?>" disabled ><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="InputName">中水管网运行费用(元/m^3水)</label> <input type="text" step="0.001" class="form-control" name="YQGW_PIPE_NETWORK_RUNNING_FEE" placeholder="" value=" <?php echo $rows[104] ?>" disabled >
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">中水管网运行费用来源</label> <input type="text" class="form-control" name="YQGW_PIPE_NETWORK_SOURCE" placeholder="" value=" <?php echo $rows[105] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
@@ -481,16 +481,16 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">年污水排放量(m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_WASTEWATER_DISCHARGE" placeholder="" value=" <?php echo $rows[106] ?>" disabled required><br/>
+                        <label for="InputName">年污水排放量(m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_WASTEWATER_DISCHARGE" placeholder="" value=" <?php echo $rows[106] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">年再生水回用量(m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_WASTEWATER_RESYCLE" placeholder="" value=" <?php echo $rows[107] ?>" disabled required><br/>
+                        <label for="InputName">年再生水回用量(m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_WASTEWATER_RESYCLE" placeholder="" value=" <?php echo $rows[107] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">回用类型</label> <input type="text" class="form-control" name="YQSZ_WASTEWATER_RESYCLE_CATEGORY" placeholder="" value=" <?php echo $rows[108] ?>" disabled><br/><br/>
+                        <label for="InputName">回用类型</label> <input type="text" class="form-control" name="YQSZ_WASTEWATER_RESYCLE_CATEGORY" placeholder="" value=" <?php echo $rows[108] ?>" disabled><br/>
                     </div>
                 </div>
 
@@ -502,38 +502,38 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">再生水回用用途</label> <input type="text" class="form-control" name="YQSZ_WASTEWATER_RESYCLE_USAGE" placeholder="" value=" <?php echo $rows[110] ?>" disabled><br/><br/>
+                        <label for="InputName">再生水回用用途</label> <input type="text" class="form-control" name="YQSZ_WASTEWATER_RESYCLE_USAGE" placeholder="" value=" <?php echo $rows[110] ?>" disabled><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">梯级利用用途</label> <input type="text" class="form-control" name="XHJJ_YN_WATER_RESYCLE_METHOD3" placeholder="" value=" <?php echo $rows[111] ?>" disabled><br/><br/>
+                        <label for="InputName">梯级利用用途</label> <input type="text" class="form-control" name="XHJJ_YN_WATER_RESYCLE_METHOD3" placeholder="" value=" <?php echo $rows[111] ?>" disabled><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">是否存在企业间废水再利用</label> <input type="text" class="form-control" name="YQSZ_YN_INTERCOMPANY_USAGE" placeholder="" value=" <?php echo $rows[112] ?>" disabled required><br/><br/>
+                        <label for="InputName">是否存在企业间废水再利用</label> <input type="text" class="form-control" name="YQSZ_YN_INTERCOMPANY_USAGE" placeholder="" value=" <?php echo $rows[112] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">重要资源回收收益(万元)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESOURCE_RESYCLE" placeholder="" value=" <?php echo $rows[113] ?>" disabled required><br/>
+                        <label for="InputName">重要资源回收收益(万元)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESOURCE_RESYCLE" placeholder="" value=" <?php echo $rows[113] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">再生水价格(元/m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESYCLE_WATER_VALUE" placeholder="" value=" <?php echo $rows[114] ?>" disabled required><br/>
+                        <label for="InputName">再生水价格(元/m^3)</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESYCLE_WATER_VALUE" placeholder="" value=" <?php echo $rows[114] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">梯级利用和再生回用奖励政策</label> <input type="text" class="form-control" name="YQSZ_RESYCLE_REWARDS_POLICY" placeholder="" value=" <?php echo $rows[115] ?>" disabled required><br/><br/><br/>
+                        <label for="InputName">梯级利用和再生回用奖励政策</label> <input type="text" class="form-control" name="YQSZ_RESYCLE_REWARDS_POLICY" placeholder="" value=" <?php echo $rows[115] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label for="InputName">废水中重要资源回收方式</label>
-                        <input type="text" class="form-control" name="YQSZ_RESYCLE_MEANS" placeholder="" value=" <?php echo $rows[116] ?>" disabled required><br/>
+                        <input type="text" class="form-control" name="YQSZ_RESYCLE_MEANS" placeholder="" value=" <?php echo $rows[116] ?>" disabled ><br/>
                     </div>
                 </div>
 
@@ -560,7 +560,7 @@ if(!isset($_SESSION['username'])){		//未登录
                         <label for="InputName">其他</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESYCLE_CATEGORIES_AND_VALUE_OTHER" placeholder="" value=" <?php echo $rows[122] ?>" disabled >
                     </div>
                     <div class="col-xs-5">
-                        <label for="InputName">有机物质</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESYCLE_CATEGORIES_AND_VALUE_OR" placeholder="" value=" <?php echo $rows[123] ?>" disabled ><br/><br/><br/>
+                        <label for="InputName">有机物质</label> <input type="text" step="0.001" class="form-control" name="YQSZ_RESYCLE_CATEGORIES_AND_VALUE_OR" placeholder="" value=" <?php echo $rows[123] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 
@@ -568,19 +568,19 @@ if(!isset($_SESSION['username'])){		//未登录
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水处理厂建设和运行主体</label> <input type="text" class="form-control" name="YQWS_RUNING_PARTY" placeholder="" value=" <?php echo $rows[124] ?>" disabled required><br/><br/>
+                        <label for="InputName">污水处理厂建设和运行主体</label> <input type="text" class="form-control" name="YQWS_RUNING_PARTY" placeholder="" value=" <?php echo $rows[124] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">运行模式</label> <input type="text" class="form-control" name="YQWS_RUNING_PATTERN" placeholder="" value=" <?php echo $rows[125] ?>" disabled required><br/><br/><br/>
+                        <label for="InputName">运行模式</label> <input type="text" class="form-control" name="YQWS_RUNING_PATTERN" placeholder="" value=" <?php echo $rows[125] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">运行负荷率(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_RUNING_LOAD_RATE" placeholder="" value=" <?php echo $rows[126] ?>" disabled required><br/>
+                        <label for="InputName">运行负荷率(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_RUNING_LOAD_RATE" placeholder="" value=" <?php echo $rows[126] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">建厂时间</label> <input type="date" class="form-control" name="YQWS_BUILD_DATE" placeholder="" value=" <?php echo $rows[127] ?>" disabled required><br/>
+                        <label for="InputName">建厂时间</label> <input type="text" class="form-control" name="YQWS_BUILD_DATE" placeholder="" value=" <?php echo $rows[127] ?>" disabled ><br/>
                     </div>
                 </div>
 
@@ -611,37 +611,37 @@ if(!isset($_SESSION['username'])){		//未登录
                         <label for="InputName">园区污水主要来源及比例</label>
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">生产废水(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_POLLUTION_SOURCE_PROD" placeholder="" value=" <?php echo $rows[136] ?>" disabled required><br/>
+                        <label for="InputName">生产废水(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_POLLUTION_SOURCE_PROD" placeholder="" value=" <?php echo $rows[136] ?>" disabled >
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">生活污水(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_POLLUTION_SOURCE_LIFE" placeholder="" value=" <?php echo $rows[137] ?>" disabled required><br/>
+                        <label for="InputName">生活污水(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_POLLUTION_SOURCE_LIFE" placeholder="" value=" <?php echo $rows[137] ?>" disabled >
                     </div>
                     <div class="col-xs-4">
-                        <label for="InputName">生产废水的主要来源</label> <input type="text" class="form-control" name="YQWS_POLLUTION_SOURCE" placeholder="" value=" <?php echo $rows[138] ?>" disabled required><br/>
+                        <label for="InputName">生产废水的主要来源</label> <input type="text" class="form-control" name="YQWS_POLLUTION_SOURCE" placeholder="" value=" <?php echo $rows[138] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水厂水质监测点覆盖率(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_MONITORING_COVER_RATE" placeholder="" value=" <?php echo $rows[139] ?>" disabled required><br/>
+                        <label for="InputName">污水厂水质监测点覆盖率(%)</label> <input type="text" step="0.001" max="100" class="form-control" name="YQWS_MONITORING_COVER_RATE" placeholder="" value=" <?php echo $rows[139] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">主要影响污水处理厂运行的企业个数</label> <input type="text" class="form-control" name="YQWS_COMPANY_INFLENCE_TREATMENT" placeholder="" value=" <?php echo $rows[140] ?>" disabled required><br/>
+                        <label for="InputName">主要影响污水处理厂运行的企业个数</label> <input type="text" class="form-control" name="YQWS_COMPANY_INFLENCE_TREATMENT" placeholder="" value=" <?php echo $rows[140] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <label for="InputName">污水处理厂排放标准</label> <input type="text" class="form-control" name="YQWS_TREATMENT_UNLOAD_STANDARD" placeholder="" value=" <?php echo $rows[141] ?>" disabled required><br/>
+                        <label for="InputName">污水处理厂排放标准</label> <input type="text" class="form-control" name="YQWS_TREATMENT_UNLOAD_STANDARD" placeholder="" value=" <?php echo $rows[141] ?>" disabled ><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">企业类型(填行业)</label> <input type="text" class="form-control" name="YQWS_COMPANY_CATEGORIES" placeholder="" value=" <?php echo $rows[142] ?>" disabled required><br/>
+                        <label for="InputName">企业类型(填行业)</label> <input type="text" class="form-control" name="YQWS_COMPANY_CATEGORIES" placeholder="" value=" <?php echo $rows[142] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">主要企业排水量(m^3/d)</label> <input type="text" step="0.001" class="form-control" name="YQWS_DISCHARGE_VOLUME" placeholder="" value=" <?php echo $rows[143] ?>" disabled required><br/><br/>
+                        <label for="InputName">主要企业排水量(m^3/d)</label> <input type="text" step="0.001" class="form-control" name="YQWS_DISCHARGE_VOLUME" placeholder="" value=" <?php echo $rows[143] ?>" disabled ><br/><br/>
                     </div>
                 </div>
 

@@ -358,8 +358,8 @@ else {
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label for="InputName">污水处理后的排放途径</label><br/>
-							<label>深度处理实现企业内部循环利用</label><input type="radio" name="WSCL_SEWAGE_DISCHARGE_PATH" value="1" placeholder="" required>
-							<label>排放至园区污水处理厂</label><input type="radio" name="WSCL_SEWAGE_DISCHARGE_PATH" value="0" placeholder="" required>
+							<label>深度处理实现企业内部循环利用</label><input type="radio" name="WSCL_SEWAGE_DISCHARGE_PATH" value="深度处理实现企业内部循环利用" placeholder="" required>
+							<label>排放至园区污水处理厂</label><input type="radio" name="WSCL_SEWAGE_DISCHARGE_PATH" value="排放至园区污水处理厂" placeholder="" required>
 						</div>
 						<div class="col-xs-6"><label for="InputName">如果实现了再生循环利用，请提供<br/> </label></div>
 							<div class="col-xs-3">
