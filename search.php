@@ -141,6 +141,9 @@ if($type!=0){
             $link="i_IndustrialPark_r.php";
         }
         ?>
+        <div class="rows">
+                <div class="col-lg-12" style="height:20px"></div>
+            </div>
 
     </div>
     <table class="table" border="1px">
