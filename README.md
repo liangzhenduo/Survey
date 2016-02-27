@@ -24,19 +24,15 @@
 + IndustrialParkInvestigation
 
 ##过程
-首先通过[index.php](index.php)索引页面跳转：如果未登录则会自动跳转到系统登录界面，若此时直接进入主页，同样会显示登录按钮
+首先通过[index.php](index.php)索引页面跳转到主页，在未登录的状态下会显示**登录**和**注册**按钮
 
 ![未登录](./doc/home.png)
-
-在登录界面[signin.php](signin.php)设有**登录**和**注册**按钮
-
-![登录界面](./doc/signin.png)
 
 可以通过**注册**按钮跳转到注册界面[signup.php](signup.php)
 
 ![注册界面](./doc/signup.png)
 
-如果已经登录则跳转到主页面[home.php](home.php)，并且显示各问卷的入口链接，并且右上角显示当前的用户名和**注销**按钮
+登录后的主页[home.php](home.php)会显示各问卷的入口链接，并且右上角显示当前的**用户名**和**注销**按钮
 
 ![已登录](./doc/home'.png)
 
@@ -56,7 +52,7 @@
 
 ![问卷检索](./doc/search.png)
 
-在选择问卷类型并填写关键字后，会对数据库中单位的名称进行与关键字匹配并返回查询的结果表格
+在选择问卷类型并填写关键字后，会对数据库中单位的名称进行与关键字匹配并返回符合条件的结果数目和具体信息
 
 ![检索结果](./doc/form.png)
 
@@ -99,7 +95,7 @@
 之后将本项目`db`目录下的`.sql`文件导入到新建的数据库中：
 
 	USE GYYQ_database;
-	SOURCE GYYQ_database_2016-02-27.sql;
+	SOURCE GYYQ_database_2016-02-28.sql;
 	
 编辑工程中的`connectdb.php`文件：
 
@@ -179,7 +175,7 @@ Ubuntu安装命令：
 之后将`db`目录下的`.sql`文件导入到新建的数据库中：
 
 	USE GYYQ_database;
-	SOURCE GYYQ_database_2016-02-27.sql;
+	SOURCE GYYQ_database_2016-02-28.sql;
 	
 编辑工程中的`connectdb.php`文件：
 

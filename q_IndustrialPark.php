@@ -3,7 +3,7 @@ session_start();
 include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: signin.php");
+    header("location: home.php");
 }
 else {
     $username=$_SESSION['username'];
@@ -152,7 +152,10 @@ else {
 `YQGL_INFORMATION_PUBLIC`='$_POST[YQGL_INFORMATION_PUBLIC]',
 `YQGL_THIRD_PARTY`='$_POST[YQGL_THIRD_PARTY]',
 `YQGL_MONITORING_PUNISHMENT_POLICY`='$_POST[YQGL_MONITORING_PUNISHMENT_POLICY]',
-`YQGL_LAW_PROBLEM`='$_POST[YQGL_LAW_PROBLEM]'
+`YQGL_LAW_PROBLEM`='$_POST[YQGL_LAW_PROBLEM]',
+`YQLX`='$_POST[YQLX]',
+`YQJB`='$_POST[YQJB]',
+`YQSS`='$_POST[YQSS]'
 		WHERE `ID`='$uid'";
         $result = mysqli_query($con, $update);
         $path="./files/$type/$username";
@@ -176,7 +179,7 @@ else {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="image/logo.gif">
 
     <title>现场调查表</title>
 
@@ -212,8 +215,6 @@ else {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
-
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
@@ -221,13 +222,7 @@ else {
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
-                    else{
                         ?>
-                        <li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
-                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
-                        <?php
-                    }
-                    ?>
 
                 </ul>
             </div><!--/.nav-collapse -->
@@ -257,12 +252,69 @@ else {
                         <label for="InputName">园区名称</label> <input type="text" class="form-control" name="JBQK_NAME" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">主导行业类型</label> <input type="text" class="form-control" name="JBQK_TYPE" placeholder="" required><br/>
+                        <label for="InputName">园区类型</label>
+                        <select class = "select form-control" name="YQLX" title="">
+                            <option value="行业主导型">行业主导型</option>
+                            <option value="综合型">综合型</option>
+                        </select><br/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
+                        <label for="InputName">主导行业类型</label> <input type="text" class="form-control" name="JBQK_TYPE" placeholder="" required><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="InputName">园区级别</label>
+                        <select class = "select form-control" name="YQJB" title="">
+                            <option value="国家级">国家级</option>
+                            <option value="省市级">省市级</option>
+                            <option value="区县级">区县级</option>
+                        </select><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        <label for="InputName">所在省市</label>
+                        <select class = "select form-control" name="YQSS" title="">
+                            <option value="北京">北京</option>
+                            <option value="天津">天津</option>
+                            <option value="河北">河北</option>
+                            <option value="山西">山西</option>
+                            <option value="内蒙古">内蒙古</option>
+                            <option value="辽宁">辽宁</option>
+                            <option value="吉林">吉林</option>
+                            <option value="黑龙江">黑龙江</option>
+                            <option value="上海">上海</option>
+                            <option value="江苏">江苏</option>
+                            <option value="浙江">浙江</option>
+                            <option value="安徽">安徽</option>
+                            <option value="福建">福建</option>
+                            <option value="江西">江西</option>
+                            <option value="山东">山东</option>
+                            <option value="河南">河南</option>
+                            <option value="湖北">湖北</option>
+                            <option value="湖南">湖南</option>
+                            <option value="广东">广东</option>
+                            <option value="广西">广西</option>
+                            <option value="海南">海南</option>
+                            <option value="重庆">重庆</option>
+                            <option value="四川">四川</option>
+                            <option value="贵州">贵州</option>
+                            <option value="云南">云南</option>
+                            <option value="西藏">西藏</option>
+                            <option value="陕西">陕西</option>
+                            <option value="甘肃">甘肃</option>
+                            <option value="青海">青海</option>
+                            <option value="宁夏">宁夏</option>
+                            <option value="新疆">新疆</option>
+                            <option value="香港">香港</option>
+                            <option value="澳门">澳门</option>
+                            <option value="台湾">台湾</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
                         <label for="InputName">园区地址</label> <input type="text" class="form-control" name="JBQK_ADDRESS" placeholder="" required>
                     </div>
                     <div class="col-xs-6">

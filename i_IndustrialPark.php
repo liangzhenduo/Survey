@@ -3,7 +3,7 @@ session_start();
 include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: signin.php");
+    header("location: home.php");
 }
 else {
     $username=$_SESSION['username'];
@@ -175,7 +175,7 @@ else {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="image/logo.gif">
 
     <title>函件调查表</title>
 
@@ -211,8 +211,6 @@ else {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
-
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
@@ -220,13 +218,7 @@ else {
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
-                    else{
                         ?>
-                        <li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
-                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
-                        <?php
-                    }
-                    ?>
 
                 </ul>
             </div><!--/.nav-collapse -->

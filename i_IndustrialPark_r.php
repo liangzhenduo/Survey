@@ -3,7 +3,7 @@ session_start();
 include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: signin.php");
+    header("location: home.php");
 }
 $username=$_SESSION['username'];
 $query="select `type` from user_info where username='$username'";
@@ -27,7 +27,7 @@ if(isset($_GET['id'])) {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="image/logo.gif">
 
     <title>函件调查表</title>
 
@@ -63,8 +63,6 @@ if(isset($_GET['id'])) {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
-
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
@@ -72,13 +70,7 @@ if(isset($_GET['id'])) {
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
-                    else{
                         ?>
-                        <li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
-                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
-                        <?php
-                    }
-                    ?>
 
                 </ul>
             </div><!--/.nav-collapse -->
@@ -645,8 +637,6 @@ if(isset($_GET['id'])) {
                         <label for="InputName">主要企业排水量(m^3/d)</label> <input type="text" step="0.001" class="form-control" name="YQWS_DISCHARGE_VOLUME" placeholder="" value=" <?php echo $rows[143] ?>" disabled ><br/><br/>
                     </div>
                 </div>
-
-                <h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
 
             </form>
         </div>

@@ -1,6 +1,9 @@
 <?php
 session_start();
 $error='';
+if(isset($_SESSION['username'])){		//未登录
+    header("location: home.php");
+}
 
 if(isset($_POST['submit'])) {
     include("connectdb.php");
@@ -44,7 +47,7 @@ if(isset($_POST['submit'])) {
                 $result = mysqli_query($con, $query);
                 mkdir("./files/3/$username");
             }
-            header("location: signin.php?status=1");
+            header("location: home.php?status=1");
         }
     }
     mysqli_close($con);
@@ -61,7 +64,7 @@ if(isset($_POST['submit'])) {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="image/logo.gif">
 
     <title>用户注册</title>
 
@@ -80,6 +83,42 @@ if(isset($_POST['submit'])) {
 <body>
 
 <div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.php">污水处理管理系统</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <?php
+                    if(isset($_SESSION['username'])){
+                        ?>
+                        <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
+                        <?php
+                    }
+                    else{
+                        ?>
+                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
+                        <?php
+                    }
+                    ?>
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+
     <div class="rows">
         <div class="col-lg-12" style="height:100px"></div>
     </div>

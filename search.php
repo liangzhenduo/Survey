@@ -3,7 +3,7 @@ session_start();
 $error='';
 include("connectdb.php");
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: signin.php");
+    header("location: home.php");
 }
 $username=$_SESSION['username'];
 $query="select `type` from user_info where username='$username'";
@@ -24,7 +24,7 @@ if($type!=0){
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="image/logo.gif">
 
     <title>信息检索</title>
 
@@ -61,7 +61,7 @@ if($type!=0){
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
+                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
 
                     <?php
                     if(isset($_SESSION['username'])){
@@ -70,13 +70,7 @@ if($type!=0){
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
-                    else{
                         ?>
-                        <li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
-                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
-                        <?php
-                    }
-                    ?>
 
                 </ul>
             </div><!--/.nav-collapse -->
@@ -91,81 +85,156 @@ if($type!=0){
             <form class="form-signin" method="post" action="#">
 
                 <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
-
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <label>所在省市</label>
+                        <select class = "select form-control" name="YQSS" title="">
+                            <option value="">不限</option>
+                            <option value="北京">北京</option>
+                            <option value="天津">天津</option>
+                            <option value="河北">河北</option>
+                            <option value="山西">山西</option>
+                            <option value="内蒙古">内蒙古</option>
+                            <option value="辽宁">辽宁</option>
+                            <option value="吉林">吉林</option>
+                            <option value="黑龙江">黑龙江</option>
+                            <option value="上海">上海</option>
+                            <option value="江苏">江苏</option>
+                            <option value="浙江">浙江</option>
+                            <option value="安徽">安徽</option>
+                            <option value="福建">福建</option>
+                            <option value="江西">江西</option>
+                            <option value="山东">山东</option>
+                            <option value="河南">河南</option>
+                            <option value="湖北">湖北</option>
+                            <option value="湖南">湖南</option>
+                            <option value="广东">广东</option>
+                            <option value="广西">广西</option>
+                            <option value="海南">海南</option>
+                            <option value="重庆">重庆</option>
+                            <option value="四川">四川</option>
+                            <option value="贵州">贵州</option>
+                            <option value="云南">云南</option>
+                            <option value="西藏">西藏</option>
+                            <option value="陕西">陕西</option>
+                            <option value="甘肃">甘肃</option>
+                            <option value="青海">青海</option>
+                            <option value="宁夏">宁夏</option>
+                            <option value="新疆">新疆</option>
+                            <option value="香港">香港</option>
+                            <option value="澳门">澳门</option>
+                            <option value="台湾">台湾</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>园区级别</label>
+                        <select class = "select form-control" name="YQJB" title="">
+                            <option value="">不限</option>
+                            <option value="国家级">国家级</option>
+                            <option value="省市级">省市级</option>
+                            <option value="区县级">区县级</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>园区类型</label>
+                        <select class = "select form-control" name="YQLX" title="">
+                            <option value="">不限</option>
+                            <option value="行业主导型">行业主导型</option>
+                            <option value="综合型">综合型</option>
+                        </select><br/>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label>问卷类型</label>
+                        <label>单位类型</label>
                         <select class = "select form-control" name="type" title="">
-                            <option value="1">排污企业现场调查表</option>
-                            <option value="2">污水处理厂运营商现场调查表</option>
-                            <option value="3">工业园区管委会\园区环保主管部门现场调查表</option>
-                            <option value="4">污水处理厂运营商函件调查表</option>
-                            <option value="5">工业园区管委会\园区环保主管部门函件调查表</option>
+                            <option value="1">排污企业</option>
+                            <option value="2">污水处理厂运营商</option>
+                            <option value="3">工业园区管委会\园区环保主管部门</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
-                        <label>关键字</label>
-                        <input type="text" class="form-control" placeholder="" name="key">
+                        <label>单位名称</label>
+                        <input type="text" class="form-control" placeholder="关键字" name="key"><br/>
                     </div>
                 </div>
-                <br/><br/>
 
-                <h1 align="center"><input class="btn btn-primary" type="submit" name="search"/></h1>
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
+                </div>
+                <div class="col-xs-3"></div>
 
             </form>
         </div>
+
         <div class="col-lg-3"></div>
         <?php
 
         if(isset($_POST['search'])) {
         if ($_POST['type'] == 1) {
-            $table = "CompanyQuestionnaire";
-            $name = "QYXX_NAME";
             $link="q_Company_r.php";
+            $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
+            LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
+            WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
+            AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         } else if ($_POST['type'] == 2) {
-            $table = "SewageTreatmentQuestionnaire";
-            $name = "GYYQ_WASTEWATER_TREATMENT_PLANT_NAME";
             $link="q_SewageTreatment_r.php";
+            $link1="i_SewageTreatment_r.php";
+            $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
+            LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
+            WHERE `GYYQ_WASTEWATER_TREATMENT_PLANT_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
+            AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         } else if ($_POST['type'] == 3) {
-            $table = "IndustrialParkQuestionnaire";
-            $name = "JBQK_NAME";
             $link="q_IndustrialPark_r.php";
-        } else if ($_POST['type'] == 4) {
-            $table = "SewageTreatmentInvestigation";
-            $name = "WSCL_NAME";
-            $link="i_SewageTreatment_r.php";
-        } else if ($_POST['type'] == 5) {
-            $table = "IndustrialParkInvestigation";
-            $name = "JBQK_NAME";
-            $link="i_IndustrialPark_r.php";
+            $link1="i_IndustrialPark_r.php";
+            $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
+            WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         }
+
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_num_rows($result);
         ?>
         <div class="rows">
                 <div class="col-lg-12" style="height:20px"></div>
-            </div>
+        </div>
 
     </div>
+    <div class="rows">
+        <div class="col-lg-12" ><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3> </div>
+    </div>
+
     <table class="table" border="1px">
         <thead>
         <tr>
             <th>ID</th>
             <th>单位名称</th>
+            <th>所在省市</th>
+            <th>所在园区</th>
+            <th>园区级别</th>
+            <th>园区类型</th>
             <th>详细信息</th>
         </tr>
         </thead>
         <tbody>
 
         <?php
-
-        $query = "SELECT `ID`, `$name` FROM $table WHERE `$name` LIKE '%$_POST[key]%' ";
-        $result = mysqli_query($con, $query);
         while($rows = mysqli_fetch_array($result)) {
             echo "
 				<tr >
 					<td>$rows[0]</td>
 					<td>$rows[1]</td>
-                    <td><a href=\"$link?id=$rows[0]\">查看</a></td>
+					<td>$rows[2]</td>
+					<td>$rows[3]</td>
+					<td>$rows[4]</td>
+					<td>$rows[5]</td>
+                    <td><a href=\"$link?id=$rows[0]\">现场调查表</a>";
+                if($_POST['type']>1)
+                    echo "  <a href=\"$link1?id=$rows[0]\">函件调查表</a>";
+
+            echo "
+                                </td>
 				</tr>
 				";
         }

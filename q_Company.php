@@ -3,7 +3,7 @@ session_start();
 include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-	header("location: signin.php");
+	header("location: home.php");
 }
 else {
 	$username=$_SESSION['username'];
@@ -145,7 +145,8 @@ else {
 `GLWJ_DIFFICULTY`='$_POST[GLWJ_DIFFICULTY]', 
 `GLWJ_QUESTION_OBSTACLE`='$_POST[GLWJ_QUESTION_OBSTACLE]', 
 `GLWJ_GOVERMENT_SUPPORT`='$_POST[GLWJ_GOVERMENT_SUPPORT]', 
-`OTHER`='$_POST[OTHER]'
+`OTHER`='$_POST[OTHER]',
+`GYYQ_NAME`='$_POST[GYYQ_NAME]'
 		WHERE `ID`='$uid'";
         $result = mysqli_query($con, $update);
 		$path="./files/$type/$username";
@@ -169,7 +170,7 @@ else {
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="image/photo.jpg">
+	<link rel="icon" href="image/logo.gif">
 
 	<title>现场调查表</title>
 
@@ -205,8 +206,6 @@ else {
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="search.php">检索 <span class="glyphicon glyphicon-list-alt"></span></a></li>
-
 						<?php
 						if(isset($_SESSION['username'])){
 							?>
@@ -214,13 +213,7 @@ else {
 							<li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
 							<?php
 						}
-						else{
 							?>
-							<li><a href="signin.php">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
-							<li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
-							<?php
-						}
-						?>
 
 					</ul>
 				</div><!--/.nav-collapse -->
@@ -259,6 +252,12 @@ else {
 							<label for="InputName">占地面积</label> <input type="number" step="0.001" class="form-control" name="QYXX_AREA" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
+							<label for="InputName">园区名称</label> <input type="text" class="form-control" name="GYYQ_NAME" placeholder="" required><br/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-12">
 							<label for="InputName">企业地址</label> <input type="text" class="form-control" name="QYXX_LOCATION" placeholder="" required><br/>
 						</div>
 					</div>
