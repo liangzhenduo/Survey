@@ -24,19 +24,19 @@
 + IndustrialParkInvestigation
 
 ##过程
-首先通过`index.php`索引页面跳转：如果未登录则会自动跳转到系统登录界面，若此时直接进入主页，同样会显示登录按钮
+首先通过[index.php](index.php)索引页面跳转：如果未登录则会自动跳转到系统登录界面，若此时直接进入主页，同样会显示登录按钮
 
 ![未登录](./doc/home.png)
 
-在登录界面`signin.php`设有**登录**和**注册**按钮
+在登录界面[signin.php](signin.php)设有**登录**和**注册**按钮
 
 ![登录界面](./doc/signin.png)
 
-可以通过**注册**按钮跳转到注册界面`signup.php`
+可以通过**注册**按钮跳转到注册界面[signup.php](signup.php)
 
 ![注册界面](./doc/signup.png)
 
-如果已经登录则跳转到主页面`home.php`，并且显示各问卷的入口链接，并且右上角显示当前的用户名和**注销**按钮
+如果已经登录则跳转到主页面[home.php](home.php)，并且显示各问卷的入口链接，并且右上角显示当前的用户名和**注销**按钮
 
 ![已登录](./doc/home'.png)
 
@@ -52,7 +52,7 @@
 
 ![填写问卷](./doc/survey.png)
 
-当用户类型为管理员时，其有权限看到所有问卷，而且管理员有权限进入问卷检索界面`search.php`
+当用户类型为管理员时，其有权限看到所有问卷，而且管理员有权限进入问卷检索界面[search.php](search.php)
 
 ![问卷检索](./doc/search.png)
 
@@ -66,6 +66,7 @@
 
 ##环境
 ###开发环境
+
 + OS X 10.11.3
 + Nginx 1.8.1
 + MySQL 5.6.27
@@ -75,19 +76,103 @@
 ###运行环境
 若要正常运行本系统，首先确保服务器端至少已经安装以下环境：
 
-+ Linux发行版
 + Nginx（或Apache）服务器
 + MySQL 5.6+ 数据库
 + PHP 5.6+
 
 ##安装
-###配置PHP
-编辑`/etc/php.ini`文件，修改参数：
+###Windows
+####配置PHP
+首先前往[PHP For Windows](http://windows.php.net/download#php-5.6)下载对应版本的`PHP 5.6`。
+
+解压并安装，之后将PHP的`/bin`目录添加到环境变量中。在安装目录下新建`php.ini`文件并将`php.ini-development`的内容复制到里面，将`extension_dir`的值改为`ext`文件夹的绝对路径，再将`cgi.force_redirect=1`、`extension=php_mysql.dll`和`extension=php_mysqli.dll`解注释，并将`cgi.force_redirect`的参数改为`0`。
+
+####配置MySQL
+首先前往[MySQL Installer](http://dev.mysql.com/downloads/windows/installer/5.7.html)下载对应版本的`MySQL 5.7`。
+
+安装并设置root密码，将MySQL Server的`/bin`目录添加到环境变量中。
+
+打开命令提示符，输入`mysql -u root -p`命令并输入root密码进入MySQL。创建新数据库`GYYQ_database`：
+
+	CREATE DATABASE GYYQ_database;	
+	
+之后将本项目`db`目录下的`.sql`文件导入到新建的数据库中：
+
+	USE GYYQ_database;
+	SOURCE GYYQ_database_2016-02-27.sql;
+	
+编辑工程中的`connectdb.php`文件：
+
+```
+$con=mysqli_connect("localhost","root","password","GYYQ_database");
+```
+
+将`password`改为root密码即可。
+
+####配置Nginx
+首先前往[nginx: download](http://nginx.org/en/download.html)下载`Nginx 1.8`。
+
+解压并安装。启动`nginx.exe`并从浏览器打开[localhost](http://localhost:80/)，如果出现Nginx的欢迎接界面则说明安装正确。
+
+编辑`nginx.conf`文件：
+
+```
+location / {  
+    root   your_path;  
+    index  index.html index.htm index.php;  
+}  
+```
+
+将`root`改为工程所在的路径，并在`index`中加入`index.php`
+
+```
+location ~ \.php$ {  
+    root           your_path;  
+    fastcgi_pass   127.0.0.1:9000;  
+    fastcgi_index  index.php;  
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;  
+    include        fastcgi_params;  
+}  
+```
+
+将php的一段解注释并将`root`改为工程所在的路径，将`fastcgi_param`改为如上所示。
+
+这时再次打开[localhost](http://localhost:80/)，如出现登录界面则配置完成。
+
+###Linux
+####配置PHP
+CentOS安装命令：
+	
+	sudo yum install php-fpm php-mysql
+	
+Ubuntu安装命令：
+
+	sudo apt-get install php5-fpm php5-mysql
+	
+编辑`php.ini`文件，修改参数：
 
 	cgi.fix_pathinfo=0
 	
-###配置MySQL
-在MySQL数据库中建立新数据库`GYYQ_database`：
+####配置MySQL
+CentOS安装命令：
+
+	sudo yum install mysql-server
+	
+Ubuntu安装命令：
+
+	sudo apt-get install mysql-server
+	
+重启MySQL服务：
+	
+	sudo /etc/init.d/mysqld restart
+	
+配置root密码：
+
+	sudo /usr/bin/mysql_secure_installation
+	
+第一次要求输密码时因为尚未配置因此直接回车即可，然后按照提示进行设置即可。
+
+配置完成后使用`mysql -u root -p`命令并输入root密码进入MySQL。建立新数据库`GYYQ_database`：
 
 	CREATE DATABASE GYYQ_database;	
 	
@@ -96,37 +181,54 @@
 	USE GYYQ_database;
 	SOURCE GYYQ_database_2016-02-27.sql;
 	
-###配置Nginx
-编辑`/etc/nginx/conf.d/default.conf`文件，去掉这段注释：
+编辑工程中的`connectdb.php`文件：
 
-	location ~ \.php$ {
-        root           /usr/share/nginx/html;
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
+```
+$con=mysqli_connect("localhost","root","password","GYYQ_database");
+```
 
-然后在
-
-	location / {
-        root   /usr/share/nginx/html;
-        index index.php  index.html index.htm;
-    }
-    
-的`index`中加入`index.php`
-
-之后将本项目上传到服务器端html目录下，然后修改`connectdb.php`：
-
-	$con=mysqli_connect("localhost","root","password","GYYQ_database");
+将`password`改为root密码即可。
 	
-将`password`改为MySQL的root密码。
+####配置Nginx
+CentOS安装命令：
 
-这时可以通过浏览器打开`index.php`，如果正常打开说明服务器设置正确。
+	sudo yum install nginx
+	
+Ubuntu安装命令：
 
-再打开`connectdb.php`，如果没有出现错误则说明数据库连接成功。
+	sudo apt-get install nginx
+	
+启动Nginx服务器：
 
-于是可以使用管理员账户登录测试功能
+	sudo /etc/init.d/nginx start
+	
+编辑`default.conf`文件：
+
+```
+location / {  
+    root   your_path;  
+    index  index.html index.htm index.php;  
+}  
+```
+
+将`root`改为工程所在的路径，并在`index`中加入`index.php`
+
+```
+location ~ \.php$ {  
+    root           your_path;  
+    fastcgi_pass   127.0.0.1:9000;  
+    fastcgi_index  index.php;  
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;  
+    include        fastcgi_params;  
+}  
+```
+
+将php的一段解注释并将`root`改为工程所在的路径，将`fastcgi_param`改为如上所示。
+
+这时打开[localhost](http://localhost:80/)，如出现登录界面则配置完成。
+
+##开始使用
+可以使用默认的管理员账户登录取得最高的访问权限：
 
 + 用户名：`admin`
 + 密码：`password` (由于初始密码较弱，请到数据库中修改）
