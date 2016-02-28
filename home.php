@@ -100,6 +100,7 @@ if (isset($_POST['submit'])) {
 					if($type==0){
               ?>
 					<li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
+						<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
 					<?php } ?>
               <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
@@ -221,9 +222,9 @@ if (isset($_POST['submit'])) {
 
 
 				<div class="rows">
-					<div class="col-lg-3"></div>
+					<div class="col-lg-4"></div>
 
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<form class="form-signin" action="#" method="post">
 							<label for="inputEmail" >用户名</label>
 							<input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required><br/>
@@ -247,30 +248,15 @@ if (isset($_POST['submit'])) {
 									<a href="signup.php" class="btn btn-lg btn-primary btn-block" name="signup" >注册</a>
 								</div>
 
-
-
 							</div>
 
 						</form>
 					</div>
 
-					<div class="col-lg-3"></div>
+					<div class="col-lg-4"></div>
 
 				</div>
-			<!--div class="rows">
-				<div class="col-lg-12" style="height:100px"></div>
-			</div>
-			<div class="rows"><div class="col-lg-4"></div>
-  			<div class="col-lg-2">
-  				<a href="signin.php" class="btn btn-primary btn-lg btn-block" name="signin">登录</a>
-			</div>
-			<div class="col-lg-2">
-  				<a href="signup.php" class="btn btn-lg btn-primary btn-block" name="signup" >注册</a>
-  			</div>
-  			<div class="col-lg-4"></div>
-  			<div class="rows">
-				<div class="col-lg-12" style="height:80px"></div>
-			</div-->
+
 			<?php
 				}
 			?>

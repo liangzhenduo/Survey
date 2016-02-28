@@ -26,7 +26,7 @@ if($type!=0){
     <meta name="author" content="">
     <link rel="icon" href="image/logo.gif">
 
-    <title>信息检索</title>
+    <title>数据统计</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -71,7 +71,7 @@ if($type!=0){
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
-                        ?>
+                    ?>
 
                 </ul>
             </div><!--/.nav-collapse -->
@@ -85,9 +85,9 @@ if($type!=0){
         <div class="col-lg-6">
             <form class="form-signin" method="post" action="">
 
-                <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+                <h2 class="form-signin-heading" align="center">数据统计</h2><br/>
                 <div class="form-group">
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         <label>所在省市</label>
                         <select class = "select form-control" name="YQSS" title="">
                             <option value="">不限</option>
@@ -127,24 +127,17 @@ if($type!=0){
                             <option value="台湾">台湾</option>
                         </select>
                     </div>
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         <label>园区级别</label>
                         <select class = "select form-control" name="YQJB" title="">
                             <option value="">不限</option>
                             <option value="国家级">国家级</option>
                             <option value="省市级">省市级</option>
                             <option value="区县级">区县级</option>
-                        </select>
+                        </select><br/>
                     </div>
 
-                    <div class="col-xs-4">
-                        <label>园区名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="YQMC"><br/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         <label>园区类型</label>
                         <select class = "select form-control" name="YQLX" title="">
                             <option value="">不限</option>
@@ -152,23 +145,16 @@ if($type!=0){
                             <option value="综合型">综合型</option>
                         </select><br/>
                     </div>
-                    <div class="col-xs-4">
-                        <label>单位类型</label>
-                        <select class = "select form-control" name="type" title="">
-                            <option value="1">排污企业</option>
-                            <option value="2">污水处理厂运营商</option>
-                            <option value="3">工业园区管委会\园区环保主管部门</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-4">
-                        <label>单位名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="key"><br/>
+
+                    <div class="col-xs-6">
+                        <label>园区名称</label>
+                        <input type="text" class="form-control" placeholder="关键字" name="YQMC"><br/>
                     </div>
                 </div>
 
                 <div class="col-xs-3"></div>
                 <div class="col-xs-6">
-                <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
+                    <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
                 </div>
                 <div class="col-xs-3"></div>
 
@@ -177,75 +163,64 @@ if($type!=0){
 
         <div class="col-lg-3"></div>
         <?php
-
         if(isset($_POST['search'])) {
-        if ($_POST['type'] == 1) {
-            $link="q_Company_r.php";
-            $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
-            LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
-            WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
-            AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
-        } else if ($_POST['type'] == 2) {
-            $link="q_SewageTreatment_r.php";
-            $link1="i_SewageTreatment_r.php";
-            $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
-            LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
-            WHERE `GYYQ_WASTEWATER_TREATMENT_PLANT_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
-            AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
-        } else if ($_POST['type'] == 3) {
-            $link="q_IndustrialPark_r.php";
-            $link1="i_IndustrialPark_r.php";
-            $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
-            WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
-        }
-
+        include("connectdb.php");
+        $link = "q_IndustrialPark_r.php";
+        $link1 = "i_IndustrialPark_r.php";
+        $query = "SELECT `ID`, `JBQK_NAME`, `JBQK_NUMBER_COMPANY`, `JBQK_YEAR_PROFIT`, `JBQK_NUMBER_COMPANY_USING_RESYCLING_WATER`, `JBQK_TAX`, `JBQK_POLLUTION_EXPENSE`, `JBQK_WATER_USING`, `JBQK_WATER_VALUE` FROM IndustrialParkQuestionnaire
+            WHERE `JBQK_NAME` LIKE '%$_POST[YQMC]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
+
         ?>
         <div class="rows">
-                <div class="col-lg-12" style="height:20px"></div>
+            <div class="col-lg-12" style="height:20px"></div>
         </div>
 
     </div>
     <div class="rows">
-        <div class="col-lg-12" ><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3> </div>
+        <div class="col-lg-12"><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3></div>
     </div>
 
     <table class="table" border="1px">
         <thead>
         <tr>
             <th>ID</th>
-            <th>单位名称</th>
-            <th>所在省市</th>
-            <th>所在园区</th>
-            <th>园区级别</th>
-            <th>园区类型</th>
+            <th>园区名称</th>
+            <th>企业数量</th>
+            <th>年工业产值</th>
+            <th>使用循环水企业数量</th>
+            <th>年税收</th>
+            <th>年排污费征收额度</th>
+            <th>日用水量</th>
+            <th>工业用水售价</th>
             <th>详细信息</th>
         </tr>
         </thead>
         <tbody>
 
         <?php
-        while($rows = mysqli_fetch_array($result)) {
+        while ($rows = mysqli_fetch_array($result)) {
             echo "
 				<tr >
 					<td>$rows[0]</td>
 					<td>$rows[1]</td>
 					<td>$rows[2]</td>
-					<td>$rows[3]</td>
+					<td>$rows[3] 亿元</td>
 					<td>$rows[4]</td>
-					<td>$rows[5]</td>
-                    <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>";
-                if($_POST['type']>1)
-                    echo "  <a href=\"$link1?id=$rows[0]\">函件调查表 </a>";
-
-            echo "<input type='button' style='width:64px;height:24px;' value='删除' name='delete'>
+					<td>$rows[5] 万元</td>
+					<td>$rows[6] 万元</td>
+					<td>$rows[7] 立方米</td>
+					<td>$rows[8] 元/立方米</td>
+                    <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>
+                    <a href=\"$link1?id=$rows[0]\">函件调查表 </a>
+                    <input type='button' style='width:64px;height:24px;' value='删除' name='delete'>
                                 </td>
 				</tr>
 				";
         }
-
-        } ?>
+        }
+        ?>
 
         </tbody>
     </table>
