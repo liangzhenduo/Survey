@@ -181,12 +181,14 @@ if($type!=0){
         if(isset($_POST['search'])) {
         if ($_POST['type'] == 1) {
             $link="q_Company_r.php";
+            $table="CompanyQuestionnaire";
             $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
         } else if ($_POST['type'] == 2) {
             $link="q_SewageTreatment_r.php";
+            $table="SewageTreatmentQuestionnaire";
             $link1="i_SewageTreatment_r.php";
             $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
@@ -194,6 +196,7 @@ if($type!=0){
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
         } else if ($_POST['type'] == 3) {
             $link="q_IndustrialPark_r.php";
+            $table="IndustrialParkQuestionnaire";
             $link1="i_IndustrialPark_r.php";
             $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
@@ -237,9 +240,7 @@ if($type!=0){
 					<td>$rows[5]</td>
                     <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>";
                 if($_POST['type']>1)
-                    echo "  <a href=\"$link1?id=$rows[0]\">函件调查表 </a>";
-
-            echo "<input type='button' style='width:64px;height:24px;' value='删除' name='delete'>
+                    echo "  <a href=\"$link1?id=$rows[0]\">函件调查表 </a>
                                 </td>
 				</tr>
 				";

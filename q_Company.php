@@ -923,7 +923,7 @@ else {
 						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title=""></textarea><br/><br/>
 					</div>
 
-					<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
+					<h1 align="center"><input class="btn btn-primary" type="submit" name="submit" value="提交"/></h1>
 
 				</form>
 			</div>

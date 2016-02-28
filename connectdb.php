@@ -7,5 +7,6 @@
 	}
 	else {
 		//echo "Success";
+		//phpinfo();
 	}
 ?>

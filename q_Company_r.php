@@ -664,7 +664,6 @@ if(isset($_GET['id'])) {
 						<textarea class="textarea form-control input-lg" rows="5" name="OTHER" title="" disabled><?php echo $rows[129] ?></textarea><br/><br/>
 					</div>
 
-
 				</form>
 			</div>
 			<div class="col-lg-3"></div>

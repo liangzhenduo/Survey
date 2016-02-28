@@ -214,7 +214,6 @@ if($type!=0){
 					<td>$rows[8] 元/立方米</td>
                     <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>
                     <a href=\"$link1?id=$rows[0]\">函件调查表 </a>
-                    <input type='button' style='width:64px;height:24px;' value='删除' name='delete'>
                                 </td>
 				</tr>
 				";
