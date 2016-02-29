@@ -4,6 +4,7 @@ $error='';
 include "connectdb.php";
 if(!isset($_SESSION['username'])){		//未登录
     header("location: home.php");
+    exit;
 }
 $username=$_SESSION['username'];
 $select="select * from user_info where `username`='$username'";

@@ -4,6 +4,7 @@ include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
     header("location: home.php");
+    exit;
 }
 else {
     $username=$_SESSION['username'];
@@ -14,6 +15,7 @@ else {
     $uid=$row[1];
     if($type!=3&&$type!=0){
         header("location: home.php");
+        exit;
     }
     else if(isset($_POST['submit'])){
         $update="UPDATE IndustrialParkQuestionnaire SET
@@ -166,7 +168,8 @@ else {
                 }
             }
         }
-        header("location: index.php");
+        header("location: home.php");
+        exit;
     }
 }
 ?>

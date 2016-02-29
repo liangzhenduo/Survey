@@ -3,6 +3,7 @@ session_start();
 $error='';
 if(isset($_SESSION['username'])){		//未登录
     header("location: home.php");
+    exit;
 }
 
 if(isset($_POST['submit'])) {
@@ -48,6 +49,7 @@ if(isset($_POST['submit'])) {
                 mkdir("./files/3/$username");
             }
             header("location: home.php?status=1");
+            exit;
         }
     }
     mysqli_close($con);

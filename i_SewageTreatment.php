@@ -4,6 +4,7 @@ include "connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
     header("location: home.php");
+    exit;
 }
 else {
     $username=$_SESSION['username'];
@@ -14,6 +15,7 @@ else {
     $uid=$row[1];
     if($type!=2&&$type!=0){
         header("location: home.php");
+        exit;
     }
     else if(isset($_POST['submit'])){
         $update="UPDATE SewageTreatmentInvestigation SET
@@ -98,7 +100,8 @@ else {
 `WSCL_APPLICATIONS`='$_POST[WSCL_APPLICATIONS]'
         WHERE `ID`='$uid'";
         $result = mysqli_query($con, $update);
-        header("location: index.php");
+        header("location: home.php");
+        exit;
     }
 }
 
