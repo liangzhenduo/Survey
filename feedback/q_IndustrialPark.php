@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "connectdb.php";
+include "../connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: home.php");
+    header("location: ../home.php");
     exit;
 }
 $username=$_SESSION['username'];
@@ -12,7 +12,7 @@ $result = mysqli_query($con,$query);
 $row =mysqli_fetch_array($result);
 $type=$row[0];
 if($type!=0){
-    header("location: home.php");
+    header("location: ../home.php");
     exit;
 }
 if(isset($_GET['id'])) {
@@ -29,18 +29,13 @@ if(isset($_GET['id'])) {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/logo.gif">
+    <link rel="icon" href="../image/logo.gif">
 
     <title>现场调查表</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -57,19 +52,19 @@ if(isset($_GET['id'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php">污水处理管理系统</a>
+                <a class="navbar-brand" href="../home.php">污水处理管理系统</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="../home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
-                        <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
+                        <li><a href="../user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="../signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
                         ?>

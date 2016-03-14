@@ -34,12 +34,6 @@ if($type!=0){
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -69,7 +63,7 @@ if($type!=0){
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
-                        <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
@@ -182,24 +176,24 @@ if($type!=0){
 
         if(isset($_POST['search'])) {
         if ($_POST['type'] == 1) {
-            $link="q_Company_r.php";
+            $link="feedback/q_Company.php";
             $table="CompanyQuestionnaire";
             $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
         } else if ($_POST['type'] == 2) {
-            $link="q_SewageTreatment_r.php";
+            $link="feedback/q_SewageTreatment.php";
             $table="SewageTreatmentQuestionnaire";
-            $link1="i_SewageTreatment_r.php";
+            $link1="feedback/i_SewageTreatment.php";
             $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `GYYQ_WASTEWATER_TREATMENT_PLANT_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
         } else if ($_POST['type'] == 3) {
-            $link="q_IndustrialPark_r.php";
+            $link="feedback/q_IndustrialPark.php";
             $table="IndustrialParkQuestionnaire";
-            $link1="i_IndustrialPark_r.php";
+            $link1="feedback/i_IndustrialPark.php";
             $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         }
@@ -240,9 +234,9 @@ if($type!=0){
 					<td>$rows[3]</td>
 					<td>$rows[4]</td>
 					<td>$rows[5]</td>
-                    <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>";
+                    <td><a href=\"$link?id=$rows[0]\" target=\"_blank\">现场调查表 </a>";
                 if($_POST['type']>1)
-                    echo "  <a href=\"$link1?id=$rows[0]\">函件调查表 </a>
+                    echo "  <a href=\"$link1?id=$rows[0]\" target=\"_blank\">函件调查表 </a>
                                 </td>
 				</tr>
 				";

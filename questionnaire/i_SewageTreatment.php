@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "connectdb.php";
+include "../connectdb.php";
 $error='';
 if(!isset($_SESSION['username'])){		//未登录
-    header("location: home.php");
+    header("location: ../home.php");
     exit;
 }
 else {
@@ -14,7 +14,7 @@ else {
     $type=$row[0];
     $uid=$row[1];
     if($type!=2&&$type!=0){
-        header("location: home.php");
+        header("location: ../home.php");
         exit;
     }
     else if(isset($_POST['submit'])){
@@ -100,7 +100,7 @@ else {
 `WSCL_APPLICATIONS`='$_POST[WSCL_APPLICATIONS]'
         WHERE `ID`='$uid'";
         $result = mysqli_query($con, $update);
-        header("location: home.php");
+        header("location: ../home.php");
         exit;
     }
 }
@@ -115,19 +115,13 @@ else {
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/logo.gif">
+    <link rel="icon" href="../image/logo.gif">
 
     <title>函件调查表</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -144,19 +138,19 @@ else {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php">污水处理管理系统</a>
+                <a class="navbar-brand" href="../home.php">污水处理管理系统</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="../home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
-                        <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
+                        <li><a href="../user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="../signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
                         ?>
@@ -216,7 +210,7 @@ else {
                         <label for="InputName">年运行天数(天)</label> <input type="number" max="365" class="form-control" name="JBSJ_RUNNING_DAYS" placeholder="" required>
                     </div>
                     <div class="col-xs-6">
-                        <label for="InputName">年平均日水量(m^3/d)</label> <input type="number" step="0.001" step="0.1" class="form-control" name="JBSJ_AVERAGE_DAY_WATER_SIZE" placeholder="" required><br/>
+                        <label for="InputName">年平均日水量(m^3/d)</label> <input type="number" step="0.001" class="form-control" name="JBSJ_AVERAGE_DAY_WATER_SIZE" placeholder="" required><br/>
                     </div>
                 </div>
 

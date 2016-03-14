@@ -39,12 +39,6 @@ if (isset($_POST['submit'])) {
 
     <!-- Custom styles for this template -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -102,7 +96,7 @@ if (isset($_POST['submit'])) {
 					<li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
 						<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
 					<?php } ?>
-              <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+              <li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
               	}
@@ -150,7 +144,7 @@ if (isset($_POST['submit'])) {
 				<?php
 					if($type==1||$type==0){?>
 					<div class="col-lg-4">
-						<a href="q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
+						<a href="questionnaire/q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
 					</div>
 				<?php
 					}else{?>
@@ -162,7 +156,7 @@ if (isset($_POST['submit'])) {
 					}
 					if($type==2||$type==0){?>
 					<div class="col-lg-4">
-						<a href="q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
+						<a href="questionnaire/q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
 					</div>
 				<?php
 					}
@@ -174,7 +168,7 @@ if (isset($_POST['submit'])) {
 					}
 					if($type==3||$type==0){?>
 					<div class="col-lg-4">
-						<a href="q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
+						<a href="questionnaire/q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
 					</div>
 				<?php
 					}else{?>
@@ -192,7 +186,7 @@ if (isset($_POST['submit'])) {
 				<?php
 					if($type==2||$type==0){?>
 					<div class="col-lg-4">
-						<a href="i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商函件调查表</a>
+						<a href="questionnaire/i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商函件调查表</a>
 					</div>
 				<?php
 					}else{?>
@@ -204,7 +198,7 @@ if (isset($_POST['submit'])) {
 					}
 					if($type==3||$type==0){?>
 					<div class="col-lg-4">
-						<a href="i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
+						<a href="questionnaire/i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
 					</div>
 				<?php
 					}else{?>

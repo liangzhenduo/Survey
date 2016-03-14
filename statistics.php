@@ -34,12 +34,6 @@ if($type!=0){
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -69,7 +63,7 @@ if($type!=0){
                     <?php
                     if(isset($_SESSION['username'])){
                         ?>
-                        <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                        <li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
                         <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                         <?php
                     }
@@ -167,8 +161,8 @@ if($type!=0){
         <?php
         if(isset($_POST['search'])) {
         include("connectdb.php");
-        $link = "q_IndustrialPark_r.php";
-        $link1 = "i_IndustrialPark_r.php";
+        $link = "feedback/q_IndustrialPark.php";
+        $link1 = "feedback/i_IndustrialPark.php";
         $query = "SELECT `ID`, `JBQK_NAME`, `JBQK_NUMBER_COMPANY`, `JBQK_YEAR_PROFIT`, `JBQK_NUMBER_COMPANY_USING_RESYCLING_WATER`, `JBQK_TAX`, `JBQK_POLLUTION_EXPENSE`, `JBQK_WATER_USING`, `JBQK_WATER_VALUE` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[YQMC]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         $result = mysqli_query($con, $query);
@@ -214,8 +208,8 @@ if($type!=0){
 					<td>$rows[6] 万元</td>
 					<td>$rows[7] 立方米</td>
 					<td>$rows[8] 元/立方米</td>
-                    <td><a href=\"$link?id=$rows[0]\">现场调查表 </a>
-                    <a href=\"$link1?id=$rows[0]\">函件调查表 </a>
+                    <td><a href=\"$link?id=$rows[0]\" target=\"_blank\">现场调查表 </a>
+                    <a href=\"$link1?id=$rows[0]\" target=\"_blank\">函件调查表 </a>
                                 </td>
 				</tr>
 				";
