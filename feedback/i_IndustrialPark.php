@@ -13,8 +13,8 @@ $row = mysqli_fetch_array($result);
 $type=$row[0];
 if($type==0||$type==3) $ac=1;
 else $ac=0;
-if(isset($_GET['id'])) {
-    $select="select * from IndustrialParkInvestigation where `ID`='$_GET[id]'";
+if(isset($_GET['name'])) {
+    $select="select * from IndustrialParkInvestigation where `JBQK_NAME`='$_GET[name]'";
     $result = mysqli_query($con,$select);
     $rows = mysqli_fetch_array($result);
 ?>

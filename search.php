@@ -169,6 +169,7 @@ include("connectdb.php");
         if ($_POST['type'] == 1) {
             $link="feedback/q_Company.php";
             $table="CompanyQuestionnaire";
+            $files="files/排污企业现场调查表附件/";
             $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
@@ -177,6 +178,7 @@ include("connectdb.php");
             $link="feedback/q_SewageTreatment.php";
             $table="SewageTreatmentQuestionnaire";
             $link1="feedback/i_SewageTreatment.php";
+            $files="files/处理厂现场调查表附件/";
             $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `GYYQ_WASTEWATER_TREATMENT_PLANT_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
@@ -185,6 +187,7 @@ include("connectdb.php");
             $link="feedback/q_IndustrialPark.php";
             $table="IndustrialParkQuestionnaire";
             $link1="feedback/i_IndustrialPark.php";
+            $files="files/管委会现场调查表附件/";
             $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         }
@@ -217,23 +220,24 @@ include("connectdb.php");
 
         <?php
         while($rows = mysqli_fetch_array($result)) {
-            echo "
+        ?>
 				<tr >
-					<td>$rows[0]</td>
-					<td>$rows[1]</td>
-					<td>$rows[2]</td>
-					<td>$rows[3]</td>
-					<td>$rows[4]</td>
-					<td>$rows[5]</td>
-                    <td><a href=\"$link?id=$rows[0]\" target=\"_blank\">现场调查表 </a>";
-                if($_POST['type']>1)
-                    echo "  <a href=\"$link1?id=$rows[0]\" target=\"_blank\">函件调查表 </a>
-                                </td>
+					<td><?php echo $rows[0] ?></td>
+					<td><?php echo $rows[1] ?></td>
+					<td><?php echo $rows[2] ?></td>
+					<td><?php echo $rows[3] ?></td>
+					<td><?php echo $rows[4] ?></td>
+					<td><?php echo $rows[5] ?></td>
+                    <td><a href="<?php echo $link."?name=".$rows[1] ?>" target="_blank">现场调查表 </a>
+        <?php
+                if($_POST['type']>1){
+        ?>
+                        <a href="<?php echo $link1."?name=".$rows[1] ?>" target="_blank">函件调查表 </a>
+        <?php   } ?>
+                        <a href="<?php echo $files.$rows[1] ?>" target="_blank">附件</a></td>
 				</tr>
-				";
-        }
 
-        } ?>
+        <?php } }?>
 
         </tbody>
     </table>

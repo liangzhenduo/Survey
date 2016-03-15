@@ -23,8 +23,6 @@ else {
         $result = mysqli_query($con, $query);
         $rows = mysqli_fetch_array($result);
         $id = $rows[0];
-        $path="../files/处理厂现场调查表附件/$id";
-        mkdir($path);
 
         $update="UPDATE SewageTreatmentQuestionnaire SET
 `INVESTIGATOR`='$_POST[INVESTIGATOR]',
@@ -204,6 +202,8 @@ else {
 		WHERE `ID`='$id'";
         $result = mysqli_query($con, $update);
 
+        $path="../files/处理厂现场调查表附件/$_POST[GYYQ_WASTEWATER_TREATMENT_PLANT_NAME]";
+        mkdir($path);
         if(isset($_FILES['file'])) {
             for ($i = 0; $i < count($_FILES['file']); $i++) {
                 if ($_FILES['file']['error'][$i] == 0) {

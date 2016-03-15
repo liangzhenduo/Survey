@@ -154,6 +154,7 @@ include("connectdb.php");
         include("connectdb.php");
         $link = "feedback/q_IndustrialPark.php";
         $link1 = "feedback/i_IndustrialPark.php";
+        $files="files/管委会现场调查表附件/";
         $query = "SELECT `ID`, `JBQK_NAME`, `JBQK_NUMBER_COMPANY`, `JBQK_YEAR_PROFIT`, `JBQK_NUMBER_COMPANY_USING_RESYCLING_WATER`, `JBQK_TAX`, `JBQK_POLLUTION_EXPENSE`, `JBQK_WATER_USING`, `JBQK_WATER_VALUE` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[YQMC]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         $result = mysqli_query($con, $query);
@@ -187,26 +188,24 @@ include("connectdb.php");
         <tbody>
 
         <?php
-        while ($rows = mysqli_fetch_array($result)) {
-            echo "
-				<tr >
-					<td>$rows[0]</td>
-					<td>$rows[1]</td>
-					<td>$rows[2]</td>
-					<td>$rows[3] 亿元</td>
-					<td>$rows[4]</td>
-					<td>$rows[5] 万元</td>
-					<td>$rows[6] 万元</td>
-					<td>$rows[7] 立方米</td>
-					<td>$rows[8] 元/立方米</td>
-                    <td><a href=\"$link?id=$rows[0]\" target=\"_blank\">现场调查表 </a>
-                    <a href=\"$link1?id=$rows[0]\" target=\"_blank\">函件调查表 </a>
-                                </td>
-				</tr>
-				";
-        }
-        }
-        ?>
+        while($rows = mysqli_fetch_array($result)) {
+            ?>
+            <tr >
+                <td><?php echo $rows[0] ?></td>
+                <td><?php echo $rows[1] ?></td>
+                <td><?php echo $rows[2] ?></td>
+                <td><?php echo $rows[3] ?> 亿元</td>
+                <td><?php echo $rows[4] ?></td>
+                <td><?php echo $rows[5] ?> 万元</td>
+                <td><?php echo $rows[6] ?> 万元</td>
+                <td><?php echo $rows[7] ?> 立方米</td>
+                <td><?php echo $rows[8] ?> 元/立方米</td>
+                <td><a href="<?php echo $link."?name=".$rows[1] ?>" target="_blank">现场调查表 </a>
+                    <a href="<?php echo $link1."?name=".$rows[1] ?>" target="_blank">函件调查表 </a>
+                    <a href="<?php echo $files.$rows[1] ?>" target="_blank">附件</a></td>
+            </tr>
+
+        <?php } }?>
 
         </tbody>
     </table>

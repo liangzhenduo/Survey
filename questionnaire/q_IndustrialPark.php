@@ -23,8 +23,6 @@ else {
         $result = mysqli_query($con, $query);
         $rows =mysqli_fetch_array($result);
         $id = $rows[0];
-        $path="../files/管委会现场调查表附件/$id";
-        mkdir($path);
 
         $update="UPDATE IndustrialParkQuestionnaire SET
 `INVESTIGATOR`='$_POST[INVESTIGATOR]',
@@ -169,6 +167,8 @@ else {
 		WHERE `ID`='$id'";
         $result = mysqli_query($con, $update);
 
+        $path="../files/管委会现场调查表附件/$_POST[JBQK_NAME]";
+        mkdir($path);
         if(isset($_FILES['file'])) {
             for ($i = 0; $i < count($_FILES['file']); $i++) {
                 if ($_FILES['file']['error'][$i] == 0) {
