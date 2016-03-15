@@ -1,11 +1,9 @@
 <?php
-	session_start();
-include "connectdb.php";
-
+session_start();
 $error='';
-
 if (isset($_POST['submit'])) {
-	$username = $_POST['username'];
+    include "connectdb.php";
+    $username = $_POST['username'];
 	$password = $_POST['password'];
 	$username = htmlspecialchars($username);
 	$password = htmlspecialchars($password);
@@ -81,26 +79,18 @@ if (isset($_POST['submit'])) {
               <li><a href="#" data-toggle="modal" data-target="#myModal"  data-title="联系我们">联系我们<span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              
 
 
-              <?php 
+
+              <?php
               	if(isset($_SESSION['username'])){
-					include "connectdb.php";
-					$query="select `type` from user_info where `username`='$_SESSION[username]'";
-					$result = mysqli_query($con,$query);
-					$row =mysqli_fetch_array($result);
-					$type=$row[0];
-					if($type==0){
               ?>
 					<li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
-						<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
-					<?php } ?>
-              <li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
-              <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
+					<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
+					<li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+              		<li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
-              	}
-              	else{
+              	}else{
               ?>
               	<li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
               <?php
@@ -162,7 +152,7 @@ if (isset($_POST['submit'])) {
 					}
 					else{?>
 					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商现场调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >处理厂现场调查表</a>
 					</div>
 				<?php
 					}
@@ -191,7 +181,7 @@ if (isset($_POST['submit'])) {
 				<?php
 					}else{?>
 					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >运营商函件调查表</a>
+						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >处理厂函件调查表</a>
 					</div>
 
 				<?php
@@ -206,31 +196,38 @@ if (isset($_POST['submit'])) {
 						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会函件调查表</a>
 					</div>
 				<?php
-					}?>
+					}
+					?>
 
-			<div class="col-lg-12" style="height:20px"></div>
-
-			<?php
-				}else{ //未登录
-			?>
-
-
+                <?php
+                    if(isset($_GET['status']) && $_GET['status']==2){
+                ?>
+                    <div class="col-lg-4" style="height:100px">
+                        <br><div class="alert alert-success" align="center">提交成功!</div>
+                    </div>
+                <?php
+                    }else{
+                ?>
+                    <div class="col-lg-12" style="height:20px"></div>
+                <?php
+                    }
+                }
+                else{ //未登录
+			    ?>
 				<div class="rows">
 					<div class="col-lg-4"></div>
 
 					<div class="col-lg-4">
-						<form class="form-signin" action="#" method="post">
+						<form class="form-signin" action="" method="post">
 							<label for="inputEmail" >用户名</label>
 							<input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required><br/>
 							<label for="inputPassword">密码</label>
 							<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
 							<?php
 							if($error!='')
-								echo "<br><div class=\"alert alert-danger\" >$error</div>";
+								echo "<br><div class=\"alert alert-danger\" align=\"center\">$error</div>";
 							if(isset($_GET['status']) && $_GET['status']==1)
-								echo "<br><div class=\"alert alert-success\" >注册成功,请登录!</div>";
-							if(isset($_GET['status']) && $_GET['status']==2)
-								echo "<br><div class=\"alert alert-danger\" ></div>";
+								echo "<br><div class=\"alert alert-success\" align=\"center\">注册成功,请登录!</div>";
 							?>
 							<br/><br/>
 							<div class="rows">

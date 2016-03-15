@@ -8,16 +8,22 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
     $username=$_SESSION['username'];
-    $query="select `type`, `uid` from user_info where `username`='$username'";
+    $query="select `type` from user_info where `username`='$username'";
     $result = mysqli_query($con,$query);
     $row =mysqli_fetch_array($result);
     $type=$row[0];
-    $uid=$row[1];
     if($type!=2&&$type!=0){
         header("location: ../home.php");
         exit;
     }
     else if(isset($_POST['submit'])){
+        $query="INSERT INTO SewageTreatmentInvestigation(ID) values(null)";
+        $result = mysqli_query($con, $query);
+        $query="select max(ID) from SewageTreatmentInvestigation";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_fetch_array($result);
+        $id = $rows[0];
+
         $update="UPDATE SewageTreatmentInvestigation SET
 `WSCL_INVESTIGATOR`='$_POST[WSCL_INVESTIGATOR]',
 `WSCL_TELEPHONE`='$_POST[WSCL_TELEPHONE]',
@@ -98,9 +104,9 @@ else {
 `WSCL_YN_HAVE_RESYCLE_PLANT`='$_POST[WSCL_YN_HAVE_RESYCLE_PLANT]',
 `WSCL_PROCESSING_SIZE`='$_POST[WSCL_PROCESSING_SIZE]',
 `WSCL_APPLICATIONS`='$_POST[WSCL_APPLICATIONS]'
-        WHERE `ID`='$uid'";
+        WHERE `ID`='$id'";
         $result = mysqli_query($con, $update);
-        header("location: ../home.php");
+        header("location: ../home.php?status=2");
         exit;
     }
 }

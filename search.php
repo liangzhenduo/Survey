@@ -1,20 +1,11 @@
 <?php
 session_start();
 $error='';
-include("connectdb.php");
 if(!isset($_SESSION['username'])){		//未登录
     header("location: home.php");
     exit;
 }
-$username=$_SESSION['username'];
-$query="select `type` from user_info where username='$username'";
-$result = mysqli_query($con,$query);
-$row =mysqli_fetch_array($result);
-$type=$row[0];
-if($type!=0){
-    header("location: home.php");
-    exit;
-}
+include("connectdb.php");
 ?>
 
 <!DOCTYPE html>

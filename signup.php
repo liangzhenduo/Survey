@@ -8,7 +8,6 @@ if(isset($_SESSION['username'])){		//未登录
 
 if(isset($_POST['submit'])) {
     include("connectdb.php");
-
     if($_POST['password'] != $_POST['retry']){
         $error = "密码不匹配!";
     }
@@ -20,11 +19,9 @@ if(isset($_POST['submit'])) {
             $error = "用户已存在!";
         }
         else {
-            if($_POST['username']=='root'||$_POST['username']=='Shintaku')
-                $_POST['usertype']=0;
             $query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
             $result = mysqli_query($con, $query);
-            $username=$_POST['username'];
+            /*$username=$_POST['username'];
             $query="select `uid` from user_info where `username`='$username'";
             $result = mysqli_query($con,$query);
             $row =mysqli_fetch_array($result);
@@ -47,7 +44,7 @@ if(isset($_POST['submit'])) {
                 $query="INSERT INTO IndustrialParkInvestigation(ID) values('$res')";
                 $result = mysqli_query($con, $query);
                 mkdir("./files/3/$username");
-            }
+            }*/
             header("location: home.php?status=1");
             exit;
         }
@@ -148,9 +145,11 @@ if(isset($_POST['submit'])) {
                     <div class="col-xs-6">
                         <label>用户类型</label>
                         <select class = "select form-control" name="usertype"  title="">
-                            <option value="1">排污企业</option>
-                            <option value="2">污水处理厂运营商</option>
-                            <option value="3">工业园区管委会\园区环保主管部门</option>
+                            <option value="4">访客</option>
+                            <option value="0">超级管理员</option>
+                            <option value="1">企业表格管理员</option>
+                            <option value="2">处理厂表格管理员</option>
+                            <option value="3">管委会表格管理员</option>
                         </select>
                     </div>
                 </div>

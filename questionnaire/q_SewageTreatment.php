@@ -8,16 +8,24 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
     $username=$_SESSION['username'];
-    $query="select `type`, `uid` from user_info where `username`='$username'";
+    $query="select `type` from user_info where `username`='$username'";
     $result = mysqli_query($con,$query);
     $row =mysqli_fetch_array($result);
     $type=$row[0];
-    $uid=$row[1];
     if($type!=2&&$type!=0){
         header("location: ../home.php");
         exit;
     }
     else if(isset($_POST['submit'])){
+        $query="INSERT INTO SewageTreatmentQuestionnaire(ID) values(null)";
+        $result = mysqli_query($con, $query);
+        $query="select max(ID) from SewageTreatmentQuestionnaire";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_fetch_array($result);
+        $id = $rows[0];
+        $path="../files/处理厂现场调查表附件/$id";
+        mkdir($path);
+
         $update="UPDATE SewageTreatmentQuestionnaire SET
 `INVESTIGATOR`='$_POST[INVESTIGATOR]',
 `REPORT_DATE`='$_POST[REPORT_DATE]',
@@ -193,9 +201,9 @@ else {
 `ZSHY_SOLID_PROCESSING_MEANS`='$_POST[ZSHY_SOLID_PROCESSING_MEANS]',
 `ZSHY_YN_CONTROL_SYSTEM`='$_POST[ZSHY_YN_CONTROL_SYSTEM]',
 `ZSHY_OTHER`='$_POST[ZSHY_OTHER]'
-		WHERE `ID`='$uid'";
+		WHERE `ID`='$id'";
         $result = mysqli_query($con, $update);
-        $path="./files/$type/$username";
+
         if(isset($_FILES['file'])) {
             for ($i = 0; $i < count($_FILES['file']); $i++) {
                 if ($_FILES['file']['error'][$i] == 0) {
@@ -203,7 +211,7 @@ else {
                 }
             }
         }
-        header("location: ../home.php");
+        header("location: ../home.php?status=2");
         exit;
     }
 }

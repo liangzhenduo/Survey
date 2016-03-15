@@ -1,16 +1,15 @@
 <?php
 session_start();
 $error='';
-include "connectdb.php";
 if(!isset($_SESSION['username'])){		//未登录
     header("location: home.php");
     exit;
 }
+include "connectdb.php";
 $username=$_SESSION['username'];
 $select="select * from user_info where `username`='$username'";
 $result = mysqli_query($con,$select);
 $rows = mysqli_fetch_array($result);
-
 ?>
 
 <!DOCTYPE html>
@@ -93,10 +92,13 @@ $rows = mysqli_fetch_array($result);
                         <label>用户类型</label>
                         <input type="text" class="form-control" name="unit" value="
                         <?php
-                        if($rows[3]==1) echo "排污企业";
-                        else if($rows[3]==2) echo "污水处理厂";
-                        else if($rows[3]==3) echo "工业园区";
-                        ?>" disabled title="">
+                        if($rows[3]==0) echo "超级管理员";
+                        else if($rows[3]==1) echo "企业表格管理员";
+                        else if($rows[3]==2) echo "处理厂表格管理员";
+                        else if($rows[3]==3) echo "管委会表格管理员";
+                        else if($rows[3]==4) echo "访客";
+                        ?>
+                        " disabled title="">
                     </div>
                 </div>
             </form>

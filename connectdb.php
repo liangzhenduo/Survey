@@ -6,7 +6,6 @@
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	else {
-		//echo "Success";
-		//phpinfo();
+		mysqli_query($con, "SET NAMES UTF8");
 	}
 ?>
