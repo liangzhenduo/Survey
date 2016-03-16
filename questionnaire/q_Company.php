@@ -613,7 +613,7 @@ else {
 							<label for="InputName">影响废水设施稳定运行的制约因素</label> <input type="text" class="form-control" name="WSCL_STABILITY_INFLUENCE_FACTOR" placeholder="" required>
 						</div>
 						<div class="col-xs-6">
-							<label for="InputName">设施事故数量(个)</label> <input type="number" class="form-control" name="WSCL_MUD_PRODUCTION" placeholder="" required><br/>
+							<label for="InputName">设施事故数量(个)</label> <input type="number" class="form-control" name="WSCL_FACILITY_FAULT_COUNT" placeholder="" required><br/>
 						</div>
 					</div>
 

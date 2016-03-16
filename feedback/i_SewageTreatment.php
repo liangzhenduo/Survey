@@ -14,6 +14,91 @@ $type=$row[0];
 if($type==0||$type==2) $ac=1;
 else $ac=0;
 if(isset($_GET['name'])) {
+
+    if(isset($_POST['submit'])) {
+        $update = "UPDATE SewageTreatmentInvestigation SET
+`WSCL_INVESTIGATOR`='$_POST[WSCL_INVESTIGATOR]',
+`WSCL_TELEPHONE`='$_POST[WSCL_TELEPHONE]',
+`WSCL_RUNNING`='$_POST[WSCL_RUNNING]',
+`JBSJ_DESIGN_SIZE`='$_POST[JBSJ_DESIGN_SIZE]',
+`JBSJ_WATER_PROCESSING`='$_POST[JBSJ_WATER_PROCESSING]',
+`JBSJ_YN_MEET_REQUIREMENT`='$_POST[JBSJ_YN_MEET_REQUIREMENT]',
+`JBSJ_MAX_DAY_WATER_SIZE`='$_POST[JBSJ_MAX_DAY_WATER_SIZE]',
+`JBSJ_RUNNING_DAYS`='$_POST[JBSJ_RUNNING_DAYS]',
+`JBSJ_AVERAGE_DAY_WATER_SIZE`='$_POST[JBSJ_AVERAGE_DAY_WATER_SIZE]',
+`JBSJ_RUNNING_FEE`='$_POST[JBSJ_RUNNING_FEE]',
+`JBSJ_UNLOAD_STANDARD`='$_POST[JBSJ_UNLOAD_STANDARD]',
+`JBSJ_WASTEWATER_PEOPLE`='$_POST[JBSJ_WASTEWATER_PEOPLE]',
+`JBSJ_LAND_SIZE`='$_POST[JBSJ_LAND_SIZE]',
+`JBSJ_MUD_PEOPLE`='$_POST[JBSJ_MUD_PEOPLE]',
+`JBSJ_CONSTRUCTION_YEAR`='$_POST[JBSJ_CONSTRUCTION_YEAR]',
+`JBSJ_CONSTRUCTION_INVESTMENT`='$_POST[JBSJ_CONSTRUCTION_INVESTMENT]',
+`JBSJ_MEDCINE_FEE`='$_POST[JBSJ_MEDCINE_FEE]',
+`JBSJ_ELECTRICITY_FEE`='$_POST[JBSJ_ELECTRICITY_FEE]',
+`JBSJ_PEOPLE_FEE`='$_POST[JBSJ_PEOPLE_FEE]',
+`JBSJ_EQUIPMENT_OLD_FEE`='$_POST[JBSJ_EQUIPMENT_OLD_FEE]',
+`JBSJ_OTHER_FEE`='$_POST[JBSJ_OTHER_FEE]',
+`JBSJ_MUD_PRODUCTIVITY_FEE`='$_POST[JBSJ_MUD_PRODUCTIVITY_FEE]',
+`JBSJ_MUD_WATER_RATE`='$_POST[JBSJ_MUD_WATER_RATE]',
+`JBSJ_MUD_PROCESSING_MEANS`='$_POST[JBSJ_MUD_PROCESSING_MEANS]',
+`JBSJ_CONSTRUCTION_USAGE`='$_POST[JBSJ_CONSTRUCTION_USAGE]',
+`JBSJ_LAND_USAGE`='$_POST[JBSJ_LAND_USAGE]',
+`JBSJ_MUD_COMPOSIT`='$_POST[JBSJ_MUD_COMPOSIT]',
+`JBSJ_MUD_DUMPLING`='$_POST[JBSJ_MUD_DUMPLING]',
+`JBSJ_MUD_BURN`='$_POST[JBSJ_MUD_BURN]',
+`JBSJ_MUD_OTHER_RESOURCE`='$_POST[JBSJ_MUD_OTHER_RESOURCE]',
+`JBSJ_NOISE_INFLUNCE`='$_POST[JBSJ_NOISE_INFLUNCE]',
+`JBSJ_OZONE_INFLUNCE`='$_POST[JBSJ_OZONE_INFLUNCE]',
+`JBSJ_YN_PH_MONITORING`='$_POST[JBSJ_YN_PH_MONITORING]',
+`JBSJ_YN_WATER_LEVEL_MONITORING`='$_POST[JBSJ_YN_WATER_LEVEL_MONITORING]',
+`JBSJ_YN_GOOD_MONITORING`='$_POST[JBSJ_YN_GOOD_MONITORING]',
+`JBSJ_AUTOMATIC_LEVEL`='$_POST[JBSJ_AUTOMATIC_LEVEL]',
+`SZZB_CODCR_IN`='$_POST[SZZB_CODCR_IN]',
+`SZZB_CODCR_OUT`='$_POST[SZZB_CODCR_OUT]',
+`SZZB_BOD5_IN`='$_POST[SZZB_BOD5_IN]',
+`SZZB_BOD5_OUT`='$_POST[SZZB_BOD5_OUT]',
+`SZZB_COLOR_DEGREE_IN`='$_POST[SZZB_COLOR_DEGREE_IN]',
+`SZZB_COLOR_DEGREE_OUT`='$_POST[SZZB_COLOR_DEGREE_OUT]',
+`SZZB_SS_IN`='$_POST[SZZB_SS_IN]',
+`SZZB_SS_OUT`='$_POST[SZZB_SS_OUT]',
+`SZZB_TP_IN`='$_POST[SZZB_TP_IN]',
+`SZZB_TP_OUT`='$_POST[SZZB_TP_OUT]',
+`SZZB_TN_IN`='$_POST[SZZB_TN_IN]',
+`SZZB_TN_OUT`='$_POST[SZZB_TN_OUT]',
+`SZZB_NH3N_IN`='$_POST[SZZB_NH3N_IN]',
+`SZZB_NH3N_OUT`='$_POST[SZZB_NH3N_OUT]',
+`SZZB_PH_IN`='$_POST[SZZB_PH_IN]',
+`SZZB_PH_OUT`='$_POST[SZZB_PH_OUT]',
+`SZZB_SALINITY_IN`='$_POST[SZZB_SALINITY_IN]',
+`SZZB_SALINITY_OUT`='$_POST[SZZB_SALINITY_OUT]',
+`SZZB_ORG_IN`='$_POST[SZZB_ORG_IN]',
+`SZZB_ORG_OUT`='$_POST[SZZB_ORG_OUT]',
+`SZZB_CU_IN`='$_POST[SZZB_CU_IN]',
+`SZZB_CU_OUT`='$_POST[SZZB_CU_OUT]',
+`SZZB_FE_IN`='$_POST[SZZB_FE_IN]',
+`SZZB_FE_OUT`='$_POST[SZZB_FE_OUT]',
+`SZZB_NG_IN`='$_POST[SZZB_NG_IN]',
+`SZZB_NG_OUT`='$_POST[SZZB_NG_OUT]',
+`SZZB_CD_IN`='$_POST[SZZB_CD_IN]',
+`SZZB_CD_OUT`='$_POST[SZZB_CD_OUT]',
+`SZZB_OTHER_METAL_IN`='$_POST[SZZB_OTHER_METAL_IN]',
+`SZZB_OTHER_METAL_OUT`='$_POST[SZZB_OTHER_METAL_OUT]',
+`SZZB_OTHER_POLLUTION_IN`='$_POST[SZZB_OTHER_POLLUTION_IN]',
+`SZZB_OTHER_POLLUTION_OUT`='$_POST[SZZB_OTHER_POLLUTION_OUT]',
+`SZZB_MEET_REQUIREMENT_RATE_IN`='$_POST[SZZB_MEET_REQUIREMENT_RATE_IN]',
+`SZZB_MEET_REQUIREMENT_RATE_OUT`='$_POST[SZZB_MEET_REQUIREMENT_RATE_OUT]',
+`SZZB_PROCESSING_PROCESS`='$_POST[SZZB_PROCESSING_PROCESS]',
+`WSCL_RECOVER_DAYS_Q`='$_POST[WSCL_RECOVER_DAYS_Q]',
+`WSCL_RECOVER_DAYS_P`='$_POST[WSCL_RECOVER_DAYS_P]',
+`WSCL_AUNTI_PRESSURE`='$_POST[WSCL_AUNTI_PRESSURE]',
+`WSCL_SUGGESTIONS`='$_POST[WSCL_SUGGESTIONS]',
+`WSCL_YN_HAVE_RESYCLE_PLANT`='$_POST[WSCL_YN_HAVE_RESYCLE_PLANT]',
+`WSCL_PROCESSING_SIZE`='$_POST[WSCL_PROCESSING_SIZE]',
+`WSCL_APPLICATIONS`='$_POST[WSCL_APPLICATIONS]'
+        WHERE `WSCL_NAME`='$_GET[name]'";
+        mysqli_query($con, $update);
+    }
+
     $select="select * from SewageTreatmentInvestigation where `WSCL_NAME`='$_GET[name]'";
     $result = mysqli_query($con,$select);
     $rows = mysqli_fetch_array($result);
@@ -90,7 +175,7 @@ if(isset($_GET['name'])) {
 
                 <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="InputName">污水处理厂名称</label> <input type="text" class="form-control" name="WSCL_NAME" placeholder="" value="<?php echo $rows[3] ?>" <?php if($ac==0) echo "disabled" ?> >
+                        <label for="InputName">污水处理厂名称</label> <input type="text" class="form-control" name="WSCL_NAME" placeholder="" value="<?php echo $rows[3] ?>" disabled >
                     </div>
                     <div class="col-xs-6">
                         <label for="InputName">运营单位名称</label> <input type="text" class="form-control" name="WSCL_RUNNING" placeholder="" value="<?php echo $rows[4] ?>" <?php if($ac==0) echo "disabled" ?> ><br/>
@@ -492,6 +577,11 @@ if(isset($_GET['name'])) {
                         <label for="InputName">再生水用途</label> <input type="text" class="form-control" name="WSCL_APPLICATIONS" placeholder="" value="<?php echo $rows[79] ?>" <?php if($ac==0) echo "disabled" ?> ><br/><br/><br/>
                     </div>
                 </div>
+
+                <h1 align="center">
+                    <input class="btn btn-primary" type="submit" name="submit" value="提交" <?php if($ac==0) echo "disabled" ?> >
+                    <input class="btn btn-primary" type="submit" name="delete" value="删除" <?php if($ac==0) echo "disabled" ?> >
+                </h1>
 
             </form>
         </div>
