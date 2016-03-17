@@ -12,6 +12,8 @@ if (isset($_POST['submit'])) {
 	$rows = mysqli_num_rows($result);
 	if($rows > 0){
 		$_SESSION['username'] = $username;
+        header("location: home.php");
+        exit;
 	}
 	else {
 		$error="用户名或密码错误!";
@@ -30,7 +32,7 @@ if (isset($_POST['submit'])) {
     <meta name="author" content="">
     <link rel="icon" href="image/logo.gif">
 
-    <title>污水处理管理系统</title>
+    <title>调研数据库</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -40,21 +42,6 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#myModal").on('show.bs.modal', function(event){
-				var button = $(event.relatedTarget);  // Button that triggered the modal
-				var titleData = button.data('title'); // Extract value from data-* attributes
-				$(this).find('.modal-title').text(titleData);
-			});
-		});
-	</script>
-	<style type="text/css">
-		.bs-example{
-			margin: 20px;
-		}
-	</style>
 
   </head>
 
@@ -70,7 +57,6 @@ if (isset($_POST['submit'])) {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">污水处理管理系统</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -80,14 +66,12 @@ if (isset($_POST['submit'])) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-
-
               <?php
               	if(isset($_SESSION['username'])){
               ?>
 					<li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
 					<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
-					<li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+					<li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'] ?></b> <span class="glyphicon glyphicon-user"></span></a></li>
               		<li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
               	}else{
@@ -106,17 +90,11 @@ if (isset($_POST['submit'])) {
 		<div style="background: #10bbf1" class="jumbotron">
 			<span style="color: white; ">
 
-				<div class="col-lg-2">
-				</div>
-				<div class="col-lg-1">
-					<h1 align="center"><img src="image/pic.gif" style="width: 140px; height: 140px"></h1>
-				</div>
-				<div class="col-lg-7">
-					<h2 align="center"><br/>天津市环境保护科学研究院<br/></h2>
-						<h3 align="center">Tianjin Academy of Environmental Sciences</h3><br>
+				<div class="col-lg-12">
+					<h1 align="center">重点流域典型工业园区水污染防治</h1>
 				</div>
 				<div class="col-lg-12">
-					<h1 align="center">工业园区污水处理管理系统</h1><br>
+					<h1 align="center">及管理制度研究调研数据库</h1><br>
 				</div>
 
 			<?php
@@ -131,73 +109,88 @@ if (isset($_POST['submit'])) {
 
 				<div class="col-lg-12" style="height:40px"></div>
 
+                    <div class="col-lg-4">
+                        <a href="statistics/IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会数据统计</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="statistics/SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s">污水处理厂数据统计</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="statistics/Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业数据统计</a>
+                    </div>
+
+                    <div class="col-lg-12" style="height:40px"></div>
+
 				<?php
+					if($type==3||$type==0){ ?>
+						<div class="col-lg-4">
+							<a href="questionnaire/q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
+						</div>
+				<?php
+					}
+                    else { ?>
+						<div class="col-lg-4">
+							<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会现场调查表</a>
+						</div>
+				<?php
+					}
+					if($type==2||$type==0){ ?>
+                        <div class="col-lg-4">
+                            <a href="questionnaire/q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >污水处理厂现场调查表</a>
+                        </div>
+				<?php
+					}
+					else { ?>
+						<div class="col-lg-4">
+							<a class="btn btn-primary btn-lg btn-block disabled" name="but_s">污水处理厂现场调查表</a>
+						</div>
+				<?php
+					}
 					if($type==1||$type==0){?>
-					<div class="col-lg-4">
-						<a href="questionnaire/q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
-					</div>
+						<div class="col-lg-4">
+							<a href="questionnaire/q_Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业现场调查表</a>
+						</div>
 				<?php
-					}else{?>
-					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业现场调查表</a>
-					</div>
+                    }
+                    else { ?>
+						<div class="col-lg-4">
+							<a class="btn btn-primary btn-lg btn-block disabled" name="but_c">排污企业现场调查表</a>
+						</div>
+				<?php
+					} ?>
 
-				<?php
-					}
-					if($type==2||$type==0){?>
-					<div class="col-lg-4">
-						<a href="questionnaire/q_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商现场调查表</a>
-					</div>
-				<?php
-					}
-					else{?>
-					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >处理厂现场调查表</a>
-					</div>
-				<?php
-					}
-					if($type==3||$type==0){?>
-					<div class="col-lg-4">
-						<a href="questionnaire/q_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会现场调查表</a>
-					</div>
-				<?php
-					}else{?>
-					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会现场调查表</a>
-					</div>
-				<?php
-					}?>
+                    <div class="col-lg-12" style="height:20px"></div>
 
-					<div class="col-lg-12" style="height:20px"></div>
-					<div class="rows">
-						<div class="col-lg-4" style="height:100px"></div>
-					</div>
-
-				<?php
-					if($type==2||$type==0){?>
-					<div class="col-lg-4">
-						<a href="questionnaire/i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >运营商函件调查表</a>
-					</div>
-				<?php
-					}else{?>
-					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >处理厂函件调查表</a>
-					</div>
-
-				<?php
-					}
-					if($type==3||$type==0){?>
-					<div class="col-lg-4">
-						<a href="questionnaire/i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
-					</div>
-				<?php
-					}else{?>
-					<div class="col-lg-4">
-						<a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会函件调查表</a>
-					</div>
+                <?php
+                    if($type==3||$type==0) { ?>
+                        <div class="col-lg-4">
+                            <a href="questionnaire/i_IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会函件调查表</a>
+                        </div>
+                <?php
+                    }
+                    else { ?>
+                        <div class="col-lg-4">
+                            <a class="btn btn-primary btn-lg btn-block disabled" name="but_i">管委会函件调查表</a>
+                        </div>
+                <?php
+                    }
+					if($type==2||$type==0) { ?>
+                        <div class="col-lg-4">
+                            <a href="questionnaire/i_SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s" >污水处理厂函件调查表</a>
+                        </div>
 				<?php
 					}
-					?>
+                    else { ?>
+                        <div class="col-lg-4">
+                            <a class="btn btn-primary btn-lg btn-block disabled" name="but_s" >污水处理厂函件调查表</a>
+                        </div>
+                <?php
+                    } ?>
+                        <div class="rows">
+                            <div class="col-lg-4" style="height:80px"></div>
+                        </div>
 
                 <?php
                     if(isset($_GET['status']) && $_GET['status']==2){
@@ -223,23 +216,26 @@ if (isset($_POST['submit'])) {
 							<input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required><br/>
 							<label for="inputPassword">密码</label>
 							<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-							<?php
-							if($error!='')
-								echo "<br><div class=\"alert alert-danger\" align=\"center\">$error</div>";
-							if(isset($_GET['status']) && $_GET['status']==1)
-								echo "<br><div class=\"alert alert-success\" align=\"center\">注册成功,请登录!</div>";
-							?>
-							<br/><br/>
+
+							<br>
 							<div class="rows">
 								<div class="col-lg-6">
 									<button class="submit btn btn-primary btn-lg btn-block" name="submit">登录</button>
-
 								</div>
 								<div class="col-lg-6">
 									<a href="signup.php" class="btn btn-lg btn-primary btn-block" name="signup" >注册</a>
 								</div>
-
 							</div>
+                            <br><br>
+
+                            <?php
+                            if($error!='')
+                                echo "<br><div class=\"alert alert-danger \" align=\"center\">$error</div>";
+                            else if(isset($_GET['status']) && $_GET['status']==1)
+                                echo "<br><div class=\"alert alert-success\" align=\"center\">注册成功,请登录!</div>";
+                            else
+                                echo "<div class=\"col-lg-12\" style=\"height:80px\"></div>";
+                            ?>
 
 						</form>
 					</div>
