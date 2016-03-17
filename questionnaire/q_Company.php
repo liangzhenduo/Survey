@@ -8,7 +8,7 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 else {
 	$username=$_SESSION['username'];
-	$query="select `type` from user_info where username='$username'";
+	$query="SELECT `type` FROM user_info WHERE username='$username'";
 	$result = mysqli_query($con,$query);
 	$row =mysqli_fetch_array($result);
 	$type=$row[0];
@@ -17,9 +17,9 @@ else {
 		exit;
 	}
 	else if(isset($_POST['submit'])){
-		$query="INSERT INTO CompanyQuestionnaire(ID) values(null)";
+		$query="INSERT INTO CompanyQuestionnaire(ID) VALUES(null)";
 		$result = mysqli_query($con, $query);
-        $query="select max(ID) from CompanyQuestionnaire";
+        $query="SELECT max(ID) FROM CompanyQuestionnaire";
         $result = mysqli_query($con, $query);
         $rows = mysqli_fetch_array($result);
         $id = $rows[0];

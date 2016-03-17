@@ -7,13 +7,20 @@ if(!isset($_SESSION['username'])){		//未登录
     exit;
 }
 $username=$_SESSION['username'];
-$query="select `type` from user_info where `username`='$username'";
+$query="SELECT `type` FROM user_info WHERE `username`='$username'";
 $result = mysqli_query($con,$query);
 $row =mysqli_fetch_array($result);
 $type=$row[0];
 if($type==0||$type==2) $ac=1;
 else $ac=0;
 if(isset($_GET['name'])) {
+
+    if(isset($_POST['delete'])) {
+        $delete="DELETE FROM SewageTreatmentInvestigation WHERE `WSCL_NAME`='$_GET[name]'";
+        mysqli_query($con, $delete);
+        header("location: ../search.php?status=0");
+        exit;
+    }
 
     if(isset($_POST['submit'])) {
         $update = "UPDATE SewageTreatmentInvestigation SET
@@ -97,9 +104,11 @@ if(isset($_GET['name'])) {
 `WSCL_APPLICATIONS`='$_POST[WSCL_APPLICATIONS]'
         WHERE `WSCL_NAME`='$_GET[name]'";
         mysqli_query($con, $update);
+        header("location: ../search.php?status=1");
+        exit;
     }
 
-    $select="select * from SewageTreatmentInvestigation where `WSCL_NAME`='$_GET[name]'";
+    $select="SELECT * FROM SewageTreatmentInvestigation WHERE `WSCL_NAME`='$_GET[name]'";
     $result = mysqli_query($con,$select);
     $rows = mysqli_fetch_array($result);
 ?>

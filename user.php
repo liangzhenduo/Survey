@@ -7,7 +7,7 @@ if(!isset($_SESSION['username'])){		//未登录
 }
 include "connectdb.php";
 $username=$_SESSION['username'];
-$select="select * from user_info where `username`='$username'";
+$select="SELECT * FROM user_info WHERE `username`='$username'";
 $result = mysqli_query($con,$select);
 $rows = mysqli_fetch_array($result);
 ?>

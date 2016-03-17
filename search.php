@@ -72,7 +72,29 @@ include("connectdb.php");
         <div class="col-lg-6">
             <form class="form-signin" method="post" action="">
 
-                <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+                <?php
+                if(isset($_GET['status']) && $_GET['status']==1){
+                    ?>
+                    <div class="col-xs-4"></div>
+                    <div class="col-lg-4" style="height:100px">
+                        <br><div class="alert alert-success" align="center">更新成功!</div>
+                    </div>
+                    <div class="col-xs-4"></div><br/>
+                    <?php
+                }
+                else if(isset($_GET['status']) && $_GET['status']==0){
+                    ?>
+                    <div class="col-xs-4"></div>
+                    <div class="col-lg-4" style="height:100px">
+                        <br><div class="alert alert-success" align="center">删除成功!</div>
+                    </div>
+                    <div class="col-xs-4"></div><br/>
+                    <?php
+                }
+                ?>
+
+                <br/><br/><br/><h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+
                 <div class="form-group">
                     <div class="col-xs-4">
                         <label>所在省市</label>

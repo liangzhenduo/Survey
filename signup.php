@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
         $error = "密码不匹配!";
     }
     else {
-        $query = "select username from user_info where `username`='$_POST[username]'";
+        $query = "SELECT username FROM user_info WHERE `username`='$_POST[username]'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
         if ($rows > 0) {
@@ -21,30 +21,6 @@ if(isset($_POST['submit'])) {
         else {
             $query = "INSERT INTO user_info(`username`, `password`, `type`, `unit`, `mail`) values('$_POST[username]','$_POST[password]','$_POST[usertype]','$_POST[unit]','$_POST[mail]')";
             $result = mysqli_query($con, $query);
-            /*$username=$_POST['username'];
-            $query="select `uid` from user_info where `username`='$username'";
-            $result = mysqli_query($con,$query);
-            $row =mysqli_fetch_array($result);
-            $res=$row[0];
-            if($_POST['usertype']==1){
-                $query="INSERT INTO CompanyQuestionnaire(ID) values('$res')";
-                $result = mysqli_query($con, $query);
-                mkdir("./files/1/$username");
-            }
-            else if($_POST['usertype']==2){
-                $query="INSERT INTO SewageTreatmentQuestionnaire(ID) values('$res')";
-                $result = mysqli_query($con, $query);
-                $query="INSERT INTO SewageTreatmentInvestigation(ID) values('$res')";
-                $result = mysqli_query($con, $query);
-                mkdir("./files/2/$username");
-            }
-            else if($_POST['usertype']==3){
-                $query="INSERT INTO IndustrialParkQuestionnaire(ID) values('$res')";
-                $result = mysqli_query($con, $query);
-                $query="INSERT INTO IndustrialParkInvestigation(ID) values('$res')";
-                $result = mysqli_query($con, $query);
-                mkdir("./files/3/$username");
-            }*/
             header("location: home.php?status=1");
             exit;
         }

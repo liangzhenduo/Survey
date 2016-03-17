@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 	$password = $_POST['password'];
 	$username = htmlspecialchars($username);
 	$password = htmlspecialchars($password);
-	$query = "select username, password from user_info where `password`='$password' AND `username`='$username'";
+	$query = "SELECT username, password FROM user_info WHERE `password`='$password' AND `username`='$username'";
 	$result = mysqli_query($con, $query);
 	$rows = mysqli_num_rows($result);
 	if($rows > 0){
@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
 				if(isset($_SESSION['username'])){
 					include "connectdb.php";
 					$username=$_SESSION['username'];
-					$query="select `type` from user_info where username='$username'";
+					$query="SELECT `type` FROM user_info WHERE username='$username'";
 					$result = mysqli_query($con, $query);
 					$row =mysqli_fetch_array($result);
 					$type=$row[0];
