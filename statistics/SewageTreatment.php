@@ -43,19 +43,13 @@ include("../connectdb.php");
             </div>
             <div id="navbar" class="navbar-collapse collapse" style="text-align: center;">
                 <ul class="nav navbar-nav">
-                    <a class="navbar-brand">重点流域典型工业园区水污染防治及管理制度研究调研数据库</a>
+                    <li><a class="navbar-brand" href="../home.php">重点流域典型工业园区水污染防治及管理制度研究调研数据库</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="../home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="../home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="../search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
-                    <?php
-                    if(isset($_SESSION['username'])){
-                        ?>
-                        <li><a href="../user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li><a href="../signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
-                        <?php
-                    }
-                    ?>
+                    <li><a href="../user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="../signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -74,7 +68,7 @@ include("../connectdb.php");
                     <div class="col-xs-6">
                         <label>排序依据</label>
                         <select class = "select form-control" name="PXYJ" title="">
-                            <option value="">不限</option>
+                            <option value="ID">默认</option>
                             <option value="YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_SIZE") echo "selected" ?> >设计规模</option>
                             <option value="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE") echo "selected" ?> >实际处理水量/设计规模</option>
                             <option value="YQWS_MAIN_WASTE_IN_DENSITY_COD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_COD") echo "selected" ?> >进水CODcr</option>

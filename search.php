@@ -40,26 +40,16 @@ include("connectdb.php");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php">污水处理管理系统</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="navbar-collapse collapse" style="text-align: center;">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a class="navbar-brand" href="home.php">重点流域典型工业园区水污染防治及管理制度研究调研数据库</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
-                    <li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
-
-                    <?php
-                    if(isset($_SESSION['username'])){
-                        ?>
-                        <li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
-                        <?php
-                    }
-                        ?>
-
+                    <li><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
+                    <li><a href="user.php"><b><?php echo $_SESSION['username'];?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -100,55 +90,55 @@ include("connectdb.php");
                         <label>所在省市</label>
                         <select class = "select form-control" name="YQSS" title="">
                             <option value="">不限</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="河北">河北</option>
-                            <option value="山西">山西</option>
-                            <option value="内蒙古">内蒙古</option>
-                            <option value="辽宁">辽宁</option>
-                            <option value="吉林">吉林</option>
-                            <option value="黑龙江">黑龙江</option>
-                            <option value="上海">上海</option>
-                            <option value="江苏">江苏</option>
-                            <option value="浙江">浙江</option>
-                            <option value="安徽">安徽</option>
-                            <option value="福建">福建</option>
-                            <option value="江西">江西</option>
-                            <option value="山东">山东</option>
-                            <option value="河南">河南</option>
-                            <option value="湖北">湖北</option>
-                            <option value="湖南">湖南</option>
-                            <option value="广东">广东</option>
-                            <option value="广西">广西</option>
-                            <option value="海南">海南</option>
-                            <option value="重庆">重庆</option>
-                            <option value="四川">四川</option>
-                            <option value="贵州">贵州</option>
-                            <option value="云南">云南</option>
-                            <option value="西藏">西藏</option>
-                            <option value="陕西">陕西</option>
-                            <option value="甘肃">甘肃</option>
-                            <option value="青海">青海</option>
-                            <option value="宁夏">宁夏</option>
-                            <option value="新疆">新疆</option>
-                            <option value="香港">香港</option>
-                            <option value="澳门">澳门</option>
-                            <option value="台湾">台湾</option>
+                            <option value="北京" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="北京") echo "selected" ?> >北京</option>
+                            <option value="天津" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="天津") echo "selected" ?> >天津</option>
+                            <option value="河北" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="河北") echo "selected" ?> >河北</option>
+                            <option value="山西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="山西") echo "selected" ?> >山西</option>
+                            <option value="内蒙古" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="内蒙古") echo "selected" ?> >内蒙古</option>
+                            <option value="辽宁" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="辽宁") echo "selected" ?> >辽宁</option>
+                            <option value="吉林" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="吉林") echo "selected" ?> >吉林</option>
+                            <option value="黑龙江" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="黑龙江") echo "selected" ?> >黑龙江</option>
+                            <option value="上海" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="上海") echo "selected" ?> >上海</option>
+                            <option value="江苏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="江苏") echo "selected" ?> >江苏</option>
+                            <option value="浙江" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="浙江") echo "selected" ?> >浙江</option>
+                            <option value="安徽" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="安徽") echo "selected" ?> >安徽</option>
+                            <option value="福建" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="福建") echo "selected" ?> >福建</option>
+                            <option value="江西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="江西") echo "selected" ?> >江西</option>
+                            <option value="山东" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="山东") echo "selected" ?> >山东</option>
+                            <option value="河南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="河南") echo "selected" ?> >河南</option>
+                            <option value="湖北" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="湖北") echo "selected" ?> >湖北</option>
+                            <option value="湖南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="湖南") echo "selected" ?> >湖南</option>
+                            <option value="广东" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="广东") echo "selected" ?> >广东</option>
+                            <option value="广西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="广西") echo "selected" ?> >广西</option>
+                            <option value="海南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="海南") echo "selected" ?> >海南</option>
+                            <option value="重庆" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="重庆") echo "selected" ?> >重庆</option>
+                            <option value="四川" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="四川") echo "selected" ?> >四川</option>
+                            <option value="贵州" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="贵州") echo "selected" ?> >贵州</option>
+                            <option value="云南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="云南") echo "selected" ?> >云南</option>
+                            <option value="西藏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="西藏") echo "selected" ?> >西藏</option>
+                            <option value="陕西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="陕西") echo "selected" ?> >陕西</option>
+                            <option value="甘肃" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="甘肃") echo "selected" ?> >甘肃</option>
+                            <option value="青海" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="青海") echo "selected" ?> >青海</option>
+                            <option value="宁夏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="宁夏") echo "selected" ?> >宁夏</option>
+                            <option value="新疆" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="新疆") echo "selected" ?> >新疆</option>
+                            <option value="香港" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="香港") echo "selected" ?> >香港</option>
+                            <option value="澳门" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="澳门") echo "selected" ?> >澳门</option>
+                            <option value="台湾" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="台湾") echo "selected" ?> >台湾</option>
                         </select>
                     </div>
                     <div class="col-xs-4">
                         <label>园区级别</label>
                         <select class = "select form-control" name="YQJB" title="">
                             <option value="">不限</option>
-                            <option value="国家级">国家级</option>
-                            <option value="省市级">省市级</option>
-                            <option value="区县级">区县级</option>
+                            <option value="国家级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="国家级") echo "selected" ?> >国家级</option>
+                            <option value="省市级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="省市级") echo "selected" ?> >省市级</option>
+                            <option value="区县级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="区县级") echo "selected" ?> >区县级</option>
                         </select>
                     </div>
 
                     <div class="col-xs-4">
                         <label>园区名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="YQMC"><br/>
+                        <input type="text" class="form-control" placeholder="关键字" name="YQMC" value=<?php echo $_POST['YQMC'] ?> ><br/>
                     </div>
                 </div>
 
@@ -157,21 +147,21 @@ include("connectdb.php");
                         <label>园区类型</label>
                         <select class = "select form-control" name="YQLX" title="">
                             <option value="">不限</option>
-                            <option value="行业主导型">行业主导型</option>
-                            <option value="综合型">综合型</option>
+                            <option value="行业主导型" <?php if(isset($_POST['search'])&&$_POST['YQLX']=="行业主导型") echo "selected" ?> >行业主导型</option>
+                            <option value="综合型" <?php if(isset($_POST['search'])&&$_POST['YQLX']=="综合型") echo "selected" ?> >综合型</option>
                         </select><br/>
                     </div>
                     <div class="col-xs-4">
                         <label>单位类型</label>
                         <select class = "select form-control" name="type" title="">
-                            <option value="1">排污企业</option>
-                            <option value="2">污水处理厂运营商</option>
-                            <option value="3">工业园区管委会\园区环保主管部门</option>
+                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['type']=="1") echo "selected" ?> >排污企业</option>
+                            <option value="2" <?php if(isset($_POST['search'])&&$_POST['type']=="2") echo "selected" ?> >污水处理厂运营商</option>
+                            <option value="3" <?php if(isset($_POST['search'])&&$_POST['type']=="3") echo "selected" ?> >工业园区管委会\园区环保主管部门</option>
                         </select>
                     </div>
                     <div class="col-xs-4">
                         <label>单位名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="key"><br/>
+                        <input type="text" class="form-control" placeholder="关键字" name="key" value=<?php echo $_POST['key'] ?> ><br/>
                     </div>
                 </div>
 

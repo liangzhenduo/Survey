@@ -60,18 +60,18 @@ if (isset($_POST['submit'])) {
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
-              <li ><a href="#" data-toggle="modal" data-target="#about"  data-title="关于">关于<span class="glyphicon glyphicon-info-sign"></span></a></li>
-              <li><a href="#" data-toggle="modal" data-target="#myModal"  data-title="联系我们">联系我们<span class="glyphicon glyphicon-earphone"></span></a></li>
+                <li><a class="navbar-brand" href="home.php">重点流域典型工业园区水污染防治及管理制度研究调研数据库</a></li>
+                <!--li class="active"><a href="#" data-toggle="modal" data-target="#about"  data-title="关于">关于<span class="glyphicon glyphicon-info-sign"></span></a></li>
+                <li class="active"><a href="#" data-toggle="modal" data-target="#myModal"  data-title="联系我们">联系我们<span class="glyphicon glyphicon-earphone"></span></a></li-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
               <?php
               	if(isset($_SESSION['username'])){
               ?>
-					<li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
-					<li><a href="statistics.php">统计 <span class="glyphicon glyphicon-tasks"></span></a></li>
-					<li><a href="user.php" target="_blank"><b><?php echo $_SESSION['username'] ?></b> <span class="glyphicon glyphicon-user"></span></a></li>
+                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="search.php">检索 <span class="glyphicon glyphicon-search"></span></a></li>
+					<li><a href="user.php"><b><?php echo $_SESSION['username'] ?></b> <span class="glyphicon glyphicon-user"></span></a></li>
               		<li><a href="signout.php">注销 <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
               	}else{
