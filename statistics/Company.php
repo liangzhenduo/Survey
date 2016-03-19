@@ -68,20 +68,17 @@ include("../connectdb.php");
                     <div class="col-xs-6">
                         <label>排序依据</label>
                         <select class = "select form-control" name="PXYJ" title="">
-                            <option value="">不限</option>
-                            <option value="YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_SIZE") echo "selected" ?> >设计规模</option>
-                            <option value="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE") echo "selected" ?> >实际处理水量/设计规模</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_COD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_COD") echo "selected" ?> >进水CODcr</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_BOD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_BOD") echo "selected" ?> >进水BOD5</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TH") echo "selected" ?> >进水TN</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SS" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SS") echo "selected" ?> >进水SS</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TP" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TP") echo "selected" ?> >进水TP</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SE") echo "selected" ?> >进水色度</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_PH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_PH") echo "selected" ?> >进水pH</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_WEN" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_WEN") echo "selected" ?> >进水温度</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_NH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_NH") echo "selected" ?> >进水NH3-N</option>
-                            <option value="YQWS_ACCIDENT_POOL_VOLUME" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME") echo "selected" ?> >事故水池容积</option>
-                            <option value="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE") echo "selected" ?> >事故水池容积/设计规模</option>
+                            <option value="CompanyQuestionnaire.ID">默认</option>
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_COD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_COD") echo "selected" ?> >进水CODcr</option>
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_BOD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_BOD") echo "selected" ?> >进水BOD5</option>
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TN" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TN") echo "selected" ?> >进水TN</option>
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_SS" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_SS") echo "selected" ?> >进水SS</option>
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TP" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TP") echo "selected" ?> >进水TP</option>
+                            <!--option value="YQWS_MAIN_WASTE_IN_DENSITY_SE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SE") echo "selected" ?> >进水色度</option-->
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_PH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_PH") echo "selected" ?> >进水pH</option>
+                            <!--option value="YQWS_MAIN_WASTE_IN_DENSITY_WEN" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_WEN") echo "selected" ?> >进水温度</option-->
+                            <option value="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_NH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_NH") echo "selected" ?> >进水NH3-N</option>
+                            <option value="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE") echo "selected" ?> >事故水池容积/处理规模</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
@@ -95,23 +92,36 @@ include("../connectdb.php");
 
                 <div class="form-group">
                     <div class="col-xs-6">
+                        <label>行业字段</label>
+                        <input type="text" class="form-control" placeholder="关键字" name="HYZD" value=<?php if(isset($_POST['search'])) echo $_POST['HYZD'] ?> ><br/>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>清洁生产</label>
+                        <select class = "select form-control" name="QJSC" title="">
+                            <option value="">不限</option>
+                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['QJSC']=="1") echo "selected" ?> >是</option>
+                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['QJSC']=="0") echo "selected" ?> >否</option>
+                        </select><br/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
                         <label>工艺字段</label>
                         <select class = "select form-control" name="GYZD" title="">
                             <option value="">不限</option>
                             <option value="调节池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="调节池") echo "selected" ?> >调节池</option>
-                            <option value="水解酸化池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="水解酸化池") echo "selected" ?> >水解酸化池</option>
-                            <option value="AO池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="AO池") echo "selected" ?> >AO池</option>
-                            <option value="氧化沟" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="氧化沟") echo "selected" ?> >氧化沟</option>
-                            <option value="过滤池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="过滤池") echo "selected" ?> >过滤池</option>
-                            <option value="高效沉淀池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="高效沉淀池") echo "selected" ?> >高效沉淀池</option>
+                            <option value="好氧池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="好氧池") echo "selected" ?> >好氧池</option>
+                            <option value="生化池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="生化池") echo "selected" ?> >生化池</option>
+                            <option value="厌氧池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="厌氧池") echo "selected" ?> >厌氧池</option>
                         </select><br/>
                     </div>
                     <div class="col-xs-6">
-                        <label>中水回用</label>
-                        <select class = "select form-control" name="ZSHY" title="">
+                        <label>事故水池</label>
+                        <select class = "select form-control" name="SGSC" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="1") echo "selected" ?> >有</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="0") echo "selected" ?> >无</option>
+                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['SGSC']=="1") echo "selected" ?> >有</option>
+                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['SGSC']=="0") echo "selected" ?> >无</option>
                         </select>
                     </div>
                 </div><br/>
@@ -129,12 +139,14 @@ include("../connectdb.php");
         <?php
 
         if(isset($_POST['search'])) {
-        $query = "SELECT GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQWS_SIZE, YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE, YQWS_LAND_SIZE, YQWS_LAND_SIZE/YQWS_SIZE,
- YQWS_MAIN_WASTE_IN_DENSITY_COD, YQWS_MAIN_WASTE_IN_DENSITY_BOD, YQWS_MAIN_WASTE_IN_DENSITY_TH, YQWS_MAIN_WASTE_IN_DENSITY_SS, YQWS_MAIN_WASTE_IN_DENSITY_TP,
- YQWS_MAIN_WASTE_IN_DENSITY_SE, YQWS_MAIN_WASTE_IN_DENSITY_PH, YQWS_MAIN_WASTE_IN_DENSITY_WEN, YQWS_MAIN_WASTE_IN_DENSITY_NH, YQWS_PROCESSING_MEANS,
- YQWS_ACCIDENT_POOL_VOLUME, YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE FROM SewageTreatmentQuestionnaire
-            WHERE `YQWS_PROCESSING_MEANS` LIKE '%$_POST[GYZD]%' AND `YQFS_YN_RECYCLE_NETWORK` LIKE '%$_POST[ZSHY]%'
-            ORDER BY '%$_POST[PXYJ]%' '%$_POST[PXFF]%'";
+        $query = "SELECT QYXX_NAME, QJSC_YN_CLEANPRODUCT, WSCL_YN_SEWAGE_TREATMENT_FACILITY, SGCL_YN_ACCIDENT_POOL,
+            WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_COD, WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_BOD, WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TN,
+            WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_SS, WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_TP, WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_PH,
+            WSCL_INPUT_PRIMARY_POLLUTION_DENSITY_NH, WSCL_GENERAL_PROCESSING_PROCEDURE, SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE
+            FROM CompanyQuestionnaire LEFT JOIN IndustrialParkQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
+            WHERE `QYXX_TYPE` LIKE '%$_POST[HYZD]%' AND `QJSC_YN_CLEANPRODUCT` LIKE '%$_POST[QJSC]%'
+            AND `WSCL_GENERAL_PROCESSING_PROCEDURE` LIKE '%$_POST[GYZD]%' AND `SGCL_YN_ACCIDENT_POOL` LIKE '%$_POST[SGSC]%'
+            ORDER BY $_POST[PXYJ] $_POST[PXFF]";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
         ?>
@@ -150,23 +162,21 @@ include("../connectdb.php");
     <table class="table" border="1px">
         <thead>
         <tr>
-            <th width="8%">处理厂名称</th>
-            <th width="6%">设计规模</th>
-            <th width="6%">实际处理水量/设计规模</th>
-            <th width="6%">占地面积</th>
-            <th width="6%">占地面积设计规模</th>
-            <th width="6%">CODcr</th>
-            <th width="6%">BOD5</th>
-            <th width="6%">TN</th>
-            <th width="6%">SS</th>
-            <th width="6%">TP</th>
-            <th width="4%">色度</th>
-            <th width="4%">pH</th>
-            <th width="4%">温度</th>
-            <th width="6%">NH3-N</th>
-            <th width="8%">处理工艺</th>
-            <th width="6%">事故水池容积</th>
-            <th width="6%">事故水池容积/设计规模</th>
+            <th width="12%">企业名称</th>
+            <th width="6%">清洁生产</th>
+            <th width="7%">污水预处理系统</th>
+            <th width="6%">事故水池</th>
+            <th width="7%">CODcr</th>
+            <th width="7%">BOD5</th>
+            <th width="7%">TN</th>
+            <th width="7%">SS</th>
+            <th width="7%">TP</th>
+            <!--th width="4%">色度</th-->
+            <th width="6%">pH</th>
+            <!--th width="4%">温度</th-->
+            <th width="7%">NH3-N</th>
+            <th width="14%">处理工艺</th>
+            <th width="7%">事故水池容积/处理规模</th>
         </tr>
         </thead>
         <tbody>
@@ -176,22 +186,18 @@ include("../connectdb.php");
             ?>
             <tr >
                 <td><?php echo $rows[0] ?></td>
-                <td><?php echo $rows[1] ?> m^3/d</td>
+                <td><?php echo $rows[1] ?></td>
                 <td><?php echo $rows[2] ?></td>
-                <td><?php echo $rows[3] ?> m^2</td>
-                <td><?php echo $rows[4] ?></td>
+                <td><?php echo $rows[3] ?></td>
+                <td><?php echo $rows[4] ?> mg/L</td>
                 <td><?php echo $rows[5] ?> mg/L</td>
                 <td><?php echo $rows[6] ?> mg/L</td>
                 <td><?php echo $rows[7] ?> mg/L</td>
                 <td><?php echo $rows[8] ?> mg/L</td>
-                <td><?php echo $rows[9] ?> mg/L</td>
-                <td><?php echo $rows[10] ?></td>
+                <td><?php echo $rows[9] ?></td>
+                <td><?php echo $rows[10] ?> mg/L</td>
                 <td><?php echo $rows[11] ?></td>
                 <td><?php echo $rows[12] ?></td>
-                <td><?php echo $rows[13] ?> mg/L</td>
-                <td><?php echo $rows[14] ?></td>
-                <td><?php echo $rows[15] ?> m^3</td>
-                <td><?php echo $rows[16] ?></td>
             </tr>
         <?php }} ?>
         </tbody>

@@ -138,7 +138,7 @@ include("connectdb.php");
 
                     <div class="col-xs-4">
                         <label>园区名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="YQMC" value=<?php echo $_POST['YQMC'] ?> ><br/>
+                        <input type="text" class="form-control" placeholder="关键字" name="YQMC" value=<?php if(isset($_POST['search'])) echo $_POST['YQMC'] ?> ><br/>
                     </div>
                 </div>
 
@@ -161,7 +161,7 @@ include("connectdb.php");
                     </div>
                     <div class="col-xs-4">
                         <label>单位名称</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="key" value=<?php echo $_POST['key'] ?> ><br/>
+                        <input type="text" class="form-control" placeholder="关键字" name="key" value=<?php if(isset($_POST['search'])) echo $_POST['key'] ?> ><br/>
                     </div>
                 </div>
 

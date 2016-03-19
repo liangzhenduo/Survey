@@ -134,7 +134,7 @@ include("../connectdb.php");
  YQWS_MAIN_WASTE_IN_DENSITY_SE, YQWS_MAIN_WASTE_IN_DENSITY_PH, YQWS_MAIN_WASTE_IN_DENSITY_WEN, YQWS_MAIN_WASTE_IN_DENSITY_NH, YQWS_PROCESSING_MEANS,
  YQWS_ACCIDENT_POOL_VOLUME, YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE FROM SewageTreatmentQuestionnaire
             WHERE `YQWS_PROCESSING_MEANS` LIKE '%$_POST[GYZD]%' AND `YQFS_YN_RECYCLE_NETWORK` LIKE '%$_POST[ZSHY]%'
-            ORDER BY '%$_POST[PXYJ]%' '%$_POST[PXFF]%'";
+            ORDER BY $_POST[PXYJ] %$_POST[PXFF]%";
             $result = mysqli_query($con, $query);
             $rows = mysqli_num_rows($result);
         ?>
