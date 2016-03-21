@@ -197,7 +197,7 @@ include("../connectdb.php");
                 <td><?php echo $rows[9] ?></td>
                 <td><?php echo $rows[10] ?> mg/L</td>
                 <td><?php echo $rows[11] ?></td>
-                <td><?php echo $rows[12] ?></td>
+                <td><?php echo round($rows[12],3) ?></td>
             </tr>
         <?php }} ?>
         </tbody>

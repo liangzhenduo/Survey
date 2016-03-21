@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9e9e543-f52a-4b20-8685-0bebda214ca6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.php" afterPath="$PROJECT_DIR$/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statistics/Company.php" afterPath="$PROJECT_DIR$/statistics/Company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statistics/IndustrialPark.php" afterPath="$PROJECT_DIR$/statistics/IndustrialPark.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statistics/SewageTreatment.php" afterPath="$PROJECT_DIR$/statistics/SewageTreatment.php" />
     </list>
     <ignored path="Survey.iws" />
@@ -73,30 +74,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SewageTreatment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/statistics/SewageTreatment.php">
+      <file leaf-file-name="IndustrialPark.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/statistics/IndustrialPark.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.375">
-              <caret line="136" column="33" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+            <state vertical-scroll-proportion="-4.412844">
+              <caret line="76" column="146" selection-start-line="76" selection-start-column="146" selection-end-line="76" selection-end-column="146" />
               <folding>
-                <marker date="1458409073000" expanded="true" signature="7396:7479" placeholder="..." />
-                <marker date="1458409073000" expanded="true" signature="7993:8700" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1458574223000" expanded="true" signature="17169:18621" placeholder="SELECT JBQK_... IndustrialParkQuestionnaire" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Company.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/statistics/Company.php">
+      <file leaf-file-name="q_Company.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/questionnaire/q_Company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5985011">
-              <caret line="148" column="33" selection-start-line="148" selection-start-column="33" selection-end-line="148" selection-end-column="33" />
+            <state vertical-scroll-proportion="-4.392157">
+              <caret line="818" column="122" selection-start-line="818" selection-start-column="94" selection-end-line="818" selection-end-column="122" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1458409016000" expanded="true" signature="8265:9149" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-                <marker date="1458409016000" expanded="true" signature="8265:9161" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-                <marker date="1458409016000" expanded="true" signature="8265:9162" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-                <marker date="1458409016000" expanded="true" signature="8265:9174" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
+                <marker date="1458196419000" expanded="true" signature="197:252" placeholder="SELECT `type... user_info" />
+                <marker date="1458196419000" expanded="true" signature="203:210" placeholder="select `type... user_info" />
+                <marker date="1458196419000" expanded="true" signature="203:252" placeholder="select `type... user_info" />
+                <marker date="1458196419000" expanded="true" signature="461:510" placeholder="INSERT INTO CompanyQuestionnaire... " />
+                <marker date="1458196419000" expanded="true" signature="569:609" placeholder="SELECT max(I... CompanyQuestionnaire" />
+                <marker date="1458196419000" expanded="true" signature="575:609" placeholder="select max(I... CompanyQuestionnaire" />
+                <marker date="1458196419000" expanded="true" signature="739:10028" placeholder="UPDATE Compa... " />
               </folding>
             </state>
           </provider>
@@ -105,8 +108,8 @@
       <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.166666">
-              <caret line="185" column="90" selection-start-line="184" selection-start-column="93" selection-end-line="185" selection-end-column="90" />
+            <state vertical-scroll-proportion="-6.75">
+              <caret line="185" column="90" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="90" />
               <folding>
                 <marker date="1458403006000" expanded="true" signature="11458:11687" placeholder="SELECT ${$ta... IndustrialParkQuestionnaire" />
                 <marker date="1458403006000" expanded="true" signature="11458:11688" placeholder="SELECT QYXX_... IndustrialParkQuestionnaire" />
@@ -121,23 +124,6 @@
                 <marker date="1458403006000" expanded="true" signature="12937:13031" placeholder="SELECT * FRO... IndustrialParkQuestionnaire" />
                 <marker date="1458403006000" expanded="true" signature="12937:13044" placeholder="SELECT `ID`,... IndustrialParkQuestionnaire" />
                 <marker date="1458403006000" expanded="true" signature="12937:13181" placeholder="SELECT `ID`,... IndustrialParkQuestionnaire" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="q_IndustrialPark.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/questionnaire/q_IndustrialPark.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9215684">
-              <caret line="528" column="159" selection-start-line="528" selection-start-column="133" selection-end-line="528" selection-end-column="159" />
-              <folding>
-                <marker date="1458196419000" expanded="true" signature="209:264" placeholder="SELECT `type... user_info" />
-                <marker date="1458196419000" expanded="true" signature="215:264" placeholder="select `type... user_info" />
-                <marker date="1458196419000" expanded="true" signature="509:565" placeholder="INSERT INTO IndustrialParkQuestionnaire... " />
-                <marker date="1458196419000" expanded="true" signature="630:677" placeholder="SELECT max(I... IndustrialParkQuestionnaire" />
-                <marker date="1458196419000" expanded="true" signature="636:677" placeholder="select max(I... IndustrialParkQuestionnaire" />
-                <marker date="1458196419000" expanded="true" signature="812:9823" placeholder="UPDATE Indus... " />
               </folding>
             </state>
           </provider>
@@ -189,12 +175,12 @@
         <option value="$PROJECT_DIR$/connectdb.php" />
         <option value="$PROJECT_DIR$/signup.php" />
         <option value="$PROJECT_DIR$/user.php" />
-        <option value="$PROJECT_DIR$/statistics/IndustrialPark.php" />
         <option value="$PROJECT_DIR$/home.php" />
         <option value="$PROJECT_DIR$/feedback/q_Company.php" />
         <option value="$PROJECT_DIR$/search.php" />
-        <option value="$PROJECT_DIR$/statistics/Company.php" />
         <option value="$PROJECT_DIR$/statistics/SewageTreatment.php" />
+        <option value="$PROJECT_DIR$/statistics/Company.php" />
+        <option value="$PROJECT_DIR$/statistics/IndustrialPark.php" />
       </list>
     </option>
   </component>
@@ -208,10 +194,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="y" value="-133" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -253,7 +237,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,6 +313,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,10 +377,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-133" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13844515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14054927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23667206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -485,8 +469,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="136" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="136" />
           <folding>
-            <marker date="1458409073000" expanded="true" signature="7396:7479" placeholder="..." />
-            <marker date="1458409073000" expanded="true" signature="7993:8700" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+            <marker date="1458475510000" expanded="true" signature="7396:7479" placeholder="..." />
+            <marker date="1458475510000" expanded="true" signature="7993:8686" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+            <marker date="1458475510000" expanded="true" signature="7993:8698" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
           </folding>
         </state>
       </provider>
@@ -811,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feedback/q_SewageTreatment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.587156">
-          <caret line="205" column="61" selection-start-line="205" selection-start-column="61" selection-end-line="205" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/questionnaire/i_IndustrialPark.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.022936">
@@ -839,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/questionnaire/q_SewageTreatment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328">
-          <caret line="422" column="113" selection-start-line="422" selection-start-column="90" selection-end-line="422" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/signup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.0">
@@ -854,16 +825,6 @@
             <marker date="1458196600000" expanded="true" signature="291:357" placeholder="SELECT usern... user_info" />
             <marker date="1458196600000" expanded="true" signature="297:357" placeholder="select usern... user_info" />
             <marker date="1458196600000" expanded="true" signature="551:715" placeholder="INSERT INTO user_info... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statistics/IndustrialPark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.407911">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-          <folding>
-            <marker date="1458311987000" expanded="true" signature="7991:8704" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
           </folding>
         </state>
       </provider>
@@ -896,10 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-29.375">
           <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
-          <folding>
-            <marker date="1458311790000" expanded="true" signature="189:241" placeholder="SELECT * fro... user_info" />
-            <marker date="1458311790000" expanded="true" signature="195:241" placeholder="select * fro... user_info" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -917,17 +874,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/questionnaire/q_IndustrialPark.php">
+    <entry file="file://$PROJECT_DIR$/statistics/SewageTreatment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9215684">
-          <caret line="528" column="159" selection-start-line="528" selection-start-column="133" selection-end-line="528" selection-end-column="159" />
+        <state vertical-scroll-proportion="3.1651375">
+          <caret line="193" column="49" selection-start-line="193" selection-start-column="49" selection-end-line="193" selection-end-column="49" />
           <folding>
-            <marker date="1458196419000" expanded="true" signature="209:264" placeholder="SELECT `type... user_info" />
-            <marker date="1458196419000" expanded="true" signature="215:264" placeholder="select `type... user_info" />
-            <marker date="1458196419000" expanded="true" signature="509:565" placeholder="INSERT INTO IndustrialParkQuestionnaire... " />
-            <marker date="1458196419000" expanded="true" signature="630:677" placeholder="SELECT max(I... IndustrialParkQuestionnaire" />
-            <marker date="1458196419000" expanded="true" signature="636:677" placeholder="select max(I... IndustrialParkQuestionnaire" />
-            <marker date="1458196419000" expanded="true" signature="812:9823" placeholder="UPDATE Indus... " />
+            <marker date="1458475510000" expanded="true" signature="7396:7479" placeholder="..." />
+            <marker date="1458475510000" expanded="true" signature="7993:8686" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+            <marker date="1458475510000" expanded="true" signature="7993:8698" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statistics/Company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28899083">
+          <caret line="148" column="48" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
+          <folding>
+            <marker date="1458475647000" expanded="true" signature="8265:9149" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
+            <marker date="1458475647000" expanded="true" signature="8265:9161" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
+            <marker date="1458475647000" expanded="true" signature="8265:9162" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
+            <marker date="1458475647000" expanded="true" signature="8265:9174" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
           </folding>
         </state>
       </provider>
@@ -946,21 +913,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistics/SewageTreatment.php">
+    <entry file="file://$PROJECT_DIR$/feedback/q_SewageTreatment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.375">
-          <caret line="136" column="33" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.36697248">
+          <caret line="205" column="61" selection-start-line="205" selection-start-column="61" selection-end-line="205" selection-end-column="61" />
           <folding>
-            <marker date="1458409073000" expanded="true" signature="7396:7479" placeholder="..." />
-            <marker date="1458409073000" expanded="true" signature="7993:8700" placeholder="SELECT GYYQ_... SewageTreatmentQuestionnaire" />
+            <marker date="1458196419000" expanded="true" signature="194:251" placeholder="SELECT `type... user_info" />
+            <marker date="1458196419000" expanded="true" signature="462:561" placeholder="DELETE FROM " />
+            <marker date="1458196419000" expanded="true" signature="727:12389" placeholder="UPDATE Sewag... " />
+            <marker date="1458196419000" expanded="true" signature="12515:12616" placeholder="SELECT * FRO... SewageTreatmentQuestionnaire" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/questionnaire/q_SewageTreatment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35725677">
+          <caret line="964" column="111" selection-start-line="964" selection-start-column="90" selection-end-line="964" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/questionnaire/q_IndustrialPark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.068581">
+          <caret line="566" column="56" selection-start-line="566" selection-start-column="54" selection-end-line="566" selection-end-column="56" />
+          <folding>
+            <marker date="1458196419000" expanded="true" signature="209:264" placeholder="SELECT `type... user_info" />
+            <marker date="1458196419000" expanded="true" signature="215:264" placeholder="select `type... user_info" />
+            <marker date="1458196419000" expanded="true" signature="509:565" placeholder="INSERT INTO IndustrialParkQuestionnaire... " />
+            <marker date="1458196419000" expanded="true" signature="630:677" placeholder="SELECT max(I... IndustrialParkQuestionnaire" />
+            <marker date="1458196419000" expanded="true" signature="636:677" placeholder="select max(I... IndustrialParkQuestionnaire" />
+            <marker date="1458196419000" expanded="true" signature="812:9823" placeholder="UPDATE Indus... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.166666">
-          <caret line="185" column="90" selection-start-line="184" selection-start-column="93" selection-end-line="185" selection-end-column="90" />
+        <state vertical-scroll-proportion="-6.75">
+          <caret line="185" column="90" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="90" />
           <folding>
             <marker date="1458403006000" expanded="true" signature="11458:11687" placeholder="SELECT ${$ta... IndustrialParkQuestionnaire" />
             <marker date="1458403006000" expanded="true" signature="11458:11688" placeholder="SELECT QYXX_... IndustrialParkQuestionnaire" />
@@ -981,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/questionnaire/q_Company.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.415656">
-          <caret line="791" column="160" selection-start-line="791" selection-start-column="132" selection-end-line="791" selection-end-column="160" />
+        <state vertical-scroll-proportion="-4.392157">
+          <caret line="818" column="122" selection-start-line="818" selection-start-column="94" selection-end-line="818" selection-end-column="122" />
           <folding>
             <marker date="1458196419000" expanded="true" signature="197:252" placeholder="SELECT `type... user_info" />
             <marker date="1458196419000" expanded="true" signature="203:210" placeholder="select `type... user_info" />
@@ -995,16 +987,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistics/Company.php">
+    <entry file="file://$PROJECT_DIR$/statistics/IndustrialPark.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5985011">
-          <caret line="148" column="33" selection-start-line="148" selection-start-column="33" selection-end-line="148" selection-end-column="33" />
+        <state vertical-scroll-proportion="-4.412844">
+          <caret line="76" column="146" selection-start-line="76" selection-start-column="146" selection-end-line="76" selection-end-column="146" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1458409016000" expanded="true" signature="8265:9149" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-            <marker date="1458409016000" expanded="true" signature="8265:9161" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-            <marker date="1458409016000" expanded="true" signature="8265:9162" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
-            <marker date="1458409016000" expanded="true" signature="8265:9174" placeholder="SELECT QYXX_... CompanyQuestionnaire" />
+            <marker date="1458574223000" expanded="true" signature="17169:18621" placeholder="SELECT JBQK_... IndustrialParkQuestionnaire" />
           </folding>
         </state>
       </provider>

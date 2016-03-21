@@ -134,7 +134,7 @@ include("../connectdb.php");
  YQWS_MAIN_WASTE_IN_DENSITY_SE, YQWS_MAIN_WASTE_IN_DENSITY_PH, YQWS_MAIN_WASTE_IN_DENSITY_WEN, YQWS_MAIN_WASTE_IN_DENSITY_NH, YQWS_PROCESSING_MEANS,
  YQWS_ACCIDENT_POOL_VOLUME, YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE FROM SewageTreatmentQuestionnaire
             WHERE `YQWS_PROCESSING_MEANS` LIKE '%$_POST[GYZD]%' AND `YQFS_YN_RECYCLE_NETWORK` LIKE '%$_POST[ZSHY]%'
-            ORDER BY $_POST[PXYJ] %$_POST[PXFF]%";
+            ORDER BY $_POST[PXYJ] $_POST[PXFF]";
             $result = mysqli_query($con, $query);
             $rows = mysqli_num_rows($result);
         ?>
@@ -154,7 +154,7 @@ include("../connectdb.php");
             <th width="6%">设计规模</th>
             <th width="6%">实际处理水量/设计规模</th>
             <th width="6%">占地面积</th>
-            <th width="6%">占地面积设计规模</th>
+            <th width="6%">占地面积/设计规模</th>
             <th width="6%">CODcr</th>
             <th width="6%">BOD5</th>
             <th width="6%">TN</th>
@@ -177,9 +177,9 @@ include("../connectdb.php");
 				<tr >
 					<td><?php echo $rows[0] ?></td>
 					<td><?php echo $rows[1] ?> m^3/d</td>
-					<td><?php echo $rows[2] ?></td>
+					<td><?php echo round($rows[2],3) ?></td>
 					<td><?php echo $rows[3] ?> m^2</td>
-					<td><?php echo $rows[4] ?></td>
+					<td><?php echo round($rows[4],3) ?></td>
 					<td><?php echo $rows[5] ?> mg/L</td>
                     <td><?php echo $rows[6] ?> mg/L</td>
                     <td><?php echo $rows[7] ?> mg/L</td>
@@ -191,7 +191,7 @@ include("../connectdb.php");
                     <td><?php echo $rows[13] ?> mg/L</td>
                     <td><?php echo $rows[14] ?></td>
                     <td><?php echo $rows[15] ?> m^3</td>
-                    <td><?php echo $rows[16] ?></td>
+                    <td><?php echo round($rows[16],3) ?></td>
                 </tr>
         <?php }} ?>
         </tbody>
