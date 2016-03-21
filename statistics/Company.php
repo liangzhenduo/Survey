@@ -62,7 +62,7 @@ include("../connectdb.php");
         <div class="col-lg-6">
             <form class="form-signin" method="post" action="">
 
-                <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+                <h2 class="form-signin-heading" align="center">企业数据</h2><br/>
 
                 <div class="form-group">
                     <div class="col-xs-6">
@@ -162,10 +162,10 @@ include("../connectdb.php");
     <table class="table" border="1px">
         <thead>
         <tr>
-            <th width="12%">企业名称</th>
-            <th width="6%">清洁生产</th>
+            <th width="11%">企业名称</th>
+            <th width="7%">清洁生产</th>
             <th width="7%">污水预处理系统</th>
-            <th width="6%">事故水池</th>
+            <th width="7%">事故水池</th>
             <th width="7%">CODcr</th>
             <th width="7%">BOD5</th>
             <th width="7%">TN</th>
@@ -175,7 +175,7 @@ include("../connectdb.php");
             <th width="6%">pH</th>
             <!--th width="4%">温度</th-->
             <th width="7%">NH3-N</th>
-            <th width="14%">处理工艺</th>
+            <th width="13%">处理工艺</th>
             <th width="7%">事故水池容积/处理规模</th>
         </tr>
         </thead>
@@ -186,9 +186,9 @@ include("../connectdb.php");
             ?>
             <tr >
                 <td><?php echo $rows[0] ?></td>
-                <td><?php echo $rows[1] ?></td>
-                <td><?php echo $rows[2] ?></td>
-                <td><?php echo $rows[3] ?></td>
+                <td><?php if($rows[1]) echo "是"; else echo "否" ?></td>
+                <td><?php if($rows[2]) echo "有"; else echo "无" ?></td>
+                <td><?php if($rows[3]) echo "有"; else echo "无" ?></td>
                 <td><?php echo $rows[4] ?> mg/L</td>
                 <td><?php echo $rows[5] ?> mg/L</td>
                 <td><?php echo $rows[6] ?> mg/L</td>

@@ -62,7 +62,7 @@ include("../connectdb.php");
         <div class="col-lg-6">
             <form class="form-signin" method="post" action="">
 
-                <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+                <h2 class="form-signin-heading" align="center">工业园数据</h2><br/>
 
                 <div class="form-group">
                     <div class="col-xs-6">
@@ -99,7 +99,7 @@ include("../connectdb.php");
                     </div>
                     <div class="col-xs-6">
                         <label>园区省份</label>
-                        <select class = "select form-control" name="YQSF" title="">
+                        <select class = "select form-control" name="YQSS" title="">
                             <option value="">不限</option>
                             <option value="北京" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="北京") echo "selected" ?> >北京</option>
                             <option value="天津" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="天津") echo "selected" ?> >天津</option>
@@ -253,7 +253,7 @@ include("../connectdb.php");
             YQCL_YN_INDUSTRIAL_LIFE_SEPERATION, ZSHY_YN_RESCYCLE_NETWORK, ZSHY_RESCYCLE_WATER_USAGE, FSTJ_USAGE, ZSHY_RESCYCLE_WATER_VALUE
             FROM IndustrialParkQuestionnaire LEFT JOIN SewageTreatmentQuestionnaire ON SewageTreatmentQuestionnaire.GYYQ_NAME LIKE concat('%',`JBQK_NAME`,'%')
             RIGHT JOIN CompanyQuestionnaire ON CompanyQuestionnaire.GYYQ_NAME LIKE concat('%',`JBQK_NAME`,'%')
-            WHERE `YQJB` LIKE '%$_POST[YQJB]%' AND `YQSS` LIKE '%$_POST[YQSF]%' AND `YQLX` LIKE '%$_POST[YQLX]%'
+            WHERE `YQJB` LIKE '%$_POST[YQJB]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQLX` LIKE '%$_POST[YQLX]%'
             AND `JBQK_TYPE` LIKE '%$_POST[ZDHY]%' AND `JBQK_YN_ACCIDENT_POOL` LIKE '%$_POST[SGSC]%' AND `JBQK_ACCIDENT_POOL_VOLUME` LIKE '%$_POST[SCWZ]%'
             AND `YQCL_WATER_COLLECTION_NETWORK` LIKE '%$_POST[YWFL]%' AND `YQCL_YN_COLLECTION_SEPERATION` LIKE '%$_POST[FZFL]%' AND `YQCL_YN_INDUSTRIAL_LIFE_SEPERATION` LIKE '%$_POST[WSFL]%'
             AND `ZSHY_YN_RESCYCLE_NETWORK` LIKE '%$_POST[ZSHY]%' AND `ZSHY_RESCYCLE_WATER_USAGE` LIKE '%$_POST[HYYT]%' AND `FSTJ_USAGE` LIKE '%$_POST[FSLY]%'
@@ -273,24 +273,24 @@ include("../connectdb.php");
     <table class="table" border="1px">
         <thead>
         <tr>
-            <th width="5%">园区名称</th>
-            <th width="5%">级别</th>
+            <th width="7%">园区名称</th>
+            <th width="6%">级别</th>
             <th width="5%">省份</th>
             <th width="5%">年工业产值</th>
             <th width="5%">年税收额</th>
-            <th width="5%">类型</th>
-            <th width="5%">主导行业</th>
-            <th width="5%">事故水池</th>
-            <th width="5%">事故水池位置</th>
+            <th width="8%">类型</th>
+            <th width="7%">主导行业</th>
+            <th width="3%">事故水池</th>
+            <th width="7%">事故水池位置</th>
             <th width="5%">设置污水处理设施企业数/总企业数</th>
             <th width="5%">清洁生产比例</th>
             <th width="5%">环评比例</th>
-            <th width="5%">雨污分流</th>
-            <th width="5%">工业废水分质分类收集</th>
-            <th width="5%">生活污水工业废水分流</th>
-            <th width="5%">中水回用管道</th>
-            <th width="5%">再生水回用用途</th>
-            <th width="5%">企业间废水再利用</th>
+            <th width="3%">雨污分流</th>
+            <th width="3%">工业废水分质分类收集</th>
+            <th width="3%">生活污水工业废水分流</th>
+            <th width="3%">中水回用管道</th>
+            <th width="7%">再生水回用用途</th>
+            <th width="3%">企业间废水再利用</th>
             <th width="5%">再生水价格</th>
             <th width="5%">生产废水比例</th>
         </tr>
@@ -304,22 +304,22 @@ include("../connectdb.php");
                 <td><?php echo $rows[0] ?></td>
                 <td><?php echo $rows[1] ?></td>
                 <td><?php echo $rows[2] ?></td>
-                <td><?php echo $rows[3] ?></td>
-                <td><?php echo $rows[4] ?></td>
+                <td><?php echo $rows[3] ?> 亿元</td>
+                <td><?php echo $rows[4] ?> 万元</td>
                 <td><?php echo $rows[5] ?></td>
                 <td><?php echo $rows[6] ?></td>
-                <td><?php echo $rows[7] ?></td>
-                <td><?php echo $rows[8] ?></td>
-                <td><?php echo $rows[9] ?></td>
-                <td><?php echo $rows[10] ?></td>
-                <td><?php echo $rows[11] ?></td>
-                <td><?php echo $rows[12] ?></td>
-                <td><?php echo $rows[13] ?></td>
-                <td><?php echo $rows[14] ?></td>
-                <td><?php echo $rows[15] ?></td>
+                <td><?php if($rows[7]) echo "有"; else echo "无" ?></td>
+                <td><?php if($rows[8]) echo "处理厂内"; else echo "处理厂外" ?></td>
+                <td><?php echo round($rows[9],3) ?></td>
+                <td><?php echo round($rows[10],3) ?></td>
+                <td><?php echo round($rows[11],3) ?></td>
+                <td><?php if($rows[12]=="雨污分流") echo "是"; else echo "否" ?></td>
+                <td><?php if($rows[13]) echo "是"; else echo "否" ?></td>
+                <td><?php if($rows[14]) echo "是"; else echo "否" ?></td>
+                <td><?php if($rows[15]) echo "有"; else echo "无" ?></td>
                 <td><?php echo $rows[16] ?></td>
-                <td><?php echo $rows[17] ?></td>
-                <td><?php echo $rows[18] ?></td>
+                <td><?php echo "哪个指标" ?></td>
+                <td><?php echo $rows[18] ?> 元/m^3</td>
                 <td><?php echo "怎么算" ?></td>
             </tr>
         <?php }} ?>

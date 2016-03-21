@@ -62,7 +62,7 @@ include("../connectdb.php");
         <div class="col-lg-6">
             <form class="form-signin" method="post" action="">
 
-                <h2 class="form-signin-heading" align="center">信息检索</h2><br/>
+                <h2 class="form-signin-heading" align="center">处理厂数据</h2><br/>
 
                 <div class="form-group">
                     <div class="col-xs-6">
