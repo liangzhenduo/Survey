@@ -182,7 +182,7 @@ include("connectdb.php");
             $link="feedback/q_Company.php";
             $table="CompanyQuestionnaire";
             $files="files/排污企业现场调查表附件/";
-            $query = "SELECT CompanyQuestionnaire.ID, QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
+            $query = "SELECT QYXX_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN CompanyQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `QYXX_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
@@ -191,7 +191,7 @@ include("connectdb.php");
             $table="SewageTreatmentQuestionnaire";
             $link1="feedback/i_SewageTreatment.php";
             $files="files/处理厂现场调查表附件/";
-            $query = "SELECT SewageTreatmentQuestionnaire.ID, GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
+            $query = "SELECT GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQSS, JBQK_NAME, YQJB, YQLX FROM IndustrialParkQuestionnaire
             LEFT JOIN SewageTreatmentQuestionnaire ON `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             WHERE `GYYQ_WASTEWATER_TREATMENT_PLANT_NAME` LIKE '%$_POST[key]%' AND `GYYQ_NAME` LIKE concat('%',`JBQK_NAME`,'%')
             AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%' AND `GYYQ_NAME` LIKE '%$_POST[YQMC]%'";
@@ -200,7 +200,7 @@ include("connectdb.php");
             $table="IndustrialParkQuestionnaire";
             $link1="feedback/i_IndustrialPark.php";
             $files="files/管委会现场调查表附件/";
-            $query = "SELECT `ID`, `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
+            $query = "SELECT `JBQK_NAME`, `YQSS`, `JBQK_NAME`, `YQJB`, `YQLX` FROM IndustrialParkQuestionnaire
             WHERE `JBQK_NAME` LIKE '%$_POST[key]%' AND `YQLX` LIKE '%$_POST[YQLX]%' AND `YQSS` LIKE '%$_POST[YQSS]%' AND `YQJB` LIKE '%$_POST[YQJB]%'";
         }
 
@@ -219,7 +219,6 @@ include("connectdb.php");
     <table class="table" border="1px">
         <thead>
         <tr>
-            <th>ID</th>
             <th>单位名称</th>
             <th>所在省市</th>
             <th>所在园区</th>
@@ -234,19 +233,18 @@ include("connectdb.php");
         while($rows = mysqli_fetch_array($result)) {
         ?>
 				<tr >
-					<td><?php echo $rows[0] ?></td>
-					<td><?php echo $rows[1] ?></td>
-					<td><?php echo $rows[2] ?></td>
-					<td><?php echo $rows[3] ?></td>
-					<td><?php echo $rows[4] ?></td>
-					<td><?php echo $rows[5] ?></td>
-                    <td><a href="<?php echo $link."?name=".$rows[1] ?>" target="_blank">现场调查表 </a>
+					<td align="center"><?php echo $rows[0] ?></td>
+					<td align="center"><?php echo $rows[1] ?></td>
+					<td align="center"><?php echo $rows[2] ?></td>
+					<td align="center"><?php echo $rows[3] ?></td>
+					<td align="center"><?php echo $rows[4] ?></td>
+                    <td align="center"><a href="<?php echo $link."?name=".$rows[0] ?>" target="_blank">现场调查表 </a>
         <?php
                 if($_POST['type']>1){
         ?>
-                        <a href="<?php echo $link1."?name=".$rows[1] ?>" target="_blank">函件调查表 </a>
+                        <a href="<?php echo $link1."?name=".$rows[0] ?>" target="_blank">函件调查表 </a>
         <?php   } ?>
-                        <a href="<?php echo $files.$rows[1] ?>" target="_blank">附件</a></td>
+                        <a href="<?php echo $files.$rows[0] ?>" target="_blank">附件</a></td>
 				</tr>
 
         <?php } }?>

@@ -6,6 +6,7 @@ if(!isset($_SESSION['username'])){		//未登录
     exit;
 }
 include("../connectdb.php");
+include('../export.php');
 ?>
 
 <!DOCTYPE html>
@@ -69,26 +70,26 @@ include("../connectdb.php");
                         <label>排序依据</label>
                         <select class = "select form-control" name="PXYJ" title="">
                             <option value="ID">默认</option>
-                            <option value="YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_SIZE") echo "selected" ?> >设计规模</option>
-                            <option value="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE") echo "selected" ?> >实际处理水量/设计规模</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_COD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_COD") echo "selected" ?> >进水CODcr</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_BOD" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_BOD") echo "selected" ?> >进水BOD5</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TH") echo "selected" ?> >进水TN</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SS" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SS") echo "selected" ?> >进水SS</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TP" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TP") echo "selected" ?> >进水TP</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SE") echo "selected" ?> >进水色度</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_PH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_PH") echo "selected" ?> >进水pH</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_WEN" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_WEN") echo "selected" ?> >进水温度</option>
-                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_NH" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_NH") echo "selected" ?> >进水NH3-N</option>
-                            <option value="YQWS_ACCIDENT_POOL_VOLUME" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME") echo "selected" ?> >事故水池容积</option>
-                            <option value="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE") echo "selected" ?> >事故水池容积/设计规模</option>
+                            <option value="YQWS_SIZE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_SIZE") echo "selected" ?> >设计规模</option>
+                            <option value="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE") echo "selected" ?> >实际处理水量/设计规模</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_COD" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_COD") echo "selected" ?> >进水CODcr</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_BOD" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_BOD") echo "selected" ?> >进水BOD5</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TH" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TH") echo "selected" ?> >进水TN</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SS" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SS") echo "selected" ?> >进水SS</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_TP" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_TP") echo "selected" ?> >进水TP</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_SE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_SE") echo "selected" ?> >进水色度</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_PH" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_PH") echo "selected" ?> >进水pH</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_WEN" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_WEN") echo "selected" ?> >进水温度</option>
+                            <option value="YQWS_MAIN_WASTE_IN_DENSITY_NH" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_MAIN_WASTE_IN_DENSITY_NH") echo "selected" ?> >进水NH3-N</option>
+                            <option value="YQWS_ACCIDENT_POOL_VOLUME" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME") echo "selected" ?> >事故水池容积</option>
+                            <option value="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE") echo "selected" ?> >事故水池容积/设计规模</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>排序方法</label>
                         <select class = "select form-control" name="PXFF" title="">
                             <option value="ASC" >升序</option>
-                            <option value="DESC" <?php if(isset($_POST['search'])&&$_POST['PXFF']=="DESC") echo "selected" ?> >降序</option>
+                            <option value="DESC" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXFF']=="DESC") echo "selected" ?> >降序</option>
                         </select><br>
                     </div>
                 </div>
@@ -98,104 +99,131 @@ include("../connectdb.php");
                         <label>工艺字段</label>
                         <select class = "select form-control" name="GYZD" title="">
                             <option value="">不限</option>
-                            <option value="调节池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="调节池") echo "selected" ?> >调节池</option>
-                            <option value="水解酸化池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="水解酸化池") echo "selected" ?> >水解酸化池</option>
-                            <option value="AO池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="AO池") echo "selected" ?> >AO池</option>
-                            <option value="氧化沟" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="氧化沟") echo "selected" ?> >氧化沟</option>
-                            <option value="过滤池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="过滤池") echo "selected" ?> >过滤池</option>
-                            <option value="高效沉淀池" <?php if(isset($_POST['search'])&&$_POST['GYZD']=="高效沉淀池") echo "selected" ?> >高效沉淀池</option>
+                            <option value="调节池" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="调节池") echo "selected" ?> >调节池</option>
+                            <option value="水解酸化池" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="水解酸化池") echo "selected" ?> >水解酸化池</option>
+                            <option value="AO池" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="AO池") echo "selected" ?> >AO池</option>
+                            <option value="氧化沟" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="氧化沟") echo "selected" ?> >氧化沟</option>
+                            <option value="过滤池" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="过滤池") echo "selected" ?> >过滤池</option>
+                            <option value="高效沉淀池" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['GYZD']=="高效沉淀池") echo "selected" ?> >高效沉淀池</option>
                         </select><br/>
                     </div>
                     <div class="col-xs-6">
                         <label>中水回用</label>
                         <select class = "select form-control" name="ZSHY" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="1") echo "selected" ?> >有</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="0") echo "selected" ?> >无</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['ZSHY']=="1") echo "selected" ?> >有</option>
+                            <option value="0" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['ZSHY']=="0") echo "selected" ?> >无</option>
                         </select>
                     </div>
                 </div><br/>
 
                 <div class="col-xs-12">
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-6">
-                    <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-4">
+                        <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="export">导出</button></h4>
                     </div>
                 </div>
-            </form>
+
+                <div class="col-xs-12">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6">
+                    <?php
+                    $time=date("Y-m-d-H-i-s",time());
+                    if(isset($_POST['export'])) {
+                            echo "<br><div class=\"alert alert-success\" align=\"center\">导出成功" ?>
+                            <a href = "../files/<?php echo $time ?>.xls" target = "_blank" >点击下载</a></div>
+                    <?php
+                    }
+                    ?>
+                </div>
+        </form>
         </div>
 
         <div class="col-lg-3"></div>
         <?php
 
-        if(isset($_POST['search'])) {
-            $query = "SELECT GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQWS_SIZE, YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE, YQWS_LAND_SIZE, YQWS_LAND_SIZE/YQWS_SIZE,
+        if(isset($_POST['search'])||isset($_POST['export'])) {
+        $query = "SELECT GYYQ_WASTEWATER_TREATMENT_PLANT_NAME, YQWS_SIZE, YQWS_WATER_PROCESSING_VOLUME/YQWS_SIZE, YQWS_LAND_SIZE, YQWS_LAND_SIZE/YQWS_SIZE,
  YQWS_MAIN_WASTE_IN_DENSITY_COD, YQWS_MAIN_WASTE_IN_DENSITY_BOD, YQWS_MAIN_WASTE_IN_DENSITY_TH, YQWS_MAIN_WASTE_IN_DENSITY_SS, YQWS_MAIN_WASTE_IN_DENSITY_TP,
  YQWS_MAIN_WASTE_IN_DENSITY_SE, YQWS_MAIN_WASTE_IN_DENSITY_PH, YQWS_MAIN_WASTE_IN_DENSITY_WEN, YQWS_MAIN_WASTE_IN_DENSITY_NH, YQWS_PROCESSING_MEANS,
  YQWS_ACCIDENT_POOL_VOLUME, YQWS_ACCIDENT_POOL_VOLUME/YQWS_SIZE FROM SewageTreatmentQuestionnaire
             WHERE `YQWS_PROCESSING_MEANS` LIKE '%$_POST[GYZD]%' AND `YQFS_YN_RECYCLE_NETWORK` LIKE '%$_POST[ZSHY]%'
             ORDER BY $_POST[PXYJ] $_POST[PXFF]";
-            $result = mysqli_query($con, $query);
-            $rows = mysqli_num_rows($result);
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_num_rows($result);
         ?>
         <div class="rows">
-                <div class="col-lg-12" style="height:20px"></div>
+            <div class="col-lg-12" style="height:20px"></div>
         </div>
 
     </div>
     <div class="rows">
-        <div class="col-lg-12" ><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3> </div>
+        <div class="col-lg-12"><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3></div>
     </div>
+
+    <?php
+    $Excel = new Excel();//建立对象，准备写入
+    $Excel->Start();
+    ?>
 
     <table class="table" border="1px">
         <thead>
         <tr>
             <th width="8%">处理厂名称</th>
-            <th width="6%">设计规模</th>
+            <th width="6%">设计规模(m^3/d)</th>
             <th width="6%">实际处理水量/设计规模</th>
-            <th width="6%">占地面积</th>
+            <th width="6%">占地面积(m^2)</th>
             <th width="6%">占地面积/设计规模</th>
-            <th width="6%">CODcr</th>
-            <th width="6%">BOD5</th>
-            <th width="6%">TN</th>
-            <th width="6%">SS</th>
-            <th width="6%">TP</th>
+            <th width="6%">CODcr(mg/L)</th>
+            <th width="6%">BOD5(mg/L)</th>
+            <th width="6%">TN(mg/L)</th>
+            <th width="6%">SS(mg/L)</th>
+            <th width="6%">TP(mg/L)</th>
             <th width="4%">色度</th>
             <th width="4%">pH</th>
             <th width="4%">温度</th>
-            <th width="6%">NH3-N</th>
+            <th width="6%">NH3-N(mg/L)</th>
             <th width="8%">处理工艺</th>
-            <th width="6%">事故水池容积</th>
+            <th width="6%">事故水池容积(m^3)</th>
             <th width="6%">事故水池容积/设计规模</th>
         </tr>
         </thead>
         <tbody>
 
         <?php
-        while($rows = mysqli_fetch_array($result)) {
-        ?>
-				<tr >
-					<td><?php echo $rows[0] ?></td>
-					<td><?php echo $rows[1] ?> m^3/d</td>
-					<td><?php echo round($rows[2],3) ?></td>
-					<td><?php echo $rows[3] ?> m^2</td>
-					<td><?php echo round($rows[4],3) ?></td>
-					<td><?php echo $rows[5] ?> mg/L</td>
-                    <td><?php echo $rows[6] ?> mg/L</td>
-                    <td><?php echo $rows[7] ?> mg/L</td>
-                    <td><?php echo $rows[8] ?> mg/L</td>
-                    <td><?php echo $rows[9] ?> mg/L</td>
-                    <td><?php echo $rows[10] ?></td>
-                    <td><?php echo $rows[11] ?></td>
-                    <td><?php echo $rows[12] ?></td>
-                    <td><?php echo $rows[13] ?> mg/L</td>
-                    <td><?php echo $rows[14] ?></td>
-                    <td><?php echo $rows[15] ?> m^3</td>
-                    <td><?php echo round($rows[16],3) ?></td>
-                </tr>
+        while ($rows = mysqli_fetch_array($result)) {
+            ?>
+            <tr>
+                <td align="center"><?php echo $rows[0] ?></td>
+                <td align="center"><?php echo $rows[1] ?></td>
+                <td align="center"><?php echo round($rows[2], 3) ?></td>
+                <td align="center"><?php echo $rows[3] ?></td>
+                <td align="center"><?php echo round($rows[4], 3) ?></td>
+                <td align="center"><?php echo $rows[5] ?></td>
+                <td align="center"><?php echo $rows[6] ?></td>
+                <td align="center"><?php echo $rows[7] ?></td>
+                <td align="center"><?php echo $rows[8] ?></td>
+                <td align="center"><?php echo $rows[9] ?></td>
+                <td align="center"><?php echo $rows[10] ?></td>
+                <td align="center"><?php echo $rows[11] ?></td>
+                <td align="center"><?php echo $rows[12] ?></td>
+                <td align="center"><?php echo $rows[13] ?></td>
+                <td align="center"><?php echo $rows[14] ?></td>
+                <td align="center"><?php echo $rows[15] ?></td>
+                <td align="center"><?php echo round($rows[16], 3) ?></td>
+            </tr>
         <?php }} ?>
         </tbody>
     </table>
+
+    <?php
+    if(isset($_POST['export'])) {
+        $Excel->Save("../files/$time.xls");
+    }
+    ?>
 
 
 </div> <!-- /container -->

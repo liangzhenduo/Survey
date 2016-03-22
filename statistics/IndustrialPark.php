@@ -6,6 +6,7 @@ if(!isset($_SESSION['username'])){		//未登录
     exit;
 }
 include("../connectdb.php");
+include('../export.php');
 ?>
 
 <!DOCTYPE html>
@@ -69,20 +70,20 @@ include("../connectdb.php");
                         <label>排序依据</label>
                         <select class = "select form-control" name="PXYJ" title="">
                             <option value="IndustrialParkQuestionnaire.ID">默认</option>
-                            <option value="JBQK_YEAR_PROFIT" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="JBQK_YEAR_PROFIT") echo "selected" ?> >年工业产值</option>
-                            <option value="JBQK_TAX" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="JBQK_TAX") echo "selected" ?> >年税收额</option>
-                            <option value="sum(WSCL_YN_SEWAGE_TREATMENT_FACILITY)/JBQK_NUMBER_COMPANY" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="sum(WSCL_YN_SEWAGE_TREATMENT_FACILITY)/JBQK_NUMBER_COMPANY") echo "selected" ?> >设置污水处理设施企业数/总企业数</option>
-                            <option value="sum(QJSC_YN_CLEANPRODUCT)/JBQK_NUMBER_COMPANY" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="sum(QJSC_YN_CLEANPRODUCT)/JBQK_NUMBER_COMPANY") echo "selected" ?> >清洁生产比例</option>
-                            <option value="sum(GLWJ_YN_ENVIRONMENT_EVALUATE)/JBQK_NUMBER_COMPANY" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="sum(GLWJ_YN_ENVIRONMENT_EVALUATE)/JBQK_NUMBER_COMPANY") echo "selected" ?> >环评比例</option>
-                            <option value="ZSHY_RESCYCLE_WATER_VALUE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="ZSHY_RESCYCLE_WATER_VALUE") echo "selected" ?> >再生水价格</option>
-                            <option value="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE" <?php if(isset($_POST['search'])&&$_POST['PXYJ']=="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE") echo "selected" ?> >生产废水比例</option>
+                            <option value="JBQK_YEAR_PROFIT" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="JBQK_YEAR_PROFIT") echo "selected" ?> >年工业产值</option>
+                            <option value="JBQK_TAX" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="JBQK_TAX") echo "selected" ?> >年税收额</option>
+                            <option value="sum(WSCL_YN_SEWAGE_TREATMENT_FACILITY)/JBQK_NUMBER_COMPANY" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="sum(WSCL_YN_SEWAGE_TREATMENT_FACILITY)/JBQK_NUMBER_COMPANY") echo "selected" ?> >设置污水处理设施企业数/总企业数</option>
+                            <option value="sum(QJSC_YN_CLEANPRODUCT)/JBQK_NUMBER_COMPANY" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="sum(QJSC_YN_CLEANPRODUCT)/JBQK_NUMBER_COMPANY") echo "selected" ?> >清洁生产比例</option>
+                            <option value="sum(GLWJ_YN_ENVIRONMENT_EVALUATE)/JBQK_NUMBER_COMPANY" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="sum(GLWJ_YN_ENVIRONMENT_EVALUATE)/JBQK_NUMBER_COMPANY") echo "selected" ?> >环评比例</option>
+                            <option value="ZSHY_RESCYCLE_WATER_VALUE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="ZSHY_RESCYCLE_WATER_VALUE") echo "selected" ?> >再生水价格</option>
+                            <option value="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXYJ']=="SGCL_YN_ACCIDENT_POOL_VOLUME/JBQK_WASTE_PROCESSING_SIZE") echo "selected" ?> >生产废水比例</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>排序方法</label>
                         <select class = "select form-control" name="PXFF" title="">
                             <option value="ASC" >升序</option>
-                            <option value="DESC" <?php if(isset($_POST['search'])&&$_POST['PXFF']=="DESC") echo "selected" ?> >降序</option>
+                            <option value="DESC" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['PXFF']=="DESC") echo "selected" ?> >降序</option>
                         </select><br>
                     </div>
                 </div>
@@ -92,49 +93,49 @@ include("../connectdb.php");
                         <label>园区级别</label>
                         <select class = "select form-control" name="YQJB" title="">
                             <option value="">不限</option>
-                            <option value="国家级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="国家级") echo "selected" ?> >国家级</option>
-                            <option value="省市级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="省市级") echo "selected" ?> >省市级</option>
-                            <option value="区县级" <?php if(isset($_POST['search'])&&$_POST['YQJB']=="区县级") echo "selected" ?> >区县级</option>
+                            <option value="国家级" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQJB']=="国家级") echo "selected" ?> >国家级</option>
+                            <option value="省市级" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQJB']=="省市级") echo "selected" ?> >省市级</option>
+                            <option value="区县级" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQJB']=="区县级") echo "selected" ?> >区县级</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>园区省份</label>
                         <select class = "select form-control" name="YQSS" title="">
                             <option value="">不限</option>
-                            <option value="北京" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="北京") echo "selected" ?> >北京</option>
-                            <option value="天津" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="天津") echo "selected" ?> >天津</option>
-                            <option value="河北" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="河北") echo "selected" ?> >河北</option>
-                            <option value="山西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="山西") echo "selected" ?> >山西</option>
-                            <option value="内蒙古" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="内蒙古") echo "selected" ?> >内蒙古</option>
-                            <option value="辽宁" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="辽宁") echo "selected" ?> >辽宁</option>
-                            <option value="吉林" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="吉林") echo "selected" ?> >吉林</option>
-                            <option value="黑龙江" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="黑龙江") echo "selected" ?> >黑龙江</option>
-                            <option value="上海" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="上海") echo "selected" ?> >上海</option>
-                            <option value="江苏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="江苏") echo "selected" ?> >江苏</option>
-                            <option value="浙江" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="浙江") echo "selected" ?> >浙江</option>
-                            <option value="安徽" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="安徽") echo "selected" ?> >安徽</option>
-                            <option value="福建" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="福建") echo "selected" ?> >福建</option>
-                            <option value="江西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="江西") echo "selected" ?> >江西</option>
-                            <option value="山东" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="山东") echo "selected" ?> >山东</option>
-                            <option value="河南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="河南") echo "selected" ?> >河南</option>
-                            <option value="湖北" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="湖北") echo "selected" ?> >湖北</option>
-                            <option value="湖南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="湖南") echo "selected" ?> >湖南</option>
-                            <option value="广东" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="广东") echo "selected" ?> >广东</option>
-                            <option value="广西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="广西") echo "selected" ?> >广西</option>
-                            <option value="海南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="海南") echo "selected" ?> >海南</option>
-                            <option value="重庆" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="重庆") echo "selected" ?> >重庆</option>
-                            <option value="四川" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="四川") echo "selected" ?> >四川</option>
-                            <option value="贵州" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="贵州") echo "selected" ?> >贵州</option>
-                            <option value="云南" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="云南") echo "selected" ?> >云南</option>
-                            <option value="西藏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="西藏") echo "selected" ?> >西藏</option>
-                            <option value="陕西" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="陕西") echo "selected" ?> >陕西</option>
-                            <option value="甘肃" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="甘肃") echo "selected" ?> >甘肃</option>
-                            <option value="青海" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="青海") echo "selected" ?> >青海</option>
-                            <option value="宁夏" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="宁夏") echo "selected" ?> >宁夏</option>
-                            <option value="新疆" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="新疆") echo "selected" ?> >新疆</option>
-                            <option value="香港" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="香港") echo "selected" ?> >香港</option>
-                            <option value="澳门" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="澳门") echo "selected" ?> >澳门</option>
-                            <option value="台湾" <?php if(isset($_POST['search'])&&$_POST['YQSS']=="台湾") echo "selected" ?> >台湾</option>
+                            <option value="北京" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="北京") echo "selected" ?> >北京</option>
+                            <option value="天津" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="天津") echo "selected" ?> >天津</option>
+                            <option value="河北" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="河北") echo "selected" ?> >河北</option>
+                            <option value="山西" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="山西") echo "selected" ?> >山西</option>
+                            <option value="内蒙古" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="内蒙古") echo "selected" ?> >内蒙古</option>
+                            <option value="辽宁" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="辽宁") echo "selected" ?> >辽宁</option>
+                            <option value="吉林" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="吉林") echo "selected" ?> >吉林</option>
+                            <option value="黑龙江" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="黑龙江") echo "selected" ?> >黑龙江</option>
+                            <option value="上海" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="上海") echo "selected" ?> >上海</option>
+                            <option value="江苏" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="江苏") echo "selected" ?> >江苏</option>
+                            <option value="浙江" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="浙江") echo "selected" ?> >浙江</option>
+                            <option value="安徽" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="安徽") echo "selected" ?> >安徽</option>
+                            <option value="福建" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="福建") echo "selected" ?> >福建</option>
+                            <option value="江西" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="江西") echo "selected" ?> >江西</option>
+                            <option value="山东" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="山东") echo "selected" ?> >山东</option>
+                            <option value="河南" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="河南") echo "selected" ?> >河南</option>
+                            <option value="湖北" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="湖北") echo "selected" ?> >湖北</option>
+                            <option value="湖南" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="湖南") echo "selected" ?> >湖南</option>
+                            <option value="广东" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="广东") echo "selected" ?> >广东</option>
+                            <option value="广西" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="广西") echo "selected" ?> >广西</option>
+                            <option value="海南" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="海南") echo "selected" ?> >海南</option>
+                            <option value="重庆" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="重庆") echo "selected" ?> >重庆</option>
+                            <option value="四川" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="四川") echo "selected" ?> >四川</option>
+                            <option value="贵州" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="贵州") echo "selected" ?> >贵州</option>
+                            <option value="云南" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="云南") echo "selected" ?> >云南</option>
+                            <option value="西藏" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="西藏") echo "selected" ?> >西藏</option>
+                            <option value="陕西" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="陕西") echo "selected" ?> >陕西</option>
+                            <option value="甘肃" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="甘肃") echo "selected" ?> >甘肃</option>
+                            <option value="青海" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="青海") echo "selected" ?> >青海</option>
+                            <option value="宁夏" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="宁夏") echo "selected" ?> >宁夏</option>
+                            <option value="新疆" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="新疆") echo "selected" ?> >新疆</option>
+                            <option value="香港" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="香港") echo "selected" ?> >香港</option>
+                            <option value="澳门" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="澳门") echo "selected" ?> >澳门</option>
+                            <option value="台湾" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQSS']=="台湾") echo "selected" ?> >台湾</option>
                         </select><br>
                     </div>
                 </div><br/>
@@ -144,13 +145,13 @@ include("../connectdb.php");
                         <label>园区类型</label>
                         <select class = "select form-control" name="YQLX" title="">
                             <option value="">不限</option>
-                            <option value="行业主导型" <?php if(isset($_POST['search'])&&$_POST['YQLX']=="行业主导型") echo "selected" ?> >行业主导型</option>
-                            <option value="综合型" <?php if(isset($_POST['search'])&&$_POST['YQLX']=="综合型") echo "selected" ?> >综合型</option>
+                            <option value="行业主导型" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQLX']=="行业主导型") echo "selected" ?> >行业主导型</option>
+                            <option value="综合型" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YQLX']=="综合型") echo "selected" ?> >综合型</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>主导行业</label>
-                        <input type="text" class="form-control" placeholder="关键字" name="ZDHY" value=<?php if(isset($_POST['search'])) echo $_POST['ZDHY'] ?> ><br/>
+                        <input type="text" class="form-control" placeholder="关键字" name="ZDHY" value=<?php if((isset($_POST['search'])||isset($_POST['export']))) echo $_POST['ZDHY'] ?> ><br/>
                     </div><br>
                 </div>
 
@@ -159,15 +160,15 @@ include("../connectdb.php");
                         <label>事故水池</label>
                         <select class = "select form-control" name="SGSC" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['SGSC']=="1") echo "selected" ?> >有</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['SGSC']=="0") echo "selected" ?> >无</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['SGSC']=="1") echo "selected" ?> >有</option>
+                            <option value="0" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['SGSC']=="0") echo "selected" ?> >无</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>事故水池位置</label>
                         <select class = "select form-control" name="SCWZ" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['SCWZ']=="1") echo "selected" ?> >污水处理厂内</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['SCWZ']=="1") echo "selected" ?> >污水处理厂内</option>
                         </select><br>
                     </div>
                 </div>
@@ -177,16 +178,16 @@ include("../connectdb.php");
                         <label>雨污分流</label>
                         <select class = "select form-control" name="YWFL" title="">
                             <option value="">不限</option>
-                            <option value="雨污分流" <?php if(isset($_POST['search'])&&$_POST['YWFL']=="雨污分流") echo "selected" ?> >是</option>
-                            <option value="雨污合流" <?php if(isset($_POST['search'])&&$_POST['YWFL']=="雨污合流") echo "selected" ?> >否</option>
+                            <option value="雨污分流" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YWFL']=="雨污分流") echo "selected" ?> >是</option>
+                            <option value="雨污合流" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['YWFL']=="雨污合流") echo "selected" ?> >否</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>工业废水分质分类收集</label>
                         <select class = "select form-control" name="FZFL" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['FZFL']=="1") echo "selected" ?> >是</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['FZFL']=="0") echo "selected" ?> >否</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['FZFL']=="1") echo "selected" ?> >是</option>
+                            <option value="0" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['FZFL']=="0") echo "selected" ?> >否</option>
                         </select><br>
                     </div>
                 </div>
@@ -196,16 +197,16 @@ include("../connectdb.php");
                         <label>生活污水和工业废水分流</label>
                         <select class = "select form-control" name="WSFL" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['WSFL']=="1") echo "selected" ?> >是</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['WSFL']=="0") echo "selected" ?> >否</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['WSFL']=="1") echo "selected" ?> >是</option>
+                            <option value="0" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['WSFL']=="0") echo "selected" ?> >否</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>中水回用管道</label>
                         <select class = "select form-control" name="ZSHY" title="">
                             <option value="">不限</option>
-                            <option value="1" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="1") echo "selected" ?> >有</option>
-                            <option value="0" <?php if(isset($_POST['search'])&&$_POST['ZSHY']=="0") echo "selected" ?> >无</option>
+                            <option value="1" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['ZSHY']=="1") echo "selected" ?> >有</option>
+                            <option value="0" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['ZSHY']=="0") echo "selected" ?> >无</option>
                         </select><br>
                     </div>
                 </div>
@@ -215,30 +216,46 @@ include("../connectdb.php");
                         <label>再生水回用用途</label>
                         <select class = "select form-control" name="HYYT" title="">
                             <option value="">不限</option>
-                            <option value="地下水回灌" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="地下水回灌") echo "selected" ?> >地下水回灌</option>
-                            <option value="工业用水" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="工业用水") echo "selected" ?> >工业用水</option>
-                            <option value="冲洗、消防用水" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="冲洗、消防用水") echo "selected" ?> >冲洗、消防用水</option>
-                            <option value="绿化" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="绿化") echo "selected" ?> >绿化</option>
-                            <option value="建筑用水" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="建筑用水") echo "selected" ?> >建筑用水</option>
-                            <option value="景观用水" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="景观用水") echo "selected" ?> >景观用水</option>
-                            <option value="农林业" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="建筑用水") echo "selected" ?> >农林业</option>
-                            <option value="牧畜业" <?php if(isset($_POST['search'])&&$_POST['HYYT']=="景观用水") echo "selected" ?> >牧畜业</option>
+                            <option value="地下水回灌" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="地下水回灌") echo "selected" ?> >地下水回灌</option>
+                            <option value="工业用水" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="工业用水") echo "selected" ?> >工业用水</option>
+                            <option value="冲洗、消防用水" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="冲洗、消防用水") echo "selected" ?> >冲洗、消防用水</option>
+                            <option value="绿化" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="绿化") echo "selected" ?> >绿化</option>
+                            <option value="建筑用水" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="建筑用水") echo "selected" ?> >建筑用水</option>
+                            <option value="景观用水" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="景观用水") echo "selected" ?> >景观用水</option>
+                            <option value="农林业" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="建筑用水") echo "selected" ?> >农林业</option>
+                            <option value="牧畜业" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['HYYT']=="景观用水") echo "selected" ?> >牧畜业</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label>企业间废水利用</label>
                         <select class = "select form-control" name="FSLY" title="">
                             <option value="">不限</option>
-                            <option value="企业间" <?php if(isset($_POST['search'])&&$_POST['FSLY']=="企业间") echo "selected" ?> >是</option>
+                            <option value="企业间" <?php if((isset($_POST['search'])||isset($_POST['export']))&&$_POST['FSLY']=="企业间") echo "selected" ?> >是</option>
                         </select><br>
                     </div>
                 </div><br/>
 
                 <div class="col-xs-12">
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-4">
                         <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="search">检索</button></h4>
                     </div>
+                    <div class="col-xs-4">
+                        <h4 align="center"><button class="submit btn btn-primary btn-lg btn-block" name="export">导出</button></h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6">
+                        <?php
+                        $time=date("Y-m-d-H-i-s",time());
+                        if(isset($_POST['export'])) {
+                        echo "<br><div class=\"alert alert-success\" align=\"center\">导出成功" ?>
+                        <a href = "../files/<?php echo $time ?>.xls" target = "_blank" >点击下载</a></div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </form>
         </div>
@@ -246,7 +263,7 @@ include("../connectdb.php");
         <div class="col-lg-3"></div>
         <?php
 
-        if(isset($_POST['search'])) {
+        if(isset($_POST['search'])||isset($_POST['export'])) {
         $query = "SELECT JBQK_NAME, YQJB, YQSS, JBQK_YEAR_PROFIT, JBQK_TAX, YQLX, JBQK_TYPE, JBQK_YN_ACCIDENT_POOL, sum(YQWS_YN_ACCIDENT_POOL),
             sum(WSCL_YN_SEWAGE_TREATMENT_FACILITY)/JBQK_NUMBER_COMPANY, sum(QJSC_YN_CLEANPRODUCT)/JBQK_NUMBER_COMPANY,
             sum(GLWJ_YN_ENVIRONMENT_EVALUATE)/JBQK_NUMBER_COMPANY, YQCL_WATER_COLLECTION_NETWORK, YQCL_YN_COLLECTION_SEPERATION,
@@ -270,14 +287,19 @@ include("../connectdb.php");
         <div class="col-lg-12" ><h3 align="center"><br/>本次查询返回 <?php echo $rows ?> 条结果<br/></h3> </div>
     </div>
 
+    <?php
+    $Excel = new Excel();//建立对象，准备写入
+    $Excel->Start();
+    ?>
+
     <table class="table" border="1px">
         <thead>
         <tr>
             <th width="7%">园区名称</th>
             <th width="6%">级别</th>
             <th width="5%">省份</th>
-            <th width="5%">年工业产值</th>
-            <th width="5%">年税收额</th>
+            <th width="5%">年工业产值(亿元)</th>
+            <th width="5%">年税收额(万元)</th>
             <th width="8%">类型</th>
             <th width="7%">主导行业</th>
             <th width="3%">事故水池</th>
@@ -291,7 +313,7 @@ include("../connectdb.php");
             <th width="3%">中水回用管道</th>
             <th width="7%">再生水回用用途</th>
             <th width="3%">企业间废水再利用</th>
-            <th width="5%">再生水价格</th>
+            <th width="5%">再生水价格(元/m^3)</th>
             <th width="5%">生产废水比例</th>
         </tr>
         </thead>
@@ -301,30 +323,36 @@ include("../connectdb.php");
         while($rows = mysqli_fetch_array($result)) {
             ?>
             <tr >
-                <td><?php echo $rows[0] ?></td>
-                <td><?php echo $rows[1] ?></td>
-                <td><?php echo $rows[2] ?></td>
-                <td><?php echo $rows[3] ?> 亿元</td>
-                <td><?php echo $rows[4] ?> 万元</td>
-                <td><?php echo $rows[5] ?></td>
-                <td><?php echo $rows[6] ?></td>
-                <td><?php if($rows[7]) echo "有"; else echo "无" ?></td>
-                <td><?php if($rows[8]) echo "处理厂内"; else echo "处理厂外" ?></td>
-                <td><?php echo round($rows[9],3) ?></td>
-                <td><?php echo round($rows[10],3) ?></td>
-                <td><?php echo round($rows[11],3) ?></td>
-                <td><?php if($rows[12]=="雨污分流") echo "是"; else echo "否" ?></td>
-                <td><?php if($rows[13]) echo "是"; else echo "否" ?></td>
-                <td><?php if($rows[14]) echo "是"; else echo "否" ?></td>
-                <td><?php if($rows[15]) echo "有"; else echo "无" ?></td>
-                <td><?php echo $rows[16] ?></td>
-                <td><?php echo "哪个指标" ?></td>
-                <td><?php echo $rows[18] ?> 元/m^3</td>
-                <td><?php echo "怎么算" ?></td>
+                <td align="center"><?php echo $rows[0] ?></td>
+                <td align="center"><?php echo $rows[1] ?></td>
+                <td align="center"><?php echo $rows[2] ?></td>
+                <td align="center"><?php echo $rows[3] ?></td>
+                <td align="center"><?php echo $rows[4] ?></td>
+                <td align="center"><?php echo $rows[5] ?></td>
+                <td align="center"><?php echo $rows[6] ?></td>
+                <td align="center"><?php if($rows[7]) echo "有"; else echo "无" ?></td>
+                <td align="center"><?php if($rows[8]) echo "处理厂内"; else echo "处理厂外" ?></td>
+                <td align="center"><?php echo round($rows[9],3) ?></td>
+                <td align="center"><?php echo round($rows[10],3) ?></td>
+                <td align="center"><?php echo round($rows[11],3) ?></td>
+                <td align="center"><?php if($rows[12]=="雨污分流") echo "是"; else echo "否" ?></td>
+                <td align="center"><?php if($rows[13]) echo "是"; else echo "否" ?></td>
+                <td align="center"><?php if($rows[14]) echo "是"; else echo "否" ?></td>
+                <td align="center"><?php if($rows[15]) echo "有"; else echo "无" ?></td>
+                <td align="center"><?php echo $rows[16] ?></td>
+                <td align="center"><?php echo "哪个指标" ?></td>
+                <td align="center"><?php echo $rows[18] ?></td>
+                <td align="center"><?php echo "怎么算" ?></td>
             </tr>
         <?php }} ?>
         </tbody>
     </table>
+
+    <?php
+    if(isset($_POST['export'])) {
+        $Excel->Save("../files/$time.xls");
+    }
+    ?>
 
 
 </div> <!-- /container -->
