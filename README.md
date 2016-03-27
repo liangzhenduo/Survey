@@ -1,44 +1,55 @@
-#XXXX调研数据库
-##概述
+#某调研数据库
+##项目概述
 **XXXX调研数据库**是一个使用PHP开发的Web数据管理系统，用户可以使用本系统进行指定数据的录入、修改、查询、导出等功能，极大地减少了人工录入统计的工作量。
 
-##结构
-###程序结构
-本系统主要由以下页面构成：
-
-├── app
-├── bootstrap.php
-├── composer.json
-├── composer.lock
-├── config
-├── db-160122.sql
-├── LICENSE
-├── public
-├── README.md
-├── run.sh
-├── storage
-├── views
-└── xcat
-
-- index.php
-- home.php
-+ signup.php
-+ signout.php
-+ user.php
-+ search.php
-+ export.php
+##程序结构
+###文件结构
+```
+.
+├── README.md 说明文档
+├── connectdb.php 数据库连接
+├── db 数据库文件
+│   ├── gyyq_database_2016-03-22.sql
+│   └── query.cpp
+├── doc 文档插图
+├── export.php 数据导出
+├── feedback 调查表显示
+│   ├── i_IndustrialPark.php
+│   ├── i_SewageTreatment.php
+│   ├── q_Company.php
+│   ├── q_IndustrialPark.php
+│   └── q_SewageTreatment.php
+├── files 附件上传位置
+│   ├── 处理厂现场调查表附件
+│   ├── 管委会现场调查表附件
+│   └── 排污企业现场调查表附件
+├── home.php 主页面
+├── index.php 索引
+├── questionnaire 调查表
+│   ├── i_IndustrialPark.php
+│   ├── i_SewageTreatment.php
+│   ├── q_Company.php
+│   ├── q_IndustrialPark.php
+│   └── q_SewageTreatment.php
+├── search.php 检索页面
+├── signout.php 注销
+├── signup.php 注册页面
+├── statistics 数据统计
+│   ├── Company.php
+│   ├── IndustrialPark.php
+│   └── SewageTreatment.php
+└── user.php 用户信息
+```
 
 ###数据结构
-后台数据库由以下表构成：
++ user_info 用户信息表
++ CompanyQuestionnaire 企业现场调查表
++ SewageTreatmentQuestionnaire 处理厂现场调查表
++ IndustrialParkQuestionnaire 园区现场调查表
++ SewageTreatmentInvestigation 处理厂函件调查表
++ IndustrialParkInvestigation 园区函件调查表
 
-+ user_info
-+ CompanyQuestionnaire
-+ SewageTreatmentQuestionnaire
-+ IndustrialParkQuestionnaire
-+ SewageTreatmentInvestigation
-+ IndustrialParkInvestigation
-
-##过程
+##主要功能
 首先通过[index.php](index.php)索引页面跳转到主页，在未登录的状态下会显示**登录**和**注册**按钮
 
 ![未登录](./doc/home.png)
@@ -47,9 +58,13 @@
 
 ![注册界面](./doc/signup.png)
 
-登录后的主页[home.php](home.php)会显示各问卷的入口链接，并且右上角显示当前的**用户名**和**注销**按钮
+注册成功后返回主页面登录，主页[home.php](home.php)会显示各问卷的填写链接和数据统计链接，并且右上角显示当前的**用户名**和**注销**按钮
 
 ![已登录](./doc/home'.png)
+
+点击**注销**按钮后会注销当前登录状态；点击用户名会打开用户信息
+
+![用户信息](./doc/user.png)
 
 各问卷的跳转链接会根据登录用户的类型设置为*激活*或*禁用*状态，这样可以保证用户仅能访问其有权限访问的问卷
 
@@ -85,7 +100,7 @@
 + PhpStorm 10.0.3
 
 ###运行环境
-若要正常运行本系统，首先确保服务器端至少已经安装以下环境：
+若要正常运行本系统，首先确保本机或服务器端至少已经安装以下环境：
 
 + Nginx（或Apache）服务器
 + MySQL 5.6+ 数据库

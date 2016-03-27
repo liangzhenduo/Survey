@@ -61,14 +61,13 @@ if(isset($_POST['submit'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php">污水处理管理系统</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.php">主页<span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a class="navbar-brand" href="home.php">重点流域典型工业园区水污染防治及管理制度研究调研数据库</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="signup.php">注册<span class="glyphicon glyphicon-user"></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
