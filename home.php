@@ -109,20 +109,6 @@ if (isset($_POST['submit'])) {
 
 				<div class="col-lg-12" style="height:40px"></div>
 
-                    <div class="col-lg-4">
-                        <a href="statistics/IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会数据统计</a>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <a href="statistics/SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s">污水处理厂数据统计</a>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <a href="statistics/Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业数据统计</a>
-                    </div>
-
-                    <div class="col-lg-12" style="height:40px"></div>
-
 				<?php
 					if($type==3||$type==0){ ?>
 						<div class="col-lg-4">
@@ -188,9 +174,20 @@ if (isset($_POST['submit'])) {
                         </div>
                 <?php
                     } ?>
-                        <div class="rows">
-                            <div class="col-lg-4" style="height:80px"></div>
-                        </div>
+
+                    <div class="col-lg-12" style="height:60px"></div>
+
+                    <div class="col-lg-4">
+                        <a href="statistics/IndustrialPark.php" class="btn btn-primary btn-lg btn-block active" name="but_i">管委会数据统计</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="statistics/SewageTreatment.php" class="btn btn-primary btn-lg btn-block active" name="but_s">污水处理厂数据统计</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="statistics/Company.php" class="btn btn-primary btn-lg btn-block active" name="but_c">排污企业数据统计</a>
+                    </div>
 
                 <?php
                     if(isset($_GET['status']) && $_GET['status']==2){

@@ -144,7 +144,7 @@ include('../export.php');
                         $time=date("Y-m-d-H-i-s",time());
                         if(isset($_POST['export'])) {
                         echo "<br><div class=\"alert alert-success\" align=\"center\">导出成功" ?>
-                        <a href = "../files/<?php echo $time ?>.xls" target = "_blank" >点击下载</a></div>
+                        <a href = "../files/tmp.xls" target = "_blank" >点击下载</a></div>
                     <?php
                     }
                     ?>
@@ -227,7 +227,7 @@ include('../export.php');
 
     <?php
     if(isset($_POST['export'])) {
-        $Excel->Save("../files/$time.xls");
+        $Excel->Save("../files/tmp.xls");
     }
     ?>
 

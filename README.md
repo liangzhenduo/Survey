@@ -1,17 +1,32 @@
-#问卷调查系统
+#XXXX调研数据库
 ##概述
-**工业园区污水处理管理系统**是一个使用PHP开发的Web问卷调查系统，将其搭建在服务器端可以实现使受访者通过互联网提交问卷并在后台进行结果统计汇总的功能，极大地减少了人工录入数据的工作量。
+**XXXX调研数据库**是一个使用PHP开发的Web数据管理系统，用户可以使用本系统进行指定数据的录入、修改、查询、导出等功能，极大地减少了人工录入统计的工作量。
 
 ##结构
 ###程序结构
 本系统主要由以下页面构成：
 
-+ 主页面 home.php
-+ 登录界面 signin.php
-+ 注册界面 signup.php
-+ 问卷填写（5张问卷） q\_\*.php && i\_\*.php
-+ 关键字检索页面 search.php
-+ 问卷结果显示（5张问卷） q\_\*\_r.php && i\_\*\_r.php
+├── app
+├── bootstrap.php
+├── composer.json
+├── composer.lock
+├── config
+├── db-160122.sql
+├── LICENSE
+├── public
+├── README.md
+├── run.sh
+├── storage
+├── views
+└── xcat
+
+- index.php
+- home.php
++ signup.php
++ signout.php
++ user.php
++ search.php
++ export.php
 
 ###数据结构
 后台数据库由以下表构成：
