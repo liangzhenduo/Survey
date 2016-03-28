@@ -6,12 +6,10 @@
 ###文件结构
 ```
 .
-├── README.md 说明文档
 ├── connectdb.php 数据库连接
 ├── db 数据库文件
 │   ├── gyyq_database_2016-03-22.sql
 │   └── query.cpp
-├── doc 文档插图
 ├── export.php 数据导出
 ├── feedback 调查表显示
 │   ├── i_IndustrialPark.php
@@ -66,29 +64,25 @@
 
 ![用户信息](./doc/user.png)
 
-各问卷的跳转链接会根据登录用户的类型设置为*激活*或*禁用*状态，这样可以保证用户仅能访问其有权限访问的问卷
+各问卷的跳转链接会根据用户权限设置为*激活*或*禁用*状态，这样可以保证用户仅能访问其有权限访问的问卷
 
-![排污企业权限](./doc/company.png)
-
-![污水处理厂权限](./doc/sewage.png)
-
-![工业园区权限](./doc/park.png)
+![访问权限](./doc/access.png)
 
 进入每份问卷后可以对其进行编辑提交和文件上传。每个字段对其可填写的内容进行了限制（如必须填写数字的地方不能填写其他字符，必填项目不能留空等）
 
 ![填写问卷](./doc/survey.png)
 
-当用户类型为管理员时，其有权限看到所有问卷，而且管理员有权限进入问卷检索界面[search.php](search.php)
+也可以通过右上角的**搜索**按钮搜索已经提交过的问卷，按条件筛选
 
 ![问卷检索](./doc/search.png)
 
-在选择问卷类型并填写关键字后，会对数据库中单位的名称进行与关键字匹配并返回符合条件的结果数目和具体信息
+可以通过每张问卷后面的详细信息查看问卷内容或附件，如果有相应的权限也可以编辑或删除该问卷
 
-![检索结果](./doc/form.png)
+![问卷编辑](./doc/edit.png)
 
-查看详细信息后会跳转到问卷结果页面
+从主界面进入数据统计界面可以按照指定的关键字和字段查询数据并排序，也可以用**导出**按钮导出下载
 
-![问卷详情](./doc/result.png)
+![数据统计](./doc/stat.png)
 
 ##环境
 ###开发环境
@@ -108,62 +102,38 @@
 
 ##安装
 ###Windows
-####配置PHP
-首先前往[PHP For Windows](http://windows.php.net/download#php-5.6)下载对应版本的`PHP 5.6`。
+首先需要WNMP或WAMP环境，请下载[phpStudy](http://www.phpstudy.net/phpstudy/phpStudy.zip)
 
-解压并安装，之后将PHP的`/bin`目录添加到环境变量中。在安装目录下新建`php.ini`文件并将`php.ini-development`的内容复制到里面，将`extension_dir`的值改为`ext`文件夹的绝对路径，再将`cgi.force_redirect=1`、`extension=php_mysql.dll`和`extension=php_mysqli.dll`解注释，并将`cgi.force_redirect`的参数改为`0`。
+下载并安装后，进入到安装目录下，将本项目完整复制到WWW文件夹中
 
-####配置MySQL
-首先前往[MySQL Installer](http://dev.mysql.com/downloads/windows/installer/5.7.html)下载对应版本的`MySQL 5.7`。
+![WWW](./doc/WWW.png)
 
-安装并设置root密码，将MySQL Server的`/bin`目录添加到环境变量中。
+之后运行`phpstudy.exe`启动程序，并修改MySQL的root密码
 
-打开命令提示符，输入`mysql -u root -p`命令并输入root密码进入MySQL。创建新数据库`GYYQ_database`：
+![mysql](./doc/mysql.png)
 
-	CREATE DATABASE GYYQ_database;	
-	
-之后将本项目`db`目录下的`.sql`文件导入到新建的数据库中：
+原始密码是`root`，新密码需要与工程中`connectdb`中设置的密码相同（这里默认是`password`，建议将二者改为更强的密码）
 
-	USE GYYQ_database;
-	SOURCE GYYQ_database_2016-02-28.sql;
-	
-编辑工程中的`connectdb.php`文件：
+![password](./doc/password.png)
 
-```
-$con=mysqli_connect("localhost","root","password","GYYQ_database");
-```
+修改完成后点击`启动`按钮，如果服务器和数据库的状态变绿则说明启动成功
 
-将`password`改为root密码即可。
+![status](./doc/status.png)
 
-####配置Nginx
-首先前往[nginx: download](http://nginx.org/en/download.html)下载`Nginx 1.8`。
+这时需要导入数据库，选择`MySQL导入导出`
 
-解压并安装。启动`nginx.exe`并从浏览器打开[localhost](http://localhost:80/)，如果出现Nginx的欢迎接界面则说明安装正确。
+![import](./doc/import.png)
 
-编辑`nginx.conf`文件：
+在`还原`中选择工程中`db`目录下的`sql`文件
 
-```
-location / {  
-    root   your_path;  
-    index  index.html index.htm index.php;  
-}  
-```
+![select](./doc/select.png)
 
-将`root`改为工程所在的路径，并在`index`中加入`index.php`
+数据库名称为`GYYQ_database`，不要忘记输入刚才设置的数据库密码，导入就可以了
 
-```
-location ~ \.php$ {  
-    root           your_path;  
-    fastcgi_pass   127.0.0.1:9000;  
-    fastcgi_index  index.php;  
-    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;  
-    include        fastcgi_params;  
-}  
-```
+![name](./doc/name.png)
 
-将php的一段解注释并将`root`改为工程所在的路径，将`fastcgi_param`改为如上所示。
+这时打开浏览器（建议不要使用IE浏览器）键入地址(localhost/survey/index.php)[localhost/survey/index.php]就可以了。
 
-这时再次打开[localhost](http://localhost:80/)，如出现登录界面则配置完成。
 
 ###Linux
 ####配置PHP
