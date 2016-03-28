@@ -132,7 +132,9 @@
 
 ![name](./doc/name.png)
 
-这时打开浏览器（建议不要使用IE浏览器）键入地址(localhost/survey/index.php)[localhost/survey/index.php]就可以了。
+这时打开浏览器（建议不要使用IE浏览器）键入地址[localhost/survey/index.php](localhost/survey/index.php)就可以了。
+
+![index](./doc/index.png)
 
 
 ###Linux
