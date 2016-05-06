@@ -1,4 +1,7 @@
 #某调研数据库
+
+[![Build Status](https://travis-ci.org/liangzhenduo0608/Survey.svg?)](https://travis-ci.org/liangzhenduo0608/Survey.svg)
+
 ##项目概述
 **XXXX调研数据库**是一个使用PHP开发的Web数据管理系统，用户可以使用本系统进行指定数据的录入、修改、查询、导出等功能，极大地减少了人工录入统计的工作量。
 
@@ -137,38 +140,8 @@
 ![index](./doc/index.png)
 
 
-###Linux
-####配置PHP
-CentOS安装命令：
-	
-	sudo yum install php-fpm php-mysql
-	
-Ubuntu安装命令：
-
-	sudo apt-get install php5-fpm php5-mysql
-	
-编辑`php.ini`文件，修改参数：
-
-	cgi.fix_pathinfo=0
-	
-####配置MySQL
-CentOS安装命令：
-
-	sudo yum install mysql-server
-	
-Ubuntu安装命令：
-
-	sudo apt-get install mysql-server
-	
-重启MySQL服务：
-	
-	sudo /etc/init.d/mysqld restart
-	
-配置root密码：
-
-	sudo /usr/bin/mysql_secure_installation
-	
-第一次要求输密码时因为尚未配置因此直接回车即可，然后按照提示进行设置即可。
+###Linux （以CentOS 7为例）
+环境安装过程请参见我的一篇博客[CentOS 7配置LEMP环境](https://www.shintaku.cc/2016/03/21/centos-lemp/)。
 
 配置完成后使用`mysql -u root -p`命令并输入root密码进入MySQL。建立新数据库`GYYQ_database`：
 
@@ -177,7 +150,7 @@ Ubuntu安装命令：
 之后将`db`目录下的`.sql`文件导入到新建的数据库中：
 
 	USE GYYQ_database;
-	SOURCE GYYQ_database_2016-02-28.sql;
+	SOURCE GYYQ_database_2016-03-22.sql;
 	
 编辑工程中的`connectdb.php`文件：
 
@@ -187,31 +160,16 @@ $con=mysqli_connect("localhost","root","password","GYYQ_database");
 
 将`password`改为root密码即可。
 	
-####配置Nginx
-CentOS安装命令：
+然后编辑Nginx的配置文件`/etc/nginx/conf.d/default.conf`文件：
 
-	sudo yum install nginx
-	
-Ubuntu安装命令：
-
-	sudo apt-get install nginx
-	
-启动Nginx服务器：
-
-	sudo /etc/init.d/nginx start
-	
-编辑`default.conf`文件：
-
-```
+```bash
 location / {  
     root   your_path;  
     index  index.html index.htm index.php;  
 }  
 ```
 
-将`root`改为工程所在的路径，并在`index`中加入`index.php`
-
-```
+```bash
 location ~ \.php$ {  
     root           your_path;  
     fastcgi_pass   127.0.0.1:9000;  
@@ -221,7 +179,7 @@ location ~ \.php$ {
 }  
 ```
 
-将php的一段解注释并将`root`改为工程所在的路径，将`fastcgi_param`改为如上所示。
+将里面的`root`改为工程所在的路径保存即可。
 
 这时打开[localhost](http://localhost:80/)，如出现登录界面则配置完成。
 
