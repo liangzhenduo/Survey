@@ -6,20 +6,4 @@ php:
   - '7.0'
   - hhvm
 
-mysql:
-  database: GYYQ_database
-  username: root
-  encoding: utf8
-
-before_install:
-  - sudo apt-get update > /dev/null
-
-install:
-  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
-
-before_script:
-  - mysql -e 'CREATE DATABASE GYYQ_database'
-  - mysql -e 'USE GYYQ_database'
-  - mysql -e 'db/SOURCE GYYQ_database_2016-03-22.sql'
-
 script: phpunit -v
